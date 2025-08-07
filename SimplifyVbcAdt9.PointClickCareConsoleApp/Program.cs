@@ -82,21 +82,14 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                             myConfigOptions.BaseWebUrl
                         );
 
-            qy_GetHumanaCensusConfigOutput
-                myqy_GetHumanaCensusConfigOutput =
+            qy_GetPointClickCareConfigOutput
+                myqy_GetPointClickCareConfigOutput =
                     myCallForGetOptions
-                    .qy_GetHumanaCensusConfig
-                    (
-                        myConfigOptions.DbConfigSettingsApplication
-                        , myConfigOptions.DbConfigSettingsType
-                        , myConfigOptions.DbConfigSettingsProcess
-                        , myConfigOptions.DbConfigSettingsNameFilter
-                        , myConfigOptions.DbConfigSettingsUser
-                    );
-            if (!myqy_GetHumanaCensusConfigOutput.IsOk ||
-                myqy_GetHumanaCensusConfigOutput.qy_GetHumanaCensusConfigOutputColumnsList.Count != 1)
+                    .qy_GetPointClickCareConfig();
+            if (!myqy_GetPointClickCareConfigOutput.IsOk ||
+                myqy_GetPointClickCareConfigOutput.qy_GetPointClickCareConfigOutputColumnsList.Count != 1)
             {
-                log.Error($"We had an error in trying to get the configuration file from the database:  {myqy_GetHumanaCensusConfigOutput.ErrorMessage}");
+                log.Error($"We had an error in trying to get the configuration file from the database:  {myqy_GetPointClickCareConfigOutput.ErrorMessage}");
                 return;
             }
 
@@ -104,7 +97,7 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 myCallToGetSourceFileList =
                     new GetSourceFileList
                     (
-                        myqy_GetHumanaCensusConfigOutput.qy_GetHumanaCensusConfigOutputColumnsList[0]
+                        myqy_GetPointClickCareConfigOutput.qy_GetPointClickCareConfigOutputColumnsList[0]
                     );
             myCallToGetSourceFileList.DoIt();
 
@@ -119,7 +112,7 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 myMainOps =
                     new MainOps
                     (
-                        myqy_GetHumanaCensusConfigOutput.qy_GetHumanaCensusConfigOutputColumnsList[0]
+                        myqy_GetPointClickCareConfigOutput.qy_GetPointClickCareConfigOutputColumnsList[0]
                         , myCallToGetSourceFileList.MyOutputListOfFullFilenames
                     );
 
@@ -153,13 +146,13 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 }
 
                 string myFromEmailAddress =
-                    myqy_GetHumanaCensusConfigOutput
-                    .qy_GetHumanaCensusConfigOutputColumnsList[0]
+                    myqy_GetPointClickCareConfigOutput
+                    .qy_GetPointClickCareConfigOutputColumnsList[0]
                     .EmailFromAddress;
 
                 string myEmailWebApiDotNet7BaseUrl =
-                    myqy_GetHumanaCensusConfigOutput
-                    .qy_GetHumanaCensusConfigOutputColumnsList[0]
+                    myqy_GetPointClickCareConfigOutput
+                    .qy_GetPointClickCareConfigOutputColumnsList[0]
                     .EmailBaseWebApiUrl;
 
                 // Email the notifyees.

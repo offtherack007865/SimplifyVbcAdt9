@@ -260,5 +260,244 @@ namespace SimplifyVbcAdt9.CallWebApiLand
 
 
 
+
+        // GET /api/Ops/qy_GetPointClickCareConfig?inputApplicationName=SimplifyVbcAdt&inputType=Default&inputProcessName=PointClickCareAdt&inputNameFilter=NULL&inputUser=AppUser
+        public qy_GetPointClickCareConfigOutput
+                    qy_GetPointClickCareConfig
+                    ()
+        {
+            qy_GetPointClickCareConfigOutput
+                returnOutput =
+                    qy_GetPointClickCareConfigAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<qy_GetPointClickCareConfigOutput>
+                        qy_GetPointClickCareConfigAsync
+                        (
+                        )
+        {
+            log.Info($"In qy_GetNrcConfigAsync");
+            qy_GetPointClickCareConfigOutput
+                returnOutput =
+                    new qy_GetPointClickCareConfigOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/qy_GetPointClickCareConfig";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<qy_GetPointClickCareConfigOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
+
+
+        // GET /api/Ops/dd_PointClickCare
+        public dd_PointClickCareOutput
+                    dd_PointClickCare
+                    (
+                    )
+        {
+            dd_PointClickCareOutput
+                returnOutput =
+                    dd_PointClickCareAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<dd_PointClickCareOutput>
+                        dd_PointClickCareAsync
+                        (
+                        )
+        {
+            log.Info($"In dd_PointClickCareAsync");
+            dd_PointClickCareOutput
+                returnOutput =
+                    new dd_PointClickCareOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/dd_PointClickCare";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<dd_PointClickCareOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
+
+
+        // GET /api/Ops/di_PointClickCare?inputFullFilename=test.txt
+        public di_PointClickCareOutput
+                    di_PointClickCare
+                    (
+                       string inputFullFilename
+                    )
+        {
+            di_PointClickCareOutput
+                returnOutput =
+                    di_PointClickCareAsync
+                    (
+                        inputFullFilename
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<di_PointClickCareOutput>
+                        di_PointClickCareAsync
+                        (
+                            string inputFullFilename
+                        )
+        {
+            log.Info($"In di_PointClickCareAsync");
+            di_PointClickCareOutput
+                returnOutput =
+                    new di_PointClickCareOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/di_PointClickCare?inputFullFilename={inputFullFilename}";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<di_PointClickCareOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
+
+
+
+
+
+
+
+
+        // GET /api/Ops/qy_GetPointClickCare
+        public qy_GetPointClickCareOutput
+                    qy_GetPointClickCare
+                    (
+                    )
+        {
+            qy_GetPointClickCareOutput
+                returnOutput =
+                    qy_GetPointClickCareAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<qy_GetPointClickCareOutput>
+                        qy_GetPointClickCareAsync
+                        (
+                        )
+        {
+            log.Info($"In qy_GetPointClickCareAsync");
+            qy_GetPointClickCareOutput
+                returnOutput =
+                    new qy_GetPointClickCareOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/qy_GetPointClickCare";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<qy_GetPointClickCareOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

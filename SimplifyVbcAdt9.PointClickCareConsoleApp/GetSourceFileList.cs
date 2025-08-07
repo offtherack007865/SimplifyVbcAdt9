@@ -9,11 +9,11 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
 {
     public class GetSourceFileList
     {
-        public GetSourceFileList(qy_GetHumanaCensusConfigOutputColumns inputConfigOptions)
+        public GetSourceFileList(qy_GetPointClickCareConfigOutputColumns inputConfigOptions)
         {
             MyConfigOptions = inputConfigOptions;
         }
-        public qy_GetHumanaCensusConfigOutputColumns MyConfigOptions { get; set; }
+        public qy_GetPointClickCareConfigOutputColumns MyConfigOptions { get; set; }
 
         public List<string> MyOutputListOfFullFilenames { get; set; }
 

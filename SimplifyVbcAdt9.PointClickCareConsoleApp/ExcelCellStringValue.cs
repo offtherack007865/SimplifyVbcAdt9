@@ -13,7 +13,7 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
         public ExcelCellStringValue
         (
         Worksheet inputWorksheet
-            , qy_GetHumanaCensusConfigOutputColumns inputConfigOptions
+            , qy_GetPointClickCareConfigOutputColumns inputConfigOptions
             , string inputColumnName
             , int inputRowNumber
             , int inputColumnNumber
@@ -31,7 +31,7 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
             }
         }
         public Worksheet MyWorksheet { get; set; }
-        public qy_GetHumanaCensusConfigOutputColumns MyConfigOptions { get; set; }
+        public qy_GetPointClickCareConfigOutputColumns MyConfigOptions { get; set; }
         public string MyColumnName { get; set; }
         public int MyRowNumber { get; set; }
         public int MyColumnNumber { get; set; }
