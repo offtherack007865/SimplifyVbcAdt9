@@ -21,7 +21,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-namespace SimplifyVbcAdt9.HumanaCensusConsoleApp
+namespace SimplifyVbcAdt9.PointClickCareConsoleApp
 {
     class Program
     {
@@ -134,7 +134,7 @@ namespace SimplifyVbcAdt9.HumanaCensusConsoleApp
 
             if (myMainOutput.MailBodyLineList.Count > 0)
             {
-                string mySubjectLine = "Humana Census file(s) were successfully imported and looked up.";
+                string mySubjectLine = "PointClickCare file(s) were successfully imported and looked up.";
                 string myBody = string.Join("<br>", myMainOutput.MailBodyLineList);   //myMainOutput.EmailBody;
                 string emailAddressListString = "pwmorrison@summithealthcare.com";
                 string[] myEmailAddressArray =

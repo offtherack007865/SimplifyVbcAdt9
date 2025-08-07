@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimplifyVbcAdt9.HumanaCensusConsoleApp
+namespace SimplifyVbcAdt9.PointClickCareConsoleApp
 {
     public class ExcelCellStringValue
     {
@@ -234,7 +234,7 @@ namespace SimplifyVbcAdt9.HumanaCensusConsoleApp
             {
                 returnOutput.OutputStringValue = cellValue.Replace("NaN", "").Replace(",", "^").Replace("\'", "").Replace("\"", "").Trim();
             }
-                
+
             return returnOutput;
         }
         public string ConvertMMMSpaceddSpaceyyyyToMSlashdSlashyyyy(string inputDateInMMMSpaceddSpaceyyyy)
@@ -256,7 +256,7 @@ namespace SimplifyVbcAdt9.HumanaCensusConsoleApp
                     string MMM =
                         MMMAndddParts[0].Trim();
                     string M = string.Empty;
-                    switch(MMM)
+                    switch (MMM)
                     {
                         case "Jan":
                             M = "1";
@@ -318,10 +318,11 @@ namespace SimplifyVbcAdt9.HumanaCensusConsoleApp
                     inputFullName.Split(",");
                 if (strPartsArray.Length == 2)
                 {
-                    returnOutput = $"{returnOutput.Replace(",","^")},{strPartsArray[0].Trim()},{strPartsArray[1].Trim()}";
+                    returnOutput = $"{returnOutput.Replace(",", "^")},{strPartsArray[0].Trim()},{strPartsArray[1].Trim()}";
                 }
             }
             return returnOutput;
         }
     }
+
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimplifyVbcAdt9.HumanaCensusConsoleApp
+namespace SimplifyVbcAdt9.PointClickCareConsoleApp
 {
     public class CleanInideOfDoubleQuotesInEntireFileReturningFileLineList
     {

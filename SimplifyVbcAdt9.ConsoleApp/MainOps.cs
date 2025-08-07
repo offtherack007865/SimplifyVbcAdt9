@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace SimplifyVbcAdt9.ConsoleApp
+namespace SimplifyVbcAdt9.HumanaCensusConsoleApp
 {
     public class MainOps
     {

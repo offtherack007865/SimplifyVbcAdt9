@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplifyVbcAdt9.Data", "Sim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplifyVbcAdt9.CallWebApiLand", "SimplifyVbcAdt9.CallWebApiLand\SimplifyVbcAdt9.CallWebApiLand.csproj", "{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplifyVbcAdt9.ConsoleApp", "SimplifyVbcAdt9.ConsoleApp\SimplifyVbcAdt9.ConsoleApp.csproj", "{521B76F6-FDB7-4152-91D8-D13CB8E72447}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplifyVbcAdt9.HumanaCensusConsoleApp", "SimplifyVbcAdt9.ConsoleApp\SimplifyVbcAdt9.HumanaCensusConsoleApp.csproj", "{521B76F6-FDB7-4152-91D8-D13CB8E72447}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulkInsert9.CallWebApiLand", "..\BulkInsert9\BulkInsert9.CallWebApiLand\BulkInsert9.CallWebApiLand.csproj", "{E9AAA82D-203E-B230-A9D1-59AECB2F0804}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailWebApiLand9.CallEmailWebApiLand", "..\EmailWebApiLand9\EmailWebApiLand9.CallEmailWebApiLand\EmailWebApiLand9.CallEmailWebApiLand.csproj", "{4BAEBAFB-C1B2-6762-302E-CBB6EEF6059A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailWebApiLand9.Data", "..\EmailWebApiLand9\EmailWebApiLand9.Data\EmailWebApiLand9.Data.csproj", "{DA17C095-7B63-60FA-311C-BE046783F924}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplifyVbcAdt9.PointClickCareConsoleApp", "SimplifyVbcAdt9.PointClickCareConsoleApp\SimplifyVbcAdt9.PointClickCareConsoleApp.csproj", "{15521D8C-5F32-4557-BD25-059C48E87E17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{DA17C095-7B63-60FA-311C-BE046783F924}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA17C095-7B63-60FA-311C-BE046783F924}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA17C095-7B63-60FA-311C-BE046783F924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15521D8C-5F32-4557-BD25-059C48E87E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15521D8C-5F32-4557-BD25-059C48E87E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15521D8C-5F32-4557-BD25-059C48E87E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15521D8C-5F32-4557-BD25-059C48E87E17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
