@@ -1,0 +1,26 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.spTruncateHumanaRaw'))
+   drop proc [dbo].[spTruncateHumanaRaw]
+GO
+CREATE PROCEDURE [dbo].[spTruncateHumanaRaw] 
+AS
+BEGIN
+
+  truncate table [dbo].[HumanaRaw];
+  
+  declare @HumanaRawCount [int] = 0  
+
+  select @HumanaRawCount = count(*)
+    from [dbo].[HumanaRaw]
+ 
+   declare @IsOk [bit]
+   
+   if (@HumanaRawCount = 0) begin
+     set @IsOk = 1
+   end
+   else begin
+     set @IsOk = 0
+   end 
+   
+   select @IsOk [IsOk]
+   
+END  

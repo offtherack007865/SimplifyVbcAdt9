@@ -1,0 +1,70 @@
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'SimplifyVbcAdtCignaConfig' AND TABLE_SCHEMA = 'dbo')
+   DROP TABLE [dbo].[SimplifyVbcAdtCignaConfig];
+GO
+
+CREATE TABLE [dbo].[SimplifyVbcAdtCignaConfig](
+	[Pk] [int] IDENTITY(1,1) NOT NULL
+	,[ReadDirectory] [nvarchar] (200) NOT NULL
+	,[InputFilenameContainsString] [nvarchar] (200) NOT NULL
+	,[StartLineNumber] [int] NOT NULL 
+	,[StartColumnNumber] [int] NOT NULL 
+	,[InputFileArchiveDirectory] [nvarchar] (200) NOT NULL
+	,[OutputFileArchiveDirectory] [nvarchar] (200) NOT NULL
+	,[ToSimpleFileMoverReadDirectory] [nvarchar] (200) NOT NULL
+	,[SimplifyVbcAdtBaseWebApiUrl] [nvarchar] (200) NOT NULL
+	,[ExcelTemplateFullFilename] [nvarchar] (200) NOT NULL
+	,[ImportArchiveFolder] [nvarchar] (200) NOT NULL
+	,[ps_odsConnectionString] [nvarchar] (200) NOT NULL
+	,[BulkInsertConnectionString] [nvarchar] (200) NOT NULL
+	,[BulkInsertDbName] [nvarchar] (200) NOT NULL
+	,[BulkInsertDbTableName] [nvarchar] (200) NOT NULL
+	,[BulkInsertBaseWebApiUrl] [nvarchar] (200) NOT NULL
+	,[EmailBaseWebApiUrl] [nvarchar] (200) NOT NULL 
+	,[EmailFromAddress] [nvarchar] (200) NOT NULL 
+ CONSTRAINT [PK_SimplifyVbcAdtCignaConfig] PRIMARY KEY CLUSTERED 
+(
+	[Pk] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+insert into [dbo].[SimplifyVbcAdtCignaConfig]
+(
+	[ReadDirectory]
+	,[InputFilenameContainsString]
+	,[StartLineNumber]
+	,[StartColumnNumber]
+	,[InputFileArchiveDirectory]
+	,[OutputFileArchiveDirectory]
+	,[ToSimpleFileMoverReadDirectory]
+	,[SimplifyVbcAdtBaseWebApiUrl]
+	,[ExcelTemplateFullFilename]
+	,[ImportArchiveFolder]
+	,[ps_odsConnectionString]
+	,[BulkInsertConnectionString]
+	,[BulkInsertDbName]
+	,[BulkInsertDbTableName]
+	,[BulkInsertBaseWebApiUrl]
+	,[EmailBaseWebApiUrl]
+	,[EmailFromAddress]
+)
+values
+(
+    '\\ps-nas\nas\SSS\VBC\1. Care Coordination\ADMIN ASSISTANT\ADT FEEDS\Cigna Simplifer (do not use)' --[ReadDirectory] [nvarchar] (200) NOT NULL 
+	,'.xlsm' --[InputFilenameContainsString] [nvarchar] (200) NOT NULL
+	,1 --[StartLineNumber] [int] NOT NULL 
+	,4 --[StartColumnNumber] [int] NOT NULL 
+	,'\\ps-nas\nas\SSS\VBC\1. Care Coordination\ADMIN ASSISTANT\ADT FEEDS\Cigna Simplifer (do not use)\InputFileArchive' --[InputFileArchiveDirectory] [nvarchar] (200) NOT NULL
+	,'\\ps-nas\nas\SSS\VBC\1. Care Coordination\ADMIN ASSISTANT\ADT FEEDS\Cigna Simplifer (do not use)\OutputFileArchive' --[OutputFileArchiveDirectory] [nvarchar] (200) NOT NULL
+	,'\\ps-nas\nas\SSS\VBC\1. Care Coordination\ADMIN ASSISTANT\ADT FEEDS\Cigna Simplifer (do not use)\ToSimpleFileMoverReadDirectory' --[ToSimpleFileMoverReadDirectory] [nvarchar] (200) NOT NULL
+	,'http://webservices:4007' --[SimplifyVbcAdtBaseWebApiUrl] [nvarchar] (200) NOT NULL
+	,'\\ps-nas\nas\SSS\VBC\1. Care Coordination\ADMIN ASSISTANT\ADT FEEDS\Cigna Simplifer (do not use)\CignaTemplate\NEW CIGNA DAILY DROP TEMPLATE.xlsx' --[ExcelTemplateFullFilename] [nvarchar] (200) NOT NULL
+	,'\\ps-nas\nas\SSS\IT\Shared\SSS ODS\ADT Feeds\Cigna\Archive' --[ImportArchiveFolder] [nvarchar] (200) NOT NULL
+	,'Data Source=ps-ods;Initial Catalog=ADTStaging;TrustServerCertificate=True;Integrated Security=False;User ID=SimplifyVbcAdt8_user;Password=Summit99$' --[ps_odsConnectionString] [nvarchar] (200) NOT NULL
+	,'Data Source=appdb01;Initial Catalog=SimplifyVbcAdt8;TrustServerCertificate=True;Integrated Security=False;User ID=SimplifyVbcAdt8_user;Password=Summit99$' --[BulkInsertConnectionString] [nvarchar] (200) NOT NULL
+	,'SimplifyVbcAdt8' --[BulkInsertDbName] [nvarchar] (200) NOT NULL
+	,'CignaRaw' --[BulkInsertDbTableName] [nvarchar] (200) NOT NULL
+	,'http://webservices:3835/api/Ops/PerformBulkInsert' --[BulkInsertBaseWebApiUrl] [nvarchar] (200) NOT NULL
+	,'http://webservices:4001/api/EmailWebApi/SendEmailWithHtmlStringInput' --[EmailBaseWebApiUrl] [nvarchar] (200) NOT NULL 
+	,'smgapplications@summithealthcare.com' --[EmailFromAddress] [nvarchar] (200) NOT NULL 
+)

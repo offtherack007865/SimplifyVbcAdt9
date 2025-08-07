@@ -1,0 +1,136 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.spFinalizeHumanaRaw'))
+   drop proc [dbo].[spFinalizeHumanaRaw]
+GO
+CREATE PROCEDURE [dbo].[spFinalizeHumanaRaw] 
+AS
+BEGIN
+
+  print 'in spFinalizeBcbstAdtRaw'
+  declare @myCurrentDateTime [datetime]
+  set @myCurrentDateTime = getdate()
+  
+  truncate table [dbo].[HumanaMaster];
+  insert into [dbo].[HumanaMaster]
+  (
+    [RptDt]
+	,[Type]
+	,[Group]
+	,[GrouperName]
+	,[FacDbName]
+	,[PcpName]
+	,[BedType]
+	,[AuthId]
+	,[AdmitDt]
+	,[DcDate]
+	,[DcDisposition]
+	,[SubscriberId]
+	,[LastName]
+	,[FirstName]
+	,[DateOfBirth]
+	,[IsCaseReAdmit14dy]
+	,[IsCaseReAdmit30dy]
+	,[ReadmitScore]
+	,[RiskScoreGroup]
+	,[ClinicalProgram]
+	,[CaseName]
+	,[CaseStatus]
+    ,[GrouperId]
+	,[PcpId]
+	,[FaxTaxId]
+	,[AdmitType]
+	,[RequestType]
+	,[NotifDate]
+	,[AuthorizedDays]
+	,[ContactType]
+	,[ContactName]
+	,[ContactPhone]
+	,[ContactNbrExt]
+	,[ContactEmail]
+	,[DiagCode1]
+	,[DiagDesc1]
+	,[DiagCode2]
+	,[DiagDesc2]
+	,[ProcCode1] 
+	,[ProcDesc1]
+	,[ProcCode2]
+	,[ProcDesc2]
+	,[AuthSource]
+	,[LobDesc]
+	,[Gender]
+	
+	,[AdmitOrDischarge]
+	
+	,[SourceFullFilename]
+	,[LastUpdateTimestamp]
+  )
+  select
+    [RptDt]
+	,[Type]
+	,[Group]
+	,[GrouperName]
+	,[FacDbName]
+	,[PcpName]
+	,[BedType]
+	,[AuthId]
+	,[AdmitDt]
+	,[DcDate]
+	,[DcDisposition]
+	,[SubscriberId]
+	,[LastName]
+	,[FirstName]
+	,[DateOfBirth]
+	,[IsCaseReAdmit14dy]
+	,[IsCaseReAdmit30dy]
+	,[ReadmitScore]
+	,[RiskScoreGroup]
+	,[ClinicalProgram]
+	,[CaseName]
+	,[CaseStatus]
+    ,[GrouperId]
+	,[PcpId]
+	,[FaxTaxId]
+	,[AdmitType]
+	,[RequestType]
+	,[NotifDate]
+	,[AuthorizedDays]
+	,[ContactType]
+	,[ContactName]
+	,[ContactPhone]
+	,[ContactNbrExt]
+	,[ContactEmail]
+	,[DiagCode1]
+	,[DiagDesc1]
+	,[DiagCode2]
+	,[DiagDesc2]
+	,[ProcCode1] 
+	,[ProcDesc1]
+	,[ProcCode2]
+	,[ProcDesc2]
+	,[AuthSource]
+	,[LobDesc]
+	,[Gender]
+	
+	,[AdmitOrDischarge]
+	
+	,[SourceFullFilename]
+	,[LastUpdateTimestamp]
+  from [dbo].[HumanaRaw]
+
+  truncate table [dbo].[HumanaRaw];
+   
+  declare @HumanaMasterCount [int] = 0  
+  select @HumanaMasterCount = count(*)
+    from [dbo].[HumanaMaster]
+	
+  declare @IsOk [bit]
+  
+  if (@HumanaMasterCount > 0) begin
+    set @IsOk = 1
+  end
+  else begin
+    set @IsOk = 1
+  end
+   
+  select @IsOk [IsOk]   
+   
+END  

@@ -1,0 +1,26 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.spTruncateEthinRaw'))
+   drop proc [dbo].[spTruncateEthinRaw]
+GO
+CREATE PROCEDURE [dbo].[spTruncateEthinRaw] 
+AS
+BEGIN
+
+  truncate table [dbo].[EthinRaw];
+  
+  declare @EthinRawCount [int] = 0  
+
+  select @EthinRawCount = count(*)
+    from [dbo].[EthinRaw]
+ 
+   declare @IsOk [bit]
+   
+   if (@EthinRawCount = 0) begin
+     set @IsOk = 1
+   end
+   else begin
+     set @IsOk = 0
+   end 
+   
+   select @IsOk [IsOk]
+   
+END  

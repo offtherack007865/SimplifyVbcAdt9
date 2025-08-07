@@ -1,0 +1,36 @@
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'EthinMaster' AND TABLE_SCHEMA = 'dbo')
+   DROP TABLE [dbo].[EthinMaster];
+GO
+
+CREATE TABLE [dbo].[EthinMaster](
+	[Pk] [bigint] IDENTITY(1,1) NOT NULL
+    ,[SummitMrn] [nvarchar] (20) NOT NULL
+	,[PatientClass] [nvarchar] (20) NOT NULL
+	,[MessageTime] [datetime] NOT NULL
+	,[LastName] [nvarchar] (200) NOT NULL
+	,[FirstName] [nvarchar] (200) NOT NULL
+	,[MiddleName] [nvarchar] (200) NULL
+	,[Suffix] [nvarchar] (30) NULL
+	,[Gender] [nvarchar] (30) NOT NULL
+	,[DateOfBirth] [datetime] NOT NULL
+	,[DateOfDeath] [datetime] NULL
+	,[SendingFacility] [nvarchar] (30) NULL
+	,[AdmitTime] [datetime] NOT NULL
+	,[DischargeTime] [datetime] NOT NULL
+	,[AttendingProvider] [nvarchar] (200) NULL
+	,[PrimaryCareProvider] [nvarchar] (200) NULL
+	,[AdmitSource] [nvarchar] (200) NULL
+	,[AdmitReason] [nvarchar] (200) NULL
+	,[DischargeStatus] [nvarchar] (200) NULL
+	,[FinalDiagnosesList] [nvarchar] (300) NULL
+	,[Insurance] [nvarchar] (300) NULL
+		
+	,[AdmitOrDischarge] [nvarchar] (30) NULL  
+
+	,[SourceFullFilename] [nvarchar] (300) NOT NULL  
+	,[LastUpdateTimestamp] [datetime] NOT NULL
+CONSTRAINT [PK_EthinMaster] PRIMARY KEY CLUSTERED 
+(
+	[Pk] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]

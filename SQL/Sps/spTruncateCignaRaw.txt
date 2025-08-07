@@ -1,0 +1,26 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.spTruncateCignaRaw'))
+   drop proc [dbo].[spTruncateCignaRaw]
+GO
+CREATE PROCEDURE [dbo].[spTruncateCignaRaw] 
+AS
+BEGIN
+
+  truncate table [dbo].[CignaRaw];
+  
+  declare @CignaRawCount [int] = 0  
+
+  select @CignaRawCount = count(*)
+    from [dbo].[CignaRaw]
+ 
+   declare @IsOk [bit]
+   
+   if (@CignaRawCount = 0) begin
+     set @IsOk = 1
+   end
+   else begin
+     set @IsOk = 0
+   end 
+   
+   select @IsOk [IsOk]
+   
+END  

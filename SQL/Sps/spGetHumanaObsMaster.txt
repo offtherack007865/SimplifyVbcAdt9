@@ -1,0 +1,40 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.spGetHumanaObsMaster'))
+   drop proc [dbo].[spGetHumanaObsMaster]
+GO
+CREATE PROCEDURE [dbo].[spGetHumanaObsMaster] 
+AS
+BEGIN
+
+  select
+    [RptDt]
+	,[Type]
+	,[Group]
+	,[GrouperName]
+	,[FacDbName]
+	,[PcpName]
+	,[CaseType]
+	,[AuthId]
+	,[FirstDay]
+	,[SubscriberId]
+	,[FirstName]
+	,[LastName]
+	,[DateOfBirth]
+	,[GrouperId]
+	,[PcpId]
+	,[FaxTaxId]
+	,[AuthType]
+	,[RequestType]
+	,[NotifDate]
+	,[LastDay]
+	,[DiagCode1]
+	,[DiagDesc1]
+	,[DiagCode2]
+	,[DiagDesc2]
+	,[DiagCode3]
+	,[DiagDesc3]
+	,[ProcCode]
+	,[ProcDesc]
+	,[Gender]
+  from [dbo].[HumanaObsMaster]	
+  
+END  

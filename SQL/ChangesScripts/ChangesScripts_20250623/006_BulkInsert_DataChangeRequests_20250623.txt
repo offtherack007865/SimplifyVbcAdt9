@@ -1,0 +1,738 @@
+-- SQL Server Instance: smg-sql01
+USE [BulkInsert8];
+
+
+-- 001 - INSERT [Dummy1] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,1
+  ,'Dummy1'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+-- 002 - INSERT [PatientName] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,2
+  ,'PatientName'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 003 -  INSERT [PatientLastName] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,3
+  ,'PatientLastName'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+-- 004 -  INSERT [PatienFirstName] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,4
+  ,'PatienFirstName'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+-- 005 -  INSERT [DateOfBirth] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,5
+  ,'DateOfBirth'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+-- 006 -  INSERT [PaneledProvider] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,6
+  ,'PaneledProvider'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 007 -  INSERT [SdohDetails] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,7
+  ,'SdohDetails'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+-- 008 -  INSERT [SrfDetails] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,8
+  ,'SrfDetails'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 009 -  INSERT [SrfFlagYOrN] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,9
+  ,'SrfFlagYOrN'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 010 -  INSERT [StayType] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,10
+  ,'StayType'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 011 -  INSERT [AdmitDate] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,11
+  ,'AdmitDate'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+-- 012 -  INSERT [DischargeDate] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,12
+  ,'DischargeDate'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 013 -  INSERT [AuthStatus] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,13
+  ,'AuthStatus'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 014 -  INSERT [Disposition] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,14
+  ,'Disposition'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 015 -  INSERT [PatEligible] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,15
+  ,'PatEligible'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 016 -  INSERT [PatEligibleThrough] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,16
+  ,'PatEligibleThrough'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 017 -  INSERT [ReadmitRisk] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,17
+  ,'ReadmitRisk'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+-- 018 -  INSERT [Readmit] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,18
+  ,'Readmit'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 019 - [Category] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,19
+  ,'Category'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 020 -  INSERT [DxDescription] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,20
+  ,'DxDescription'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 021 -  INSERT [FacilityOrPractitioner] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,21
+  ,'FacilityOrPractitioner'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+-- 022 -  INSERT [NewYOrN] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,22
+  ,'NewYOrN'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+
+-- 999 -  INSERT [FullFilename] [nvarchar] (MAX) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'varchar'
+  ,300
+  ,999
+  ,'FullFilename'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------
+
+-- 1000 -  INSERT [HumanaCensusID] [int] IDENTITY(1,1) NOT NULL
+SELECT 1;
+-- 1 record 
+
+BEGIN TRAN
+INSERT [dbo].[BulkINSERTDataTableAndColumnDefinition]
+(
+  [BulkINSERTDataTablePk] 
+  ,[MyDbColumnType]
+  ,[MyDbColumnLength]
+  ,[MyFilePosition]
+  ,[MyDbColumnName]
+  ,[MyDbTableName]
+  ,[MyDbName]
+)
+VALUES 
+(
+  54
+  ,'int'
+  ,1
+  ,1000
+  ,'HumanaCensusID'
+  ,'adt.HumanaCensus'
+  ,'Staging'
+);
+
+-- COMMIT
+-- ROLLBACK
+-----------------------------------------------------------------------------------------------

@@ -1,0 +1,58 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.spGetHumanaMasterAdmits'))
+   drop proc [dbo].[spGetHumanaMasterAdmits]
+GO
+CREATE PROCEDURE [dbo].[spGetHumanaMasterAdmits] 
+AS
+BEGIN
+
+  select
+    [RptDt]
+	,[Type]
+	,[Group]
+	,[GrouperName]
+	,[FacDbName]
+	,[PcpName]
+	,[BedType]
+	,[AuthId]
+	,[AdmitDt]
+	,[DcDate]
+	,[DcDisposition]
+	,[SubscriberId]
+	,[LastName]
+	,[FirstName]
+	,[DateOfBirth]
+	,[IsCaseReAdmit14dy]
+	,[IsCaseReAdmit30dy]
+	,[ReadmitScore]
+	,[RiskScoreGroup]
+	,[ClinicalProgram]
+	,[CaseName]
+	,[CaseStatus]
+    ,[GrouperId]
+	,[PcpId]
+	,[FaxTaxId]
+	,[AdmitType]
+	,[RequestType]
+	,[NotifDate]
+	,[AuthorizedDays]
+	,[ContactType]
+	,[ContactName]
+	,[ContactPhone]
+	,[ContactNbrExt]
+	,[ContactEmail]
+	,[DiagCode1]
+	,[DiagDesc1]
+	,[DiagCode2]
+	,[DiagDesc2]
+	,[ProcCode1]
+	,[ProcDesc1]
+	,[ProcCode2]
+	,[ProcDesc2]
+	,[AuthSource]
+	,[LobDesc]
+	,[Gender]
+  from [dbo].[HumanaMaster]
+  where [AdmitOrDischarge] = 'Admit'
+
+   
+END  

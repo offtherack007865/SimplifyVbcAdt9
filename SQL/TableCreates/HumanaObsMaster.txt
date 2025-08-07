@@ -1,0 +1,43 @@
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'HumanaObsMaster' AND TABLE_SCHEMA = 'dbo')
+   DROP TABLE [dbo].[HumanaObsMaster];
+GO
+
+CREATE TABLE [dbo].[HumanaObsMaster](
+	[Pk] [bigint] IDENTITY(1,1) NOT NULL
+    ,[RptDt] [datetime] NOT NULL
+	,[Type] [nvarchar] (30) NULL  
+	,[Group] [nvarchar] (30) NULL 
+	,[GrouperName] [nvarchar] (300) NULL 
+	,[FacDbName] [nvarchar] (300) NULL 
+	,[PcpName] [nvarchar] (300) NULL 
+	,[CaseType] [nvarchar] (300) NULL 
+	,[AuthId] [nvarchar] (300) NULL 
+	,[FirstDay] [datetime] NOT NULL
+	,[SubscriberId] [nvarchar] (30) NULL 
+	,[FirstName] [nvarchar] (300) NULL 
+	,[LastName] [nvarchar] (300) NULL 
+	,[DateOfBirth] [datetime] NOT NULL
+	,[GrouperId] [nvarchar] (30) NULL 
+	,[PcpId] [nvarchar] (30) NULL  
+	,[FaxTaxId] [nvarchar] (30) NULL  
+	,[AuthType] [nvarchar] (30) NULL  
+	,[RequestType] [nvarchar] (30) NULL  
+	,[NotifDate] [datetime] NULL  
+	,[LastDay] [datetime] NOT NULL
+	,[DiagCode1] [nvarchar] (30) NULL  
+	,[DiagDesc1] [nvarchar] (300) NULL  
+	,[DiagCode2] [nvarchar] (30) NULL  
+	,[DiagDesc2] [nvarchar] (300) NULL  
+	,[DiagCode3] [nvarchar] (30) NULL  
+	,[DiagDesc3] [nvarchar] (300) NULL  
+	,[ProcCode] [int] NULL  
+	,[ProcDesc] [nvarchar] (300) NULL  
+	,[Gender] [nvarchar] (5) NULL
+	
+	,[SourceFullFilename] [nvarchar] (300) NULL  
+	,[LastUpdateTimestamp] [datetime] NOT NULL
+CONSTRAINT [PK_HumanaObsMaster] PRIMARY KEY CLUSTERED 
+(
+	[Pk] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]

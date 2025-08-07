@@ -1,0 +1,83 @@
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'CignaMaster' AND TABLE_SCHEMA = 'dbo')
+   DROP TABLE [dbo].[CignaMaster];
+GO
+
+CREATE TABLE [dbo].[CignaMaster](
+	[Pk] [bigint] IDENTITY(1,1) NOT NULL
+    ,[PatientLastName] [nvarchar] (200) NOT NULL
+	,[PatientFirstName] [nvarchar] (200) NOT NULL
+	,[Gender] [nvarchar] (10) NULL
+	,[Dob] [datetime] NOT NULL
+	,[PatientIdAmi] [nvarchar] (30) NOT NULL
+	,[EnterpriseId] [nvarchar] (30) NOT NULL
+	,[AlignedPhsyicianName] [nvarchar] (200) NOT NULL
+	,[Npi] [nvarchar] (30) NULL
+	,[Product] [nvarchar] (50) NULL
+	,[AlignmentMethod] [nvarchar] (30) NULL
+	,[SubgroupLevel1] [nvarchar] (100) NULL
+	,[SubgroupLevel2] [nvarchar] (100) NULL
+	,[SubgroupLevel3] [nvarchar] (100) NULL
+	,[PracticeLocation] [nvarchar] (100) NULL
+	,[CignaPharmacy] [nvarchar] (30) NULL
+	,[Yhf] [nvarchar] (10) NULL
+	,[Ipht] [nvarchar] (10) NULL
+	,[CignaBehavioral] [nvarchar] (10) NULL
+	,[AccountNumber] [nvarchar] (20) NULL
+	,[AccountName] [nvarchar] (100) NULL
+	,[AdmitDate] [datetime] NULL
+	,[NewEntryOnReport] [nvarchar] (10) NULL
+	,[ProjectedDischargeDate] [datetime] NULL
+	,[ActualDischargeDate] [datetime] NOT NULL
+	,[DischargeStatus] [nvarchar] (200) NOT NULL
+	,[LengthOfStayInDays] [int] NOT NULL
+	,[Diagnosis] [nvarchar] (200) NULL
+	,[Procedure] [nvarchar] (30) NULL
+	,[AdmissionAccessDescription] [nvarchar] (30) NULL
+	,[BedType] [nvarchar] (30) NULL
+	,[CaseManagementProgram] [nvarchar] (30) NULL
+	,[Facility] [nvarchar] (100) NULL
+	,[FacilityState] [nvarchar] (10) NULL
+	,[AdmittingProvider] [nvarchar] (100) NULL
+	,[Readmission] [int] NULL
+    ,[InitialReportDate] [datetime] NULL
+    ,[AuthorizationNumber] [nvarchar] (30) NULL
+	,[ReferredDate] [datetime] NULL
+	,[ReferralStatus] [nvarchar] (30) NULL
+	,[PrimaryDiagnosisDesc] [nvarchar] (30) NULL
+	,[CaseManagedBy] [nvarchar] (200) NULL
+	,[CaseId] [nvarchar] (30) NULL
+	,[IdentificationSource] [nvarchar] (30) NULL
+	,[OnCurrentPrevise] [nvarchar] (30) NULL
+	,[OnCurrentGic] [nvarchar] (30) NULL
+	,[IpAdmissionsInPast12Months] [int] NULL
+	,[IpReadmissionsInPast12Months] [int] NULL
+	,[TotalMedicalDollarsInPast12Months] [decimal] (12,2) NULL
+	,[InpatientDollarsInPast12Months] [decimal] (12,2) NULL
+	,[ErVisitsInPast12Months] [int] NULL
+	,[OutOfNetworkDollarsInPast12Months] [decimal] (12,2) NULL
+	,[ErVisitForSameDiagnosisInPast12Months] [int] NULL
+	,[NumOfOfficeVisitsInPast12Months] [int] NULL
+	,[LastOfficeVisitDate] [datetime] NULL
+	,[RxDollarsInPast12Months] [decimal] (12,2) NULL 
+	,[RxPast3Months1] [nvarchar] (100) NULL
+	,[RxPast3Months2] [nvarchar] (100) NULL
+	,[RxPast3Months3] [nvarchar] (100) NULL
+	,[RxPast3Months4] [nvarchar] (100) NULL
+	,[RxPast3Months5] [nvarchar] (100) NULL
+	,[RxPast3Months6] [nvarchar] (100) NULL
+	,[RxPast3Months7] [nvarchar] (100) NULL
+	,[RxPast3Months8] [nvarchar] (100) NULL
+	,[RxPast3Months9] [nvarchar] (100) NULL
+	,[RxPast3Months10] [nvarchar] (100) NULL
+	,[RxPast3Months11] [nvarchar] (100) NULL
+	,[RxPast3Months12] [nvarchar] (100) NULL
+		
+	,[AdmitOrDischarge] [nvarchar] (30) NULL  
+
+	,[SourceFullFilename] [nvarchar] (300) NOT NULL  
+	,[LastUpdateTimestamp] [datetime] NOT NULL
+CONSTRAINT [PK_CignaMaster] PRIMARY KEY CLUSTERED 
+(
+	[Pk] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]

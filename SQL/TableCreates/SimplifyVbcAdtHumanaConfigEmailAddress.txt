@@ -1,0 +1,24 @@
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'SimplifyVbcAdtHumanaConfigEmailAddress' AND TABLE_SCHEMA = 'dbo')
+   DROP TABLE [dbo].[SimplifyVbcAdtHumanaConfigEmailAddress];
+GO
+
+CREATE TABLE [dbo].[SimplifyVbcAdtHumanaConfigEmailAddress](
+	[Pk] [int] IDENTITY(1,1) NOT NULL
+	,[SimplifyVbcAdtHumanaConfigPk] [int] NOT  NULL
+	,[EmailAddress] [nvarchar] (200) NOT NULL
+ CONSTRAINT [PK_SimplifyVbcAdtHumanaConfigEmailAddress] PRIMARY KEY CLUSTERED 
+(
+	[Pk] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+insert into [dbo].[SimplifyVbcAdtHumanaConfigEmailAddress]
+(
+   [SimplifyVbcAdtHumanaConfigPk]
+   ,[EmailAddress]
+)
+values
+(
+   1 -- [SimplifyVbcAdtHumanaConfigPk] [int] NOT  NULL
+   ,'pwmorrison@summithealthcare.com' --[EmailAddress] [nvarchar] (200) NOT NULL
+)

@@ -1,0 +1,16 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.spGetEthinCountForGivenFileDateFromOds'))
+   drop proc [dbo].[spGetEthinCountForGivenFileDateFromOds]
+GO
+CREATE PROCEDURE [dbo].[spGetEthinCountForGivenFileDateFromOds] 
+(
+  @inputFileDate [datetime]
+)
+AS
+BEGIN
+SELECT 
+  count(*) as [EthinCount]
+   FROM [dbo].[ADT_etHIN] cfg
+  where [FileDate] = @inputFileDate
+
+  
+END  
