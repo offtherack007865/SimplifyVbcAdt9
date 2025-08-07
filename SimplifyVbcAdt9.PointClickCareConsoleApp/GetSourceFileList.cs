@@ -19,7 +19,7 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
 
         public void DoIt()
         {
-            MyOutputListOfFullFilenames = Directory.GetFiles(MyConfigOptions.ReadDirectory, $"*{MyConfigOptions.InputFilenameContainsString}*.xlsx").ToList();
+            MyOutputListOfFullFilenames = Directory.GetFiles(MyConfigOptions.ReadDirectory, $"*{MyConfigOptions.InputFilenameContainsString}*.csv").ToList();
         }
     }
 }

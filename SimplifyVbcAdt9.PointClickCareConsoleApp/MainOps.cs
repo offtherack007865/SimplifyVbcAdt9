@@ -52,11 +52,14 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
         {
             ProcessSingleFileOutput returnOutput = new ProcessSingleFileOutput();
 
+            inputFilename =
+                ConvertCsvToXlsx(inputFilename);
+
             // new PointClickCare filename:  PointClickCare Discharges MM.dd.yy-MM.dd.yy.xslx
             string newPointClickCareFilename =
                 BuildNewPointClickCareFilename(inputFilename);
 
-            Regex lastDateRegEx = new Regex(@"(?<MM>\d{2}).(?<dd>\d{2}).(?<yy>\d{2}).xlsx$");
+            Regex lastDateRegEx = new Regex(@"PCCADT(?<MM>\d{2})(?<dd>\d{2})(?<yy>\d{2}).xlsx$");
             Match lastDateMatch = lastDateRegEx.Match(newPointClickCareFilename);
 
             string MMstring = string.Empty;
@@ -95,16 +98,16 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
             File.Copy(inputFilename, inputArchiveFullFilename);
 
             // If the filename already exists in the "already imported archive", do nothing.
-            string inputAlreadyImportedFullFilename =
-                Path.Combine(MyConfigOptions.ImportArchiveFolder, inputFullFilenameFi.Name);
-            if (File.Exists(inputAlreadyImportedFullFilename))
-            {
-                if (File.Exists(inputFilename))
-                {
-                    File.Delete(inputFilename);
-                }
-                return returnOutput;
-            }
+            //string inputAlreadyImportedFullFilename =
+            //    Path.Combine(MyConfigOptions.ImportArchiveFolder, inputFullFilenameFi.Name);
+            //if (File.Exists(inputAlreadyImportedFullFilename))
+            //{
+            //    if (File.Exists(inputFilename))
+            //    {
+            //        File.Delete(inputFilename);
+            //    }
+            //    return returnOutput;
+            //}
 
             // Copy the template to the output folder.
             FileInfo newPointClickCareFi = new FileInfo(newPointClickCareFilename);
@@ -227,41 +230,11 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
         {
             FileInfo myFi = new FileInfo(inputFullFilename);
 
-
-            Regex dateRegEx = new Regex(@"(?<MM>\d{2}).(?<dd>\d{2}).(?<yy>\d{2}).xlsx");
-            Match dateMatch = dateRegEx.Match(myFi.Name);
-
-            string MMString = string.Empty;
-            string ddString = string.Empty;
-            string yyString = string.Empty;
-            if (dateMatch.Success)
-            {
-                MMString = dateMatch.Groups["MM"].Value.Trim();
-                ddString = dateMatch.Groups["dd"].Value.Trim();
-                yyString = dateMatch.Groups["yy"].Value.Trim();
-            }
-            else
-            {
-                DateTime lastUpdateTimestamp = myFi.LastWriteTime;
-                MMString = lastUpdateTimestamp.Month.ToString().PadLeft(2, '0');
-                ddString = lastUpdateTimestamp.Day.ToString().PadLeft(2, '0');
-                yyString = lastUpdateTimestamp.Year.ToString().Substring(2, 2);
-            }
-
-            DateTime currentFileDate = new DateTime(1900, 1, 1);
-            DateTime.TryParse($"{MMString}/{ddString}/20{yyString}", out currentFileDate);
-            if (currentFileDate == DateTime.MinValue || currentFileDate == new DateTime(1900, 1, 1))
-            {
-                DateTime currentDateTime = new DateTime();
-
-                currentFileDate = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day);
-            }
-            DateTime oneDayBackFileDate = currentFileDate.AddDays(-1);
             string newFilename =
                 Path.Combine
                 (
                     this.MyConfigOptions.OutputFileArchiveDirectory
-                    , $"PointClickCare Discharges {oneDayBackFileDate.Month.ToString().PadLeft(2, '0')}.{oneDayBackFileDate.Day.ToString().PadLeft(2, '0')}.{oneDayBackFileDate.Year.ToString().Substring(2, 2)}-{currentFileDate.Month.ToString().PadLeft(2, '0')}.{currentFileDate.Day.ToString().PadLeft(2, '0')}.{currentFileDate.Year.ToString().Substring(2, 2)}.xlsx"
+                    , myFi.Name
                 );
 
             return newFilename;
@@ -340,6 +313,41 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 }
             }
             return returnOutput;
+        }
+        public string ConvertCsvToXlsx(string inputFullInputCsvFilename)
+{
+            // Create an instance of Workbook class
+            Workbook workbook = new Workbook();
+
+            FileInfo fi = new FileInfo(inputFullInputCsvFilename);
+
+            // Load a CSV file
+            workbook.LoadFromFile(inputFullInputCsvFilename, ",", 1, 1);
+
+            // Get the first worksheet and used range
+            Worksheet sheet =
+                workbook.Worksheets[0];
+            CellRange usedRange = sheet.AllocatedRange;
+            usedRange.IgnoreErrorOptions = IgnoreErrorType.NumberAsText;
+
+            // Autofit columns and rows
+            usedRange.AutoFitColumns();
+            usedRange.AutoFitRows();
+
+            // Save the result file
+            string filenameSansExtension =
+                fi.Name.Replace(".csv","");
+
+            string newXlsxFullFilename =
+                Path.Combine(fi.DirectoryName, $"{filenameSansExtension}.xlsx");
+
+            if (File.Exists(newXlsxFullFilename))
+            {
+                File.Delete(newXlsxFullFilename);
+            }
+            workbook.SaveToFile(newXlsxFullFilename, ExcelVersion.Version2013);
+
+            return newXlsxFullFilename;
         }
         public ExtractDataFromPointClickCareExcelRowOutput ExtractDataFromExcelRow(Worksheet inputWorksheet, int inputRowCtr, List<string> inputFileColumnList)
         {
