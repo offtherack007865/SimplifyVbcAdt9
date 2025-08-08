@@ -45,6 +45,8 @@ CREATE TABLE [adt].[PointClickCare]
   ,[DischargeLocation] [nvarchar] (MAX) NOT NULL
   ,[DischargeDisposition] [nvarchar] (MAX) NOT NULL
   ,[DeathIndicator] [nvarchar] (MAX) NOT NULL
+  ,[EventType] [nvarchar] (MAX) NOT NULL
+  ,[EventTypeDescription] [nvarchar] (MAX) NOT NULL
   ,[PatientClass] [nvarchar] (MAX) NOT NULL
   ,[PatientClassDescription] [nvarchar] (MAX) NOT NULL
   ,[PrimaryCareProvider] [nvarchar] (MAX) NOT NULL

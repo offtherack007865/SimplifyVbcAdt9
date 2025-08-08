@@ -4,6 +4,7 @@ using log4net;
 using SimplifyVbcAdt9.Data.Models;
 using Spire.Xls;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -51,6 +52,26 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
         public ProcessSingleFileOutput ProcessSingleFile(string inputFilename)
         {
             ProcessSingleFileOutput returnOutput = new ProcessSingleFileOutput();
+
+            // Clean all lines inside of file (commas inside of double-quotes)
+            CleanInideOfDoubleQuotesInEntireFileReturningFileLineList
+                myClean =
+                    new CleanInideOfDoubleQuotesInEntireFileReturningFileLineList
+                    (
+                        inputFilename
+                    );
+            List<string> cleanedLines = 
+                myClean.DoIt();
+
+            // Delete file having un-cleaned lines so that we may re-write it.
+            if (File.Exists(inputFilename))
+            {
+                File.Delete(inputFilename);
+            }
+
+            // Re-write file with cleaned file lines.
+            System.IO.File.WriteAllLines(inputFilename, cleanedLines);
+
 
             inputFilename =
                 ConvertCsvToXlsx(inputFilename);
@@ -307,7 +328,7 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                         break;
                     }
 
-                    string finalRowValue = $"~,{myExtractDataFromPointClickCareExcelRowOutput.OutputCsvString}";
+                    string finalRowValue = $"{myExtractDataFromPointClickCareExcelRowOutput.OutputCsvString}";
                     returnOutput.MyCsvLineList.Add(finalRowValue);
                     rowCtr++;
                 }
@@ -315,7 +336,7 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
             return returnOutput;
         }
         public string ConvertCsvToXlsx(string inputFullInputCsvFilename)
-{
+        {
             // Create an instance of Workbook class
             Workbook workbook = new Workbook();
 
@@ -430,6 +451,8 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
             returnOutput.Add("DischargeLocation");
             returnOutput.Add("DischargeDisposition");
             returnOutput.Add("DeathIndicator");
+            returnOutput.Add("EventType");
+            returnOutput.Add("EventTypeDescription");
             returnOutput.Add("PatientClass");
             returnOutput.Add("PatientClassDescription");
             returnOutput.Add("PrimaryCareProvider");

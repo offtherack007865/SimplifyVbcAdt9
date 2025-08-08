@@ -216,18 +216,15 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
             {
                 cellValue = string.Empty;
             }
-            if (MyCellDesignation.StartsWith("B"))
+            if (MyCellDesignation.StartsWith("I") ||
+                MyCellDesignation.StartsWith("M") ||
+                MyCellDesignation.StartsWith("Q"))
             {
                 cellValue =
-                    SplitNameIntoFirstAndLastName(cellValue);
-                returnOutput.OutputStringValue = cellValue;
-            }
-            else if (MyCellDesignation.StartsWith("C") ||
-                MyCellDesignation.StartsWith("I") ||
-                MyCellDesignation.StartsWith("J"))
-            {
-                cellValue =
-                    ConvertMMMSpaceddSpaceyyyyToMSlashdSlashyyyy(cellValue);
+                    ConvertMMSlashddSlashyyyyCommaTimeToCanonicalDateTimeFormat
+                    (
+                        cellValue
+                    );
                 returnOutput.OutputStringValue = cellValue;
             }
             else
@@ -237,73 +234,85 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
 
             return returnOutput;
         }
-        public string ConvertMMMSpaceddSpaceyyyyToMSlashdSlashyyyy(string inputDateInMMMSpaceddSpaceyyyy)
+        public string ConvertMMSlashddSlashyyyyCommaTimeToCanonicalDateTimeFormat(string inputDateInMMMSpaceddSpaceyyyy)
         {
             string returnOutput = string.Empty;
             returnOutput = inputDateInMMMSpaceddSpaceyyyy.Replace("NaN", "");
             string[] fullDateParts =
-                inputDateInMMMSpaceddSpaceyyyy.Split(",");
-            if (fullDateParts.Length == 2)
+                inputDateInMMMSpaceddSpaceyyyy.Split(" ");
+
+            List<string> fullDatePartsList = new List<string>();
+
+            foreach(string part in fullDateParts)
             {
-                string MMMAnddd = fullDateParts[0].Trim();
-                string yyyy = fullDateParts[1].Trim();
-
-                string[] MMMAndddParts =
-                    MMMAnddd.Split(" ");
-
-                if (MMMAndddParts.Length == 2)
+                if (part.Trim().Length != 0)
                 {
-                    string MMM =
-                        MMMAndddParts[0].Trim();
-                    string M = string.Empty;
-                    switch (MMM)
-                    {
-                        case "Jan":
-                            M = "1";
-                            break;
-                        case "Feb":
-                            M = "1";
-                            break;
-                        case "Mar":
-                            M = "3";
-                            break;
-                        case "Apr":
-                            M = "4";
-                            break;
-                        case "May":
-                            M = "5";
-                            break;
-                        case "Jun":
-                            M = "6";
-                            break;
-                        case "Jul":
-                            M = "7";
-                            break;
-                        case "Aug":
-                            M = "8";
-                            break;
-                        case "Sep":
-                            M = "9";
-                            break;
-                        case "Oct":
-                            M = "10";
-                            break;
-                        case "Nov":
-                            M = "11";
-                            break;
-                        case "Dec":
-                            M = "12";
-                            break;
-                    }
-                    string d = MMMAndddParts[1].Trim();
-                    int dAsInt = 0;
-                    int.TryParse(d, out dAsInt);
-                    if (dAsInt > 0)
-                    {
-                        returnOutput =
-                            $"{M}/{dAsInt.ToString()}/{yyyy}";
-                    }
+                    fullDatePartsList.Add(part);
                 }
+            }
+            if (fullDatePartsList.Count != 3)
+            {
+                return returnOutput;
+            }
+            string MMSlashddSlashyyyy = fullDatePartsList[0].Trim();
+            string myTime = fullDatePartsList[1].Trim();
+
+            string myAmOrPm = fullDatePartsList[2].Trim();
+
+            if (myAmOrPm.ToUpper().CompareTo("AM") != 0 &&
+                myAmOrPm.ToUpper().CompareTo("PM") != 0)
+            {
+                return returnOutput;
+            }
+
+
+            string[] dateParts =
+               MMSlashddSlashyyyy.Split("/");
+            if (dateParts.Length != 3)
+            {
+                return returnOutput;
+            }
+            string MM = dateParts[0].Trim();
+            string dd = dateParts[1].Trim();
+            string yyyy = dateParts[2].Trim();
+
+            string[] hhColonmmColonssParts =
+                myTime.Split(":");
+            if (hhColonmmColonssParts.Length != 2)
+            {
+                return returnOutput;
+            }
+
+            string hh = hhColonmmColonssParts[0].Trim();
+            string mm = hhColonmmColonssParts[1].Trim();
+
+            bool addTwelveHours = false;
+            if (myAmOrPm.ToUpper().CompareTo("PM") == 0)
+            {
+                addTwelveHours = true;
+            }
+            int hhInt = -1;
+            int.TryParse(hh, out hhInt);
+            if (hhInt < 0 || hhInt > 11)
+            {
+                return returnOutput;
+            }
+
+            if (addTwelveHours == true)
+            {
+                hhInt = hhInt + 12;
+                hh = hhInt.ToString();
+            }
+
+            DateTime myDateTime = DateTime.MinValue;
+            returnOutput =
+                $"{MM}/{dd}/{yyyy} {hh}:{mm}:00.000";
+            DateTime.TryParse(returnOutput, out myDateTime);
+
+            if (myDateTime == DateTime.MinValue ||
+                myDateTime == new DateTime(1900, 1, 1))
+            {
+                return returnOutput;
             }
 
             return returnOutput;
