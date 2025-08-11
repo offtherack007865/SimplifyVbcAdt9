@@ -261,7 +261,7 @@ namespace SimplifyVbcAdt9.CallWebApiLand
 
 
 
-        // GET /api/Ops/qy_GetPointClickCareConfig?inputApplicationName=SimplifyVbcAdt&inputType=Default&inputProcessName=PointClickCareAdt&inputNameFilter=NULL&inputUser=AppUser
+        // GET /api/Ops/qy_GetPointClickCareConfig
         public qy_GetPointClickCareConfigOutput
                     qy_GetPointClickCareConfig
                     ()
