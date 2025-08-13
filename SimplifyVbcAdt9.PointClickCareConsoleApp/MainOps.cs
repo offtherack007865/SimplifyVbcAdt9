@@ -6,6 +6,7 @@ using Spire.Xls;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -69,10 +70,25 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 File.Delete(inputFilename);
             }
 
+
+
+
             // Re-write file with cleaned file lines.
             System.IO.File.WriteAllLines(inputFilename, cleanedLines);
 
 
+            // Copy old PointClickCare discharges CSV file to Input Archive Directory
+            FileInfo originalCsvFi = new FileInfo(inputFilename);
+            string inputArchiveCsvFullFilename =
+                Path.Combine(MyConfigOptions.InputFileArchiveDirectory, originalCsvFi.Name);
+            if (File.Exists(inputArchiveCsvFullFilename))
+            {
+                File.Delete(inputArchiveCsvFullFilename);
+            }
+            File.Copy(inputFilename, inputArchiveCsvFullFilename);
+
+
+            // Convert input CSV file to XLSX
             inputFilename =
                 ConvertCsvToXlsx(inputFilename);
 
@@ -106,29 +122,18 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
 
             FileInfo inputFullFilenameFi = new FileInfo(newPointClickCareFilename);
 
-            // Copy old PointClickCare discharges file to Input Archive Directory
-            string inputArchiveFullFilename =
-                Path.Combine(MyConfigOptions.InputFileArchiveDirectory, inputFullFilenameFi.Name);
-            if (File.Exists(inputArchiveFullFilename))
-            {
-                if (File.Exists(inputArchiveFullFilename))
-                {
-                    File.Delete(inputArchiveFullFilename);
-                }
-            }
-            File.Copy(inputFilename, inputArchiveFullFilename);
 
             // If the filename already exists in the "already imported archive", do nothing.
-            //string inputAlreadyImportedFullFilename =
-            //    Path.Combine(MyConfigOptions.ImportArchiveFolder, inputFullFilenameFi.Name);
-            //if (File.Exists(inputAlreadyImportedFullFilename))
-            //{
-            //    if (File.Exists(inputFilename))
-            //    {
-            //        File.Delete(inputFilename);
-            //    }
-            //    return returnOutput;
-            //}
+            string inputAlreadyImportedFullFilename =
+                Path.Combine(MyConfigOptions.ImportArchiveFolder, inputFullFilenameFi.Name);
+            if (File.Exists(inputAlreadyImportedFullFilename))
+            {
+                if (File.Exists(inputFilename))
+                {
+                    File.Delete(inputFilename);
+                }
+                return returnOutput;
+            }
 
             // Copy the template to the output folder.
             FileInfo newPointClickCareFi = new FileInfo(newPointClickCareFilename);
@@ -152,12 +157,18 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
             // Extract Excel data
             ExtractExcelDataFromSingleFileOutput
                 myExtractExcelDataFromSingleFileOutput =
-                    ExtractExcelDataFromSingleFileSingleFile(inputArchiveFullFilename);
+                    ExtractExcelDataFromSingleFileSingleFile(inputFilename);
             if (!myExtractExcelDataFromSingleFileOutput.IsOk)
             {
                 returnOutput.IsOk = false;
                 returnOutput.ErrorMessage = myExtractExcelDataFromSingleFileOutput.ErrorMessage;
                 return returnOutput;
+            }
+
+            // Delete the input xlsx file from the input Archive folder, leaving the csv file.
+            if (File.Exists(inputFilename))
+            {
+                File.Delete(inputFilename);
             }
 
             // Truncate Raw table.
@@ -178,7 +189,7 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                     BulkInsertPointClickCareRawData
                     (
                         myExtractExcelDataFromSingleFileOutput.MyCsvLineList
-                        , inputArchiveFullFilename
+                        , inputFilename
                     );
 
             if (!myBulkInsertPointClickCareDataOutput.IsOk)
@@ -192,7 +203,7 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
             // Finalize CollectionsRaw table.
             di_PointClickCareOutput
                 mydi_FinalizePointClickCareOutput =
-                    FinalizePointClickCareRaw(inputArchiveFullFilename);
+                    FinalizePointClickCareRaw(inputFilename);
             if (!mydi_FinalizePointClickCareOutput.IsOk)
             {
                 returnOutput.IsOk = false;
@@ -229,21 +240,34 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 return returnOutput;
             }
 
-            // Move new PointClickCare discharges file to Simple File Mover Read Directory
+            // Convert the output xlsx file to a csv file.
+            string newCsvOutputFullFilename =
+                ConvertXlsxToCsv(outputArchiveFullFilename);
+
+            // Delete the output xlsx file, leaving only the csv file.
+            if (File.Exists(outputArchiveFullFilename))
+            {
+                File.Delete(outputArchiveFullFilename);
+            }
+
+            // Move new PointClickCare discharges csv file to Simple File Mover Read Directory
+            FileInfo fiOutputCsvFi = new FileInfo(newCsvOutputFullFilename);
+
+
             string toSimpleFileMoverReadDirectoryFullFilename =
-                Path.Combine(this.MyConfigOptions.ToSimpleFileMoverReadDirectory, newPointClickCareFi.Name);
+                Path.Combine(this.MyConfigOptions.ToSimpleFileMoverReadDirectory, fiOutputCsvFi.Name);
             if (File.Exists(toSimpleFileMoverReadDirectoryFullFilename))
             {
                 File.Delete(toSimpleFileMoverReadDirectoryFullFilename);
             }
-            File.Copy(outputArchiveFullFilename, toSimpleFileMoverReadDirectoryFullFilename);
+            File.Copy(newCsvOutputFullFilename, toSimpleFileMoverReadDirectoryFullFilename);
 
             //Delete old PointClickCare filename
-            if (File.Exists(inputFilename))
+            if (File.Exists(originalCsvFi.FullName))
             {
-                File.Delete(inputFilename);
+                File.Delete(originalCsvFi.FullName);
             }
-            returnOutput.EmailBodyLine = $"Processed file {inputFullFilenameFi.Name}";
+            returnOutput.EmailBodyLine = $"Processed file {originalCsvFi.Name}";
             return returnOutput;
         }
 
@@ -333,6 +357,27 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                     rowCtr++;
                 }
             }
+            return returnOutput;
+        }
+        public string ConvertXlsxToCsv(string inputFullOutputXlsxFilename)
+        {
+            string returnOutput = string.Empty;
+
+            //Create an instance of Workbook class
+            Workbook workbook = new Workbook();
+            //Load an Excel file
+            workbook.LoadFromFile(inputFullOutputXlsxFilename);
+
+            //Get the first worksheet
+            Worksheet sheet = workbook.Worksheets[0];
+
+            FileInfo fi = new FileInfo(inputFullOutputXlsxFilename);
+            returnOutput =
+                Path.Combine(fi.DirectoryName, $"{fi.Name.Replace(".xlsx", ".csv")}");
+
+            //Save the worksheet as CSV
+            sheet.SaveToFile(returnOutput, ",", Encoding.UTF8);
+
             return returnOutput;
         }
         public string ConvertCsvToXlsx(string inputFullInputCsvFilename)
@@ -627,44 +672,88 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 excelRowCtr++;
                 sheet.InsertRow(excelRowCtr);
 
-                sheet.Range[$"A{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].LastName;
-                sheet.Range[$"B{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].FirstName;
-                sheet.Range[$"C{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].SenderSourceCode;
-                sheet.Range[$"D{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].SenderMrn;
-                sheet.Range[$"E{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].SubscriberMrn;
-                sheet.Range[$"F{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].FacilityName;
-                sheet.Range[$"G{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].Gender;
-                sheet.Range[$"H{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].DateOfBirth;
-                sheet.Range[$"I{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].EventTime;
-                sheet.Range[$"J{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].AlertType;
-                sheet.Range[$"K{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].HospitalService;
-                sheet.Range[$"L{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].AdmitSource;
-                sheet.Range[$"M{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].AdmitDate;
-                sheet.Range[$"N{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].PatientComplaints;
-                sheet.Range[$"O{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].DiagnosisCode;
-                sheet.Range[$"P{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].DiagnosisDescription;
-                sheet.Range[$"Q{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].DischargeDate;
-                sheet.Range[$"R{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].DischargeLocation;
-                sheet.Range[$"S{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].DischargeDisposition;
-                sheet.Range[$"T{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].DeathIndicator;
-                sheet.Range[$"U{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].PatientClass;
-                sheet.Range[$"V{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].PatientClassDescription;
-                sheet.Range[$"W{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].PrimaryCareProvider;
-                sheet.Range[$"X{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].Insurance;
-                sheet.Range[$"Y{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].Practice;
-                sheet.Range[$"Z{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].Address1;
-                sheet.Range[$"AA{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].Address2;
-                sheet.Range[$"AB{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].State;
-                sheet.Range[$"AC{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].Zipcode;
-                sheet.Range[$"AD{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].NumberOfErVisits;
-                sheet.Range[$"AE{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].NumberOfIpVisits;
-                sheet.Range[$"AF{excelRowCtr}"].Value = qy_GetPointClickCareOutputColumnsList[rowCtr].HomePhone;
+                sheet.Range[$"A{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].LastName;
+                sheet.Range[$"B{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].FirstName;
+                sheet.Range[$"C{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].SenderSourceCode;
+                sheet.Range[$"D{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].SenderMrn;
+                sheet.Range[$"E{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].SubscriberMrn;
+                sheet.Range[$"F{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].FacilityName;
+                sheet.Range[$"G{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].Gender;
+                sheet.Range[$"H{excelRowCtr}"].Text = ConvertCanonicalDateTomSlashdSlashyyyy(qy_GetPointClickCareOutputColumnsList[rowCtr].DateOfBirth);
+                sheet.Range[$"I{excelRowCtr}"].Text = ConvertCanonicalDateTimeToDateTimeAmOrPm(qy_GetPointClickCareOutputColumnsList[rowCtr].EventTime);
+                
+                sheet.Range[$"J{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].AlertType;
+                sheet.Range[$"K{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].HospitalService;
+                sheet.Range[$"L{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].AdmitSource;
 
+                sheet.Range[$"M{excelRowCtr}"].Text = ConvertCanonicalDateTimeToDateTimeAmOrPm(qy_GetPointClickCareOutputColumnsList[rowCtr].AdmitDate);
+
+                sheet.Range[$"N{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].PatientComplaints;
+                sheet.Range[$"O{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].DiagnosisCode;
+                sheet.Range[$"P{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].DiagnosisDescription;
+
+                sheet.Range[$"Q{excelRowCtr}"].Text = ConvertCanonicalDateTimeToDateTimeAmOrPm(qy_GetPointClickCareOutputColumnsList[rowCtr].DischargeDate);
+                sheet.Range[$"R{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].DischargeLocation;
+                sheet.Range[$"S{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].DischargeDisposition;
+                sheet.Range[$"T{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].DeathIndicator;
+                sheet.Range[$"U{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].PatientClass;
+                sheet.Range[$"V{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].PatientClassDescription;
+                sheet.Range[$"W{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].PrimaryCareProvider;
+                sheet.Range[$"X{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].Insurance;
+                sheet.Range[$"Y{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].Practice;
+                sheet.Range[$"Z{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].Address1;
+                sheet.Range[$"AA{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].Address2;
+                sheet.Range[$"AB{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].State;
+                sheet.Range[$"AC{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].Zipcode;
+                sheet.Range[$"AD{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].NumberOfErVisits;
+                sheet.Range[$"AE{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].NumberOfIpVisits;
+                sheet.Range[$"AF{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].HomePhone;
             }
 
             workbook.Save();
 
             return returnOutput;
         }
+        public string ConvertCanonicalDateTimeToDateTimeAmOrPm(string inputCanonicalDateTime)
+        {
+            string returnOutput = string.Empty;
+
+            returnOutput = inputCanonicalDateTime;
+            DateTime myDateTime = DateTime.MinValue;
+            DateTime.TryParse(returnOutput, out myDateTime);
+            if (myDateTime == DateTime.MinValue)
+            {
+                return returnOutput;
+            }
+
+            //int myHours = myDateTime.Hour;
+            //string myAmOrPm = "AM";
+            //if (myHours >= 12)
+            //{
+            //    myAmOrPm = "PM";
+            //    myHours = myHours - 12;
+            //}
+
+            //returnOutput = $"{myDateTime.Month.ToString().PadLeft(2, '0')}/{myDateTime.Day.ToString().PadLeft(2, '0')}/{myDateTime.Year} {myHours.ToString().PadLeft(2, '0')}:{myDateTime.Minute.ToString().PadLeft(2,'0')} {myAmOrPm}";
+            returnOutput = $"{myDateTime.Month.ToString()}/{myDateTime.Day.ToString()}/{myDateTime.Year} {myDateTime.Hour.ToString()}:{myDateTime.Minute.ToString().PadLeft(2, '0')}";
+            return returnOutput;
+        }
+
+        public string ConvertCanonicalDateTomSlashdSlashyyyy(string inputCanonicalDateTime)
+        {
+            string returnOutput = string.Empty;
+
+            returnOutput = inputCanonicalDateTime;
+            DateTime myDateTime = DateTime.MinValue;
+            DateTime.TryParse(returnOutput, out myDateTime);
+            if (myDateTime == DateTime.MinValue)
+            {
+                return returnOutput;
+            }
+
+            returnOutput = $"{myDateTime.Month.ToString()}/{myDateTime.Day.ToString()}/{myDateTime.Year}";
+            return returnOutput;
+        }
+
     }
 }
