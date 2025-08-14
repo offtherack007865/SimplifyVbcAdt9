@@ -3,6 +3,7 @@ using BulkInsert9.Data.Models;
 using log4net;
 using SimplifyVbcAdt9.Data.Models;
 using Spire.Xls;
+using Spire.Xls.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -70,12 +71,8 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 File.Delete(inputFilename);
             }
 
-
-
-
             // Re-write file with cleaned file lines.
             System.IO.File.WriteAllLines(inputFilename, cleanedLines);
-
 
             // Copy old PointClickCare discharges CSV file to Input Archive Directory
             FileInfo originalCsvFi = new FileInfo(inputFilename);
@@ -91,6 +88,10 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
             // Convert input CSV file to XLSX
             inputFilename =
                 ConvertCsvToXlsx(inputFilename);
+
+            // If columns for Event Type and Event Type Description
+            // exist, delete them.
+            IfExistEventColumnsDeleteThem(inputFilename);
 
             // new PointClickCare filename:  PointClickCare Discharges MM.dd.yy-MM.dd.yy.xslx
             string newPointClickCareFilename =
@@ -415,6 +416,36 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
 
             return newXlsxFullFilename;
         }
+        public void IfExistEventColumnsDeleteThem(string inputFullInputXlsxFilename)
+        {
+            // Create an instance of Workbook class
+            Workbook workbook = new Workbook();
+
+            // Load a CSV file
+            workbook.LoadFromFile(inputFullInputXlsxFilename);
+
+            // Get the first worksheet and used range
+            Worksheet sheet =
+                workbook.Worksheets[0];
+            string? cellValueForEventType = null;
+            string? cellValueForEventTypeDescription = null;
+            cellValueForEventType = sheet.Range["U1"].Text.Trim();
+            cellValueForEventTypeDescription = sheet.Range["V1"].Text.Trim();
+
+            if (cellValueForEventType != null && 
+                cellValueForEventType.CompareTo("Event Type") == 0 &&
+                cellValueForEventTypeDescription != null &&
+                cellValueForEventTypeDescription.CompareTo("Event Type Description") == 0)
+            {
+                sheet.DeleteColumn(21);
+                // With column EventType deleted, the EventTypeDescription becomes
+                // column 21.
+                sheet.DeleteColumn(21);
+            }
+
+            workbook.SaveToFile(inputFullInputXlsxFilename, ExcelVersion.Version2013);
+        }
+
         public ExtractDataFromPointClickCareExcelRowOutput ExtractDataFromExcelRow(Worksheet inputWorksheet, int inputRowCtr, List<string> inputFileColumnList)
         {
             ExtractDataFromPointClickCareExcelRowOutput returnOutput = new ExtractDataFromPointClickCareExcelRowOutput();
@@ -448,6 +479,7 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 GetExcelCellStringValueOutput
                     myCellOutput =
                         loopCellValue.GetExcelCellStringValue();
+
                 if (!myCellOutput.IsOk)
                 {
                     returnOutput.IsOk = false;
@@ -496,8 +528,6 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
             returnOutput.Add("DischargeLocation");
             returnOutput.Add("DischargeDisposition");
             returnOutput.Add("DeathIndicator");
-            returnOutput.Add("EventType");
-            returnOutput.Add("EventTypeDescription");
             returnOutput.Add("PatientClass");
             returnOutput.Add("PatientClassDescription");
             returnOutput.Add("PrimaryCareProvider");
@@ -726,16 +756,15 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 return returnOutput;
             }
 
-            //int myHours = myDateTime.Hour;
-            //string myAmOrPm = "AM";
-            //if (myHours >= 12)
-            //{
-            //    myAmOrPm = "PM";
-            //    myHours = myHours - 12;
-            //}
+            int myHours = myDateTime.Hour;
+            string myAmOrPm = "AM";
+            if (myHours >= 12)
+            {
+                myAmOrPm = "PM";
+                myHours = myHours - 12;
+            }
 
-            //returnOutput = $"{myDateTime.Month.ToString().PadLeft(2, '0')}/{myDateTime.Day.ToString().PadLeft(2, '0')}/{myDateTime.Year} {myHours.ToString().PadLeft(2, '0')}:{myDateTime.Minute.ToString().PadLeft(2,'0')} {myAmOrPm}";
-            returnOutput = $"{myDateTime.Month.ToString()}/{myDateTime.Day.ToString()}/{myDateTime.Year} {myDateTime.Hour.ToString()}:{myDateTime.Minute.ToString().PadLeft(2, '0')}";
+            returnOutput = $"{myDateTime.Month.ToString()}/{myDateTime.Day.ToString()}/{myDateTime.Year} {myHours.ToString().PadLeft(2, '0')}:{myDateTime.Minute.ToString().PadLeft(2,'0')} {myAmOrPm}";
             return returnOutput;
         }
 
