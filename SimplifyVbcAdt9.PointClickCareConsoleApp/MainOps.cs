@@ -327,7 +327,7 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 rowCtr = this.MyConfigOptions.StartLineNumber;
                 while (true)
                 {
-                    if (rowCtr == 1198)
+                    if (rowCtr == 5)
                     {
                         int i = 0;
                         i++;
@@ -354,12 +354,71 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                     }
 
                     string finalRowValue = $"{myExtractDataFromPointClickCareExcelRowOutput.OutputCsvString}";
-                    returnOutput.MyCsvLineList.Add(finalRowValue);
+
+                    if (ValidateRowValue(finalRowValue))
+                    {
+                        returnOutput.MyCsvLineList.Add(finalRowValue);
+                    }
                     rowCtr++;
                 }
             }
             return returnOutput;
         }
+        public bool ValidateRowValue(string inputRowValue)
+        {
+            List<string> stringPartsList = 
+                inputRowValue.Split(',').ToList();
+
+            List<string> myColumnList =
+                GetPointClickCareFileColumnNameList();
+            int listPositionOfEventTime =
+                myColumnList.IndexOf("EventTime");
+            int listPositionOfAdmitDate =
+                    myColumnList.IndexOf("AdmitDate");
+            int listPositionOfDischargeDate =
+                myColumnList.IndexOf("DischargeDate");
+
+            if (listPositionOfEventTime >= stringPartsList.Count ||
+                listPositionOfAdmitDate >= stringPartsList.Count ||
+                listPositionOfDischargeDate >= stringPartsList.Count)
+            {
+                return false;
+            }
+
+            // Validate EventTime datetime string
+            if (!ValidateDateTimeStringFormat(stringPartsList[listPositionOfEventTime]))
+            { 
+                return false; 
+            }
+
+            // Validate AdmitDate datetime string
+            if (!ValidateDateTimeStringFormat(stringPartsList[listPositionOfAdmitDate]))
+            {
+                return false;
+            }
+
+            // Validate DischargeDate datetime string
+            if (!ValidateDateTimeStringFormat(stringPartsList[listPositionOfDischargeDate]))
+            {
+                return false;
+            }
+
+            return true;
+        }
+        public bool ValidateDateTimeStringFormat(string inputDateTimeString)
+        {
+            bool returnOutput = true;
+
+            DateTime isDateTimeStringValid = DateTime.MinValue;
+            DateTime.TryParse(inputDateTimeString, out isDateTimeStringValid);
+            if (isDateTimeStringValid == DateTime.MinValue)
+            {
+                returnOutput = false;
+            }
+
+            return returnOutput;
+        }
+
         public string ConvertXlsxToCsv(string inputFullOutputXlsxFilename)
         {
             string returnOutput = string.Empty;

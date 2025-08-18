@@ -7,6 +7,18 @@
       "RelativeMoniker": "D:0:0:{15521D8C-5F32-4557-BD25-059C48E87E17}|SimplifyVbcAdt9.PointClickCareConsoleApp\\SimplifyVbcAdt9.PointClickCareConsoleApp.csproj|solutionrelative:simplifyvbcadt9.pointclickcareconsoleapp\\mainops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{15521D8C-5F32-4557-BD25-059C48E87E17}|SimplifyVbcAdt9.PointClickCareConsoleApp\\SimplifyVbcAdt9.PointClickCareConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.pointclickcareconsoleapp\\cleaninideofdoublequotesinentirefilereturningfilelinelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15521D8C-5F32-4557-BD25-059C48E87E17}|SimplifyVbcAdt9.PointClickCareConsoleApp\\SimplifyVbcAdt9.PointClickCareConsoleApp.csproj|solutionrelative:simplifyvbcadt9.pointclickcareconsoleapp\\cleaninideofdoublequotesinentirefilereturningfilelinelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15521D8C-5F32-4557-BD25-059C48E87E17}|SimplifyVbcAdt9.PointClickCareConsoleApp\\SimplifyVbcAdt9.PointClickCareConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.pointclickcareconsoleapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15521D8C-5F32-4557-BD25-059C48E87E17}|SimplifyVbcAdt9.PointClickCareConsoleApp\\SimplifyVbcAdt9.PointClickCareConsoleApp.csproj|solutionrelative:simplifyvbcadt9.pointclickcareconsoleapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|solutionrelative:simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E9AAA82D-203E-B230-A9D1-59AECB2F0804}|..\\BulkInsert9\\BulkInsert9.CallWebApiLand\\BulkInsert9.CallWebApiLand.csproj|d:\\source\\repos\\bulkinsert9\\bulkinsert9.callwebapiland\\callwebapiland.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -24,18 +36,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1A4B5586-492D-49EE-A3F0-4FAE58A4A556}|SimplifyVbcAdt9.WebApiLand\\SimplifyVbcAdt9.WebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.webapiland\\controllers\\opscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A4B5586-492D-49EE-A3F0-4FAE58A4A556}|SimplifyVbcAdt9.WebApiLand\\SimplifyVbcAdt9.WebApiLand.csproj|solutionrelative:simplifyvbcadt9.webapiland\\controllers\\opscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15521D8C-5F32-4557-BD25-059C48E87E17}|SimplifyVbcAdt9.PointClickCareConsoleApp\\SimplifyVbcAdt9.PointClickCareConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.pointclickcareconsoleapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15521D8C-5F32-4557-BD25-059C48E87E17}|SimplifyVbcAdt9.PointClickCareConsoleApp\\SimplifyVbcAdt9.PointClickCareConsoleApp.csproj|solutionrelative:simplifyvbcadt9.pointclickcareconsoleapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|solutionrelative:simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15521D8C-5F32-4557-BD25-059C48E87E17}|SimplifyVbcAdt9.PointClickCareConsoleApp\\SimplifyVbcAdt9.PointClickCareConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.pointclickcareconsoleapp\\cleaninideofdoublequotesinentirefilereturningfilelinelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15521D8C-5F32-4557-BD25-059C48E87E17}|SimplifyVbcAdt9.PointClickCareConsoleApp\\SimplifyVbcAdt9.PointClickCareConsoleApp.csproj|solutionrelative:simplifyvbcadt9.pointclickcareconsoleapp\\cleaninideofdoublequotesinentirefilereturningfilelinelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -77,7 +77,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.PointClickCareConsoleApp\\appsettings.json",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.PointClickCareConsoleApp\\appsettings.json",
@@ -85,24 +85,23 @@
               "RelativeToolTip": "SimplifyVbcAdt9.PointClickCareConsoleApp\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-11T19:23:27.843Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-11T19:23:27.843Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "CallWebApiLandClass.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
-              "ViewState": "AgIAAKUBAAAAAAAAAAAEwLwBAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAGMBAAAAAAAAAAAtwIABAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-11T18:44:00.446Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "OpsController.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
@@ -110,12 +109,11 @@
               "RelativeToolTip": "SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
               "ViewState": "AgIAAHYBAAAAAAAAAAAmwIoBAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T18:41:55.505Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-11T18:41:55.505Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\appsettings.json",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.WebApiLand\\appsettings.json",
@@ -123,25 +121,24 @@
               "RelativeToolTip": "SimplifyVbcAdt9.WebApiLand\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-11T18:41:14.498Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-11T18:41:14.498Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "CallWebApiLand.cs",
               "DocumentMoniker": "D:\\source\\repos\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
               "RelativeDocumentMoniker": "..\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
               "ToolTip": "D:\\source\\repos\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
               "RelativeToolTip": "..\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAiwGUAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAIwD0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-08T19:31:34.053Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "ExcelCellStringValue.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.PointClickCareConsoleApp\\ExcelCellStringValue.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.PointClickCareConsoleApp\\ExcelCellStringValue.cs",
@@ -149,20 +146,20 @@
               "RelativeToolTip": "SimplifyVbcAdt9.PointClickCareConsoleApp\\ExcelCellStringValue.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T13:55:30.938Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T13:55:30.938Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "CleanInideOfDoubleQuotesInEntireFileReturningFileLineList.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.PointClickCareConsoleApp\\CleanInideOfDoubleQuotesInEntireFileReturningFileLineList.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.PointClickCareConsoleApp\\CleanInideOfDoubleQuotesInEntireFileReturningFileLineList.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.PointClickCareConsoleApp\\CleanInideOfDoubleQuotesInEntireFileReturningFileLineList.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.PointClickCareConsoleApp\\CleanInideOfDoubleQuotesInEntireFileReturningFileLineList.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAASwCMAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAD4vyoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T20:54:29.612Z"
+              "WhenOpened": "2025-08-07T20:54:29.612Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -172,22 +169,23 @@
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.PointClickCareConsoleApp\\MainOps.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.PointClickCareConsoleApp\\MainOps.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.PointClickCareConsoleApp\\MainOps.cs",
-              "ViewState": "AgIAAFgCAAAAAAAAAAAuwHMCAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAEMBAAAAAAAAAAD4v2oBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-07T20:01:37.474Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.PointClickCareConsoleApp\\Program.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.PointClickCareConsoleApp\\Program.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.PointClickCareConsoleApp\\Program.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.PointClickCareConsoleApp\\Program.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAuwKsAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAkwF8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T20:00:54.099Z"
+              "WhenOpened": "2025-08-07T20:00:54.099Z",
+              "EditorCaption": ""
             }
           ]
         }
