@@ -769,19 +769,19 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 sheet.Range[$"F{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].FacilityName;
                 sheet.Range[$"G{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].Gender;
                 sheet.Range[$"H{excelRowCtr}"].Text = ConvertCanonicalDateTomSlashdSlashyyyy(qy_GetPointClickCareOutputColumnsList[rowCtr].DateOfBirth);
-                sheet.Range[$"I{excelRowCtr}"].Text = ConvertCanonicalDateTimeToDateTimeAmOrPm(qy_GetPointClickCareOutputColumnsList[rowCtr].EventTime);
+                sheet.Range[$"I{excelRowCtr}"].Text = ConvertCanonicalDateTomSlashdSlashyyyy(qy_GetPointClickCareOutputColumnsList[rowCtr].EventTime);
                 
                 sheet.Range[$"J{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].AlertType;
                 sheet.Range[$"K{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].HospitalService;
                 sheet.Range[$"L{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].AdmitSource;
 
-                sheet.Range[$"M{excelRowCtr}"].Text = ConvertCanonicalDateTimeToDateTimeAmOrPm(qy_GetPointClickCareOutputColumnsList[rowCtr].AdmitDate);
+                sheet.Range[$"M{excelRowCtr}"].Text = ConvertCanonicalDateTomSlashdSlashyyyy(qy_GetPointClickCareOutputColumnsList[rowCtr].AdmitDate);
 
                 sheet.Range[$"N{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].PatientComplaints;
                 sheet.Range[$"O{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].DiagnosisCode;
                 sheet.Range[$"P{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].DiagnosisDescription;
 
-                sheet.Range[$"Q{excelRowCtr}"].Text = ConvertCanonicalDateTimeToDateTimeAmOrPm(qy_GetPointClickCareOutputColumnsList[rowCtr].DischargeDate);
+                sheet.Range[$"Q{excelRowCtr}"].Text = ConvertCanonicalDateTomSlashdSlashyyyy(qy_GetPointClickCareOutputColumnsList[rowCtr].DischargeDate);
                 sheet.Range[$"R{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].DischargeLocation;
                 sheet.Range[$"S{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].DischargeDisposition;
                 sheet.Range[$"T{excelRowCtr}"].Text = qy_GetPointClickCareOutputColumnsList[rowCtr].DeathIndicator;
@@ -801,29 +801,6 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
 
             workbook.Save();
 
-            return returnOutput;
-        }
-        public string ConvertCanonicalDateTimeToDateTimeAmOrPm(string inputCanonicalDateTime)
-        {
-            string returnOutput = string.Empty;
-
-            returnOutput = inputCanonicalDateTime;
-            DateTime myDateTime = DateTime.MinValue;
-            DateTime.TryParse(returnOutput, out myDateTime);
-            if (myDateTime == DateTime.MinValue)
-            {
-                return returnOutput;
-            }
-
-            int myHours = myDateTime.Hour;
-            string myAmOrPm = "AM";
-            if (myHours >= 12)
-            {
-                myAmOrPm = "PM";
-                myHours = myHours - 12;
-            }
-
-            returnOutput = $"{myDateTime.Month.ToString()}/{myDateTime.Day.ToString()}/{myDateTime.Year} {myHours.ToString().PadLeft(2, '0')}:{myDateTime.Minute.ToString().PadLeft(2,'0')} {myAmOrPm}";
             return returnOutput;
         }
 
