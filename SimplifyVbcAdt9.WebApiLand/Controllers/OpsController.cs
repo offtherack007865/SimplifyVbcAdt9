@@ -485,5 +485,208 @@ namespace SimplifyVbcAdt9.WebApiLand.Controllers
             }
             return returnOutput;
         }
+
+
+
+
+
+
+
+
+
+
+        // GET /api/Ops/qy_GetEthinConfig
+        [HttpGet]
+        public qy_GetEthinConfigOutput
+                    qy_GetEthinConfig
+                    ()
+        {
+            qy_GetEthinConfigOutput
+                returnOutput =
+                    new qy_GetEthinConfigOutput();
+
+            string sql = $"adt.qy_GetEthinConfig";
+
+            List<SqlParameter> parms = new List<SqlParameter>();
+
+            try
+            {
+                returnOutput.qy_GetEthinConfigOutputColumnsList =
+                    MyContext
+                    .qy_GetEthinConfigOutputColumnsList
+                    .FromSqlRaw<qy_GetEthinConfigOutputColumns>
+                    (
+                          sql
+                        , parms.ToArray()
+                    )
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  InnerException:  {ex.InnerException.Message}";
+                }
+                returnOutput.ErrorMessage = myErrorMessage;
+                return returnOutput;
+            }
+            return returnOutput;
+        }
+
+        // GET /api/Ops/dd_Ethin
+        [HttpGet]
+        public dd_EthinOutput
+                    dd_Ethin
+                    (
+                    )
+        {
+            dd_EthinOutput
+                returnOutput =
+                    new dd_EthinOutput();
+
+            string sql = $"adt.dd_Ethin";
+
+            List<SqlParameter> parms = new List<SqlParameter>();
+
+            try
+            {
+                returnOutput.dd_EthinOutputColumnsList =
+                    MyContext
+                    .dd_EthinOutputColumnsList
+                    .FromSqlRaw<dd_EthinOutputColumns>
+                    (
+                          sql
+                        , parms.ToArray()
+                    )
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  InnerException:  {ex.InnerException.Message}";
+                }
+                returnOutput.ErrorMessage = myErrorMessage;
+                return returnOutput;
+            }
+            return returnOutput;
+        }
+
+        // GET /api/Ops/di_Ethin
+        [HttpGet]
+        public di_EthinOutput
+                    di_Ethin
+                    (
+                    )
+        {
+            di_EthinOutput
+                returnOutput =
+                    new di_EthinOutput();
+
+            string sql = $"adt.di_Ethin";
+
+            List<SqlParameter> parms = new List<SqlParameter>();
+
+            try
+            {
+                returnOutput.di_EthinOutputColumnsList =
+                    MyContext
+                    .di_EthinOutputColumnsList
+                    .FromSqlRaw<di_EthinOutputColumns>
+                    (
+                          sql
+                        , parms.ToArray()
+                    )
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  InnerException:  {ex.InnerException.Message}";
+                }
+                returnOutput.ErrorMessage = myErrorMessage;
+                return returnOutput;
+            }
+            return returnOutput;
+        }
+
+        // GET /api/Ops/qy_GetEthin
+        [HttpGet]
+        public qy_GetEthinOutput
+                    qy_GetEthin
+                    (
+                    )
+        {
+            qy_GetEthinOutput
+                returnOutput =
+                    new qy_GetEthinOutput();
+
+            string sql = $"adt.qy_GetEthin";
+
+            List<SqlParameter> parms = new List<SqlParameter>();
+
+            try
+            {
+                returnOutput.qy_GetEthinOutputColumnsList =
+                    MyContext
+                    .qy_GetEthinOutputColumnsList
+                    .FromSqlRaw<qy_GetEthinOutputColumns>
+                    (
+                          sql
+                        , parms.ToArray()
+                    )
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  InnerException:  {ex.InnerException.Message}";
+                }
+                returnOutput.ErrorMessage = myErrorMessage;
+                return returnOutput;
+            }
+            return returnOutput;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

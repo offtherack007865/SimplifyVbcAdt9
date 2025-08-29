@@ -32,8 +32,33 @@ public partial class SimplifyVbcAdt8Context : DbContext
     public virtual DbSet<dd_PointClickCareOutputColumns> dd_PointClickCareOutputColumnsList { get; set; }
     public virtual DbSet<di_PointClickCareOutputColumns> di_PointClickCareOutputColumnsList { get; set; }
     public virtual DbSet<qy_GetPointClickCareOutputColumns> qy_GetPointClickCareOutputColumnsList { get; set; }
+    public virtual DbSet<dd_EthinOutputColumns> dd_EthinOutputColumnsList { get; set; }
+    public virtual DbSet<qy_GetEthinConfigOutputColumns> qy_GetEthinConfigOutputColumnsList { get; set; }
+
+    public virtual DbSet<di_EthinOutputColumns> di_EthinOutputColumnsList { get; set; }
+    public virtual DbSet<qy_GetEthinOutputColumns> qy_GetEthinOutputColumnsList { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<qy_GetEthinOutputColumns>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<di_EthinOutputColumns>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<qy_GetEthinConfigOutputColumns>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<dd_EthinOutputColumns>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
         modelBuilder.Entity<qy_GetPointClickCareOutputColumns>(entity =>
         {
             entity.HasNoKey();

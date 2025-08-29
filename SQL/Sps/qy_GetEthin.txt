@@ -6,18 +6,18 @@ RETURN
 END
 
 USE [Utilities];
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('adt.di_Ethin'))
-   DROP PROC [adt].[di_Ethin]
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('adt.qy_GetEthin'))
+   DROP PROC [adt].[qy_GetEthin]
 GO
-CREATE PROCEDURE [adt].[di_Ethin]
+CREATE PROCEDURE [adt].[qy_GetEthin]
 /* -----------------------------------------------------------------------------------------------------------
-   Procedure Name  :  di_Ethin
+   Procedure Name  :  qy_GetEthin
    Business Analyis:
    Project/Process :   
-   Description     :  Finalize Staging Ethin table.
+   Description     :  Get all rows from Ethin table.
 	  
    Author          :  Philip Morrison 
-   Create Date     :  8/27/2025
+   Create Date     :  8/29/2025
 
    ***********************************************************************************************************
    **         Change History                                                                                **
@@ -25,7 +25,7 @@ CREATE PROCEDURE [adt].[di_Ethin]
 
    Date       Version    Author             Description
    --------   --------   -----------        ------------
-   8/27/2025  1.01.001   Philip Morrison    Created
+   8/29/2025  1.01.001   Philip Morrison    Created
 */ -----------------------------------------------------------------------------------------------------------                                   
 
 AS
@@ -61,105 +61,41 @@ BEGIN TRY
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  NULL, 'BatchStart', @BatchDescription, @ProcessID, @Process
  ----------------------------------------------------------------------------------------------------------------------------------------------------
 
-    SET @BatchDetailDescription = '010/020:  Truncate Ethin'
+    SET @BatchDetailDescription = '010/010:  Get all rows from Ethin'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
 	                                   FROM [SimplifyVbcAdt8].[dbo].[Ethin];
 	  
-    -- Truncate Ethin
-    TRUNCATE TABLE [SimplifyVbcAdt8].[dbo].[Ethin];
+    -- Get all rows from Ethin
+    SELECT 
+       [SummitMrn]
+       ,[PatientClass]
+       ,CONVERT([nvarchar] (50), [MessageTime], 121) AS [MessageTime]
+       ,[LastName]
+       ,[FirstName]
+       ,[MiddleName]
+       ,[Suffix]
+       ,[Gender]
+       ,CONVERT([nvarchar] (10), CONVERT([date],[DateOfBirth]), 101) AS [DateOfBirth]      
+       ,CONVERT([nvarchar] (10), CONVERT([date],[DateOfDeath]), 101) AS [DateOfDeath]      
+       ,[SendingFacility]
+       ,CONVERT([nvarchar] (50), [AdmitTime], 121) AS [AdmitTime]
+       ,CONVERT([nvarchar] (50), [DischargeTime], 121) AS [DischargeTime]
+       ,[AttendingProvider]
+       ,[PrimaryCareProvider]
+       ,[AdmitSource]
+       ,[AdmitReason]
+       ,[DischargeStatus]
+       ,[FinalDiagnosesList]
+       ,[Insurance]
+       ,[AdmitOrDischarge]
+       ,[SourceFullFilename]
+    FROM [SimplifyVbcAdt8].[dbo].[Ethin];
     
     SET @ActualRecordCount = @@ROWCOUNT
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
-----------------------------------------------------------------------------------------------------------------------------------------------------
 
-    SET @BatchDetailDescription = '020/030:  Copy Staging Ethin to SimplifyVbcAdt Ethin'
-    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
-	
-	  SELECT @AnticipatedRecordCount = COUNT(*)
-	                                   FROM [Staging].[adt].[Ethin];
-	  
-      -- Copy Staging Ethin to SimplifyVbcAdt Ethin
-      INSERT INTO [SimplifyVbcAdt8].[dbo].[Ethin]
-      (
-         [SummitMrn]
-         ,[PatientClass]
-         ,[MessageTime]
-         ,[LastName]
-         ,[FirstName]
-         ,[MiddleName]
-         ,[Suffix]
-         ,[Gender]
-         ,[DateOfBirth]
-         ,[DateOfDeath]
-         ,[SendingFacility]
-         ,[AdmitTime]
-         ,[DischargeTime]
-         ,[AttendingProvider]
-         ,[PrimaryCareProvider]
-         ,[AdmitSource]
-         ,[AdmitReason]
-         ,[DischargeStatus]
-         ,[FinalDiagnosesList]
-         ,[Insurance]
-         ,[AdmitOrDischarge]
-         ,[SourceFullFilename]
-    )
-    select
-         [SummitMrn]
-         ,[PatientClass]
-         ,CONVERT([datetime], [MessageTime], 121)
-         ,[LastName]
-         ,[FirstName]
-         ,[MiddleName]
-         ,[Suffix]
-         ,[Gender]
-         ,CONVERT([datetime], [DateOfBirth], 121)
-         ,CONVERT([datetime], [DateOfDeath], 121)
-         ,[SendingFacility]
-         ,CONVERT([datetime], [AdmitTime], 121)
-         ,CONVERT([datetime], [DischargeTime], 121)
-         ,[AttendingProvider]
-         ,[PrimaryCareProvider]
-         ,[AdmitSource]
-         ,[AdmitReason]
-         ,[DischargeStatus]
-         ,[FinalDiagnosesList]
-         ,[Insurance]
-         ,[AdmitOrDischarge]
-         ,[SourceFullFilename]
- FROM [Staging].[adt].[Ethin]
- WHERE [DischargeTime] IS NOT NULL
-   AND [DischargeTime] <> CONVERT(datetime, '19000101', 112)
-    
-    SET @ActualRecordCount = @@ROWCOUNT
-    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
-----------------------------------------------------------------------------------------------------------------------------------------------------
-
-    SET @BatchDetailDescription = '030/030:  Send Output that Finalize worked.'
-    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
-	
-	  SELECT @AnticipatedRecordCount = 1;
-	
-    -- Did Finalize work
-    SELECT @MyRecordCount = COUNT(*)
-                            FROM [SimplifyVbcAdt8].[dbo].[Ethin];
-    
-    -- Send Output indication of whether Truncate worked.
-    IF @MyRecordCount > 0 BEGIN
-      SET @IsOk = 1;
-    END
-    ELSE BEGIN
-      SET @IsOk = 0;
-    END
-    
-    SELECT @IsOk as [IsOk];
-    
-    
-    SET @ActualRecordCount = @@ROWCOUNT
-    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
-    
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 --  Close Batch
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT, @BatchOutID, 'BatchEnd'
