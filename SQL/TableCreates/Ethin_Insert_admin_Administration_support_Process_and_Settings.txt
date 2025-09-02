@@ -16,6 +16,7 @@
       ,[BulkInsertBaseWebApiUrl]
       ,[EmailBaseWebApiUrl]
       ,[EmailFromAddress]
+      ,[Emailees]
 */
 USE [Administration];
 
@@ -259,6 +260,13 @@ VALUES (@MyApplicationID
            ,'Default'
            ,''
            ,'smgapplications@summithealthcare.com'
+           ,1)
+       ,(@MyApplicationID
+           ,@MyProcessID
+           ,'Emailees'
+           ,'Default'
+           ,''
+           ,'pwmorrison@summithealthcare.com'
            ,1);
 
 

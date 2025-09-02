@@ -58,6 +58,7 @@ BEGIN
   DECLARE @BulkInsertBaseWebApiUrl [nvarchar] (1000) = ''
   DECLARE @EmailBaseWebApiUrl [nvarchar] (1000) = ''
   DECLARE @EmailFromAddress [nvarchar] (1000) = ''
+  DECLARE @Emailees [nvarchar] (1000) = ''
   
 
 -- Template Declarations
@@ -84,7 +85,7 @@ BEGIN TRY
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  NULL, 'BatchStart', @BatchDescription, @ProcessID, @Process
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
-    SET @BatchDetailDescription = '010/190:  Populate KeyValueTable with call to [administration].[qy_GetApplicationSettings]'
+    SET @BatchDetailDescription = '010/200:  Populate KeyValueTable with call to [administration].[qy_GetApplicationSettings]'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -105,7 +106,7 @@ BEGIN TRY
 /*	
     [ReadDirectory]
 */
-    SET @BatchDetailDescription = '020/190:  Populate @ReadDirectory'
+    SET @BatchDetailDescription = '020/200:  Populate @ReadDirectory'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -124,7 +125,7 @@ BEGIN TRY
 /*	
       ,[InputFilenameContainsString]
 */
-    SET @BatchDetailDescription = '030/190:  Populate @InputFilenameContainsString'
+    SET @BatchDetailDescription = '030/200:  Populate @InputFilenameContainsString'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -143,7 +144,7 @@ BEGIN TRY
 /*	
       ,[StartLineNumber]
 */
-    SET @BatchDetailDescription = '040/190:  Populate @StartLineNumber'
+    SET @BatchDetailDescription = '040/200:  Populate @StartLineNumber'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -163,7 +164,7 @@ BEGIN TRY
 /*	
       ,[StartColumnNumber]
 */
-    SET @BatchDetailDescription = '050/190:  Populate @StartColumnNumber'
+    SET @BatchDetailDescription = '050/200:  Populate @StartColumnNumber'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -182,7 +183,7 @@ BEGIN TRY
 /*	
       ,[InputFileArchiveDirectory]
 */
-    SET @BatchDetailDescription = '060/190:  Populate @InputFileArchiveDirectory'
+    SET @BatchDetailDescription = '060/200:  Populate @InputFileArchiveDirectory'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -201,7 +202,7 @@ BEGIN TRY
 /*	
       ,[OutputFileArchiveDirectory]
 */
-    SET @BatchDetailDescription = '070/190:  Populate @OutputFileArchiveDirectory'
+    SET @BatchDetailDescription = '070/200:  Populate @OutputFileArchiveDirectory'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -220,7 +221,7 @@ BEGIN TRY
 /*	
       ,[ToSimpleFileMoverReadDirectory]
 */
-    SET @BatchDetailDescription = '080/190:  Populate @ToSimpleFileMoverReadDirectory'
+    SET @BatchDetailDescription = '080/200:  Populate @ToSimpleFileMoverReadDirectory'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -239,7 +240,7 @@ BEGIN TRY
 /*	
       ,[SimplifyVbcAdtBaseWebApiUrl]
 */
-    SET @BatchDetailDescription = '090/190:  Populate @SimplifyVbcAdtBaseWebApiUrl'
+    SET @BatchDetailDescription = '090/200:  Populate @SimplifyVbcAdtBaseWebApiUrl'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -258,7 +259,7 @@ BEGIN TRY
 /*	
       ,[ExcelTemplateFullFilename]
 */
-    SET @BatchDetailDescription = '100/190:  Populate @ExcelTemplateFullFilename'
+    SET @BatchDetailDescription = '100/200:  Populate @ExcelTemplateFullFilename'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -277,7 +278,7 @@ BEGIN TRY
 /*	
       ,[ImportArchiveFolder]
 */
-    SET @BatchDetailDescription = '110/190:  Populate @ImportArchiveFolder'
+    SET @BatchDetailDescription = '110/200:  Populate @ImportArchiveFolder'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -296,7 +297,7 @@ BEGIN TRY
 /*	
       ,[BulkInsertConnectionString]
 */
-    SET @BatchDetailDescription = '130/190:  Populate @BulkInsertConnectionString'
+    SET @BatchDetailDescription = '130/200:  Populate @BulkInsertConnectionString'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -315,7 +316,7 @@ BEGIN TRY
 /*	
       ,[BulkInsertDbName]
 */
-    SET @BatchDetailDescription = '140/190:  Populate @BulkInsertDbName'
+    SET @BatchDetailDescription = '140/200:  Populate @BulkInsertDbName'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -334,7 +335,7 @@ BEGIN TRY
 /*	
       ,[BulkInsertDbTableName]
 */
-    SET @BatchDetailDescription = '150/190:  Populate @BulkInsertDbTableName'
+    SET @BatchDetailDescription = '150/200:  Populate @BulkInsertDbTableName'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -353,7 +354,7 @@ BEGIN TRY
 /*	
       ,[BulkInsertBaseWebApiUrl]
 */
-    SET @BatchDetailDescription = '160/190:  Populate @BulkInsertBaseWebApiUrl'
+    SET @BatchDetailDescription = '160/200:  Populate @BulkInsertBaseWebApiUrl'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -372,7 +373,7 @@ BEGIN TRY
 /*	
       ,[EmailBaseWebApiUrl]
 */
-    SET @BatchDetailDescription = '170/190:  Populate @EmailBaseWebApiUrl'
+    SET @BatchDetailDescription = '170/200:  Populate @EmailBaseWebApiUrl'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -391,7 +392,7 @@ BEGIN TRY
 /*	
       ,[EmailFromAddress]
 */
-    SET @BatchDetailDescription = '180/190:  Populate @EmailFromAddress'
+    SET @BatchDetailDescription = '180/200:  Populate @EmailFromAddress'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
@@ -402,6 +403,26 @@ BEGIN TRY
       SELECT @EmailFromAddress = [Value]
       FROM @KeyValueTable
       WHERE [Name] = 'EmailFromAddress';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*	
+      ,[Emailees]
+*/
+    SET @BatchDetailDescription = '190/200:  Populate @Emailees'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'Emailees';	
+	  
+      -- Populate @Emailees
+      SELECT @Emailees = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'Emailees';	
 	
     SET @ActualRecordCount = @@ROWCOUNT
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
@@ -424,8 +445,9 @@ BEGIN TRY
       ,[BulkInsertBaseWebApiUrl]
       ,[EmailBaseWebApiUrl]
       ,[EmailFromAddress]
+      ,[Emailees]
 */
-    SET @BatchDetailDescription = '190/190:  Populate @ReadDirectory'
+    SET @BatchDetailDescription = '200/200:  Populate @ReadDirectory'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SET @AnticipatedRecordCount = 1;
@@ -447,7 +469,8 @@ BEGIN TRY
         ,@BulkInsertDbTableName AS [BulkInsertDbTableName]
         ,@BulkInsertBaseWebApiUrl AS [BulkInsertBaseWebApiUrl]
         ,@EmailBaseWebApiUrl AS [EmailBaseWebApiUrl]
-        ,@EmailFromAddress AS [EmailFromAddress];	
+        ,@EmailFromAddress AS [EmailFromAddress]	
+        ,@Emailees AS [Emailees];	
 	
     SET @ActualRecordCount = @@ROWCOUNT
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount

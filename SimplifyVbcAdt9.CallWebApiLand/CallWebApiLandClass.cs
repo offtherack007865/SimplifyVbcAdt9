@@ -480,24 +480,213 @@ namespace SimplifyVbcAdt9.CallWebApiLand
             return returnOutput;
         }
 
+        // GET /api/Ops/qy_GetEthinConfig
+        public qy_GetEthinConfigOutput
+                    qy_GetEthinConfig
+                    ()
+        {
+            qy_GetEthinConfigOutput
+                returnOutput =
+                    qy_GetEthinConfigAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<qy_GetEthinConfigOutput>
+                        qy_GetEthinConfigAsync
+                        (
+                        )
+        {
+            log.Info($"In qy_GetNrcConfigAsync");
+            qy_GetEthinConfigOutput
+                returnOutput =
+                    new qy_GetEthinConfigOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/qy_GetEthinConfig";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<qy_GetEthinConfigOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
 
 
+        // GET /api/Ops/dd_Ethin
+        public dd_EthinOutput
+                    dd_Ethin
+                    (
+                    )
+        {
+            dd_EthinOutput
+                returnOutput =
+                    dd_EthinAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<dd_EthinOutput>
+                        dd_EthinAsync
+                        (
+                        )
+        {
+            log.Info($"In dd_EthinAsync");
+            dd_EthinOutput
+                returnOutput =
+                    new dd_EthinOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/dd_Ethin";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<dd_EthinOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
 
 
+        // GET /api/Ops/di_Ethin
+        public di_EthinOutput
+                    di_Ethin
+                    (
+                    )
+        {
+            di_EthinOutput
+                returnOutput =
+                    di_EthinAsync
+                    (
+                    )
+                    .Result;
 
+            return returnOutput;
+        }
 
+        public async Task<di_EthinOutput>
+                        di_EthinAsync
+                        (
+                        )
+        {
+            log.Info($"In di_EthinAsync");
+            di_EthinOutput
+                returnOutput =
+                    new di_EthinOutput();
 
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/di_Ethin";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
 
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<di_EthinOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
 
+            return returnOutput;
+        }
 
+        // GET /api/Ops/qy_GetEthin
+        public qy_GetEthinOutput
+                    qy_GetEthin
+                    (
+                    )
+        {
+            qy_GetEthinOutput
+                returnOutput =
+                    qy_GetEthinAsync
+                    (
+                    )
+                    .Result;
 
+            return returnOutput;
+        }
 
+        public async Task<qy_GetEthinOutput>
+                        qy_GetEthinAsync
+                        (
+                        )
+        {
+            log.Info($"In qy_GetEthinAsync");
+            qy_GetEthinOutput
+                returnOutput =
+                    new qy_GetEthinOutput();
 
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/qy_GetEthin";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
 
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<qy_GetEthinOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
 
-
-
-
-
+            return returnOutput;
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace SimplifyVbcAdt9.Data.Models
         public string BulkInsertBaseWebApiUrl { get; set; }
         public string EmailBaseWebApiUrl { get; set; }
         public string EmailFromAddress { get; set; }
+        public string Emailees { get; set; }
 
     }
 }

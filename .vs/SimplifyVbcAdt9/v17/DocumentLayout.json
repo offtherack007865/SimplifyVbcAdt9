@@ -3,6 +3,54 @@
   "WorkspaceRootPath": "D:\\source\\repos\\SimplifyVbcAdt9\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.ethinconsoleapp\\ethinmainops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|solutionrelative:simplifyvbcadt9.ethinconsoleapp\\ethinmainops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.ethinconsoleapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|solutionrelative:simplifyvbcadt9.ethinconsoleapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|solutionrelative:simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.ethinconsoleapp\\readinethinconfigoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|solutionrelative:simplifyvbcadt9.ethinconsoleapp\\readinethinconfigoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.ethinconsoleapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|solutionrelative:simplifyvbcadt9.ethinconsoleapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.ethinconsoleapp\\simplifyvbcadt9.ethinconsoleapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|solutionrelative:simplifyvbcadt9.ethinconsoleapp\\simplifyvbcadt9.ethinconsoleapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.ethinconsoleapp\\simplifyvbcadt9.ethinconsoleapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|solutionrelative:simplifyvbcadt9.ethinconsoleapp\\simplifyvbcadt9.ethinconsoleapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.data\\models\\qy_getethinconfigoutputcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|solutionrelative:simplifyvbcadt9.data\\models\\qy_getethinconfigoutputcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.data\\models\\ethinmainopsoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|solutionrelative:simplifyvbcadt9.data\\models\\ethinmainopsoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.data\\models\\ethinconfigoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|solutionrelative:simplifyvbcadt9.data\\models\\ethinconfigoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.data\\myconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|solutionrelative:simplifyvbcadt9.data\\myconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.ethinconsoleapp\\log4net.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|solutionrelative:simplifyvbcadt9.ethinconsoleapp\\log4net.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1A4B5586-492D-49EE-A3F0-4FAE58A4A556}|SimplifyVbcAdt9.WebApiLand\\SimplifyVbcAdt9.WebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.webapiland\\controllers\\opscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A4B5586-492D-49EE-A3F0-4FAE58A4A556}|SimplifyVbcAdt9.WebApiLand\\SimplifyVbcAdt9.WebApiLand.csproj|solutionrelative:simplifyvbcadt9.webapiland\\controllers\\opscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,16 +83,8 @@
       "RelativeMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|solutionrelative:simplifyvbcadt9.data\\models\\qy_getethinconfigoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.data\\models\\qy_getethinconfigoutputcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|solutionrelative:simplifyvbcadt9.data\\models\\qy_getethinconfigoutputcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.data\\models\\dd_ethinoutputcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|solutionrelative:simplifyvbcadt9.data\\models\\dd_ethinoutputcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|solutionrelative:simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15521D8C-5F32-4557-BD25-059C48E87E17}|SimplifyVbcAdt9.PointClickCareConsoleApp\\SimplifyVbcAdt9.PointClickCareConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.pointclickcareconsoleapp\\mainops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -81,7 +121,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -113,7 +153,136 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SimplifyVbcAdt9.EthinConsoleApp",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj",
+              "RelativeToolTip": "SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-02T14:37:39.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EthinMainOps.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\EthinMainOps.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.EthinConsoleApp\\EthinMainOps.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\EthinMainOps.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.EthinConsoleApp\\EthinMainOps.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAkwBsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T14:25:20.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EthinMainOpsOutput.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\EthinMainOpsOutput.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\EthinMainOpsOutput.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\EthinMainOpsOutput.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\EthinMainOpsOutput.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAiwCcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T14:03:31.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EthinConfigOptions.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\EthinConfigOptions.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\EthinConfigOptions.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\EthinConfigOptions.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\EthinConfigOptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T14:01:35.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MyConstants.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\MyConstants.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\MyConstants.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\MyConstants.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.Data\\MyConstants.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T14:00:33.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReadInEthinConfigOptions.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\ReadInEthinConfigOptions.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.EthinConsoleApp\\ReadInEthinConfigOptions.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\ReadInEthinConfigOptions.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.EthinConsoleApp\\ReadInEthinConfigOptions.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAASwB4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T13:58:09.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SimplifyVbcAdt9.EthinConsoleApp",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj",
+              "RelativeToolTip": "SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-02T13:55:30.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\appsettings.json",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.EthinConsoleApp\\appsettings.json",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\appsettings.json",
+              "RelativeToolTip": "SimplifyVbcAdt9.EthinConsoleApp\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-02T13:56:06.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "log4net.config",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\log4net.config",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.EthinConsoleApp\\log4net.config",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\log4net.config",
+              "RelativeToolTip": "SimplifyVbcAdt9.EthinConsoleApp\\log4net.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-09-02T13:54:28.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\Program.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.EthinConsoleApp\\Program.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\Program.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.EthinConsoleApp\\Program.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAIwGcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T13:34:47.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "qy_GetEthinOutput.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetEthinOutput.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\qy_GetEthinOutput.cs",
@@ -121,24 +290,25 @@
               "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\qy_GetEthinOutput.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T14:35:57.725Z"
+              "WhenOpened": "2025-08-29T14:35:57.725Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 14,
               "Title": "qy_GetEthinOutputColumns.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetEthinOutputColumns.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\qy_GetEthinOutputColumns.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetEthinOutputColumns.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\qy_GetEthinOutputColumns.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA4wBcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA0wBcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-29T14:29:26.46Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 17,
               "Title": "di_EthinOutput.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\di_EthinOutput.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\di_EthinOutput.cs",
@@ -146,11 +316,12 @@
               "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\di_EthinOutput.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T14:25:08.369Z"
+              "WhenOpened": "2025-08-29T14:25:08.369Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 18,
               "Title": "di_EthinOutputColumns.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\di_EthinOutputColumns.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\di_EthinOutputColumns.cs",
@@ -158,11 +329,12 @@
               "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\di_EthinOutputColumns.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T14:24:24.067Z"
+              "WhenOpened": "2025-08-29T14:24:24.067Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 19,
               "Title": "qy_GetEthinConfigOutput.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetEthinConfigOutput.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\qy_GetEthinConfigOutput.cs",
@@ -170,36 +342,38 @@
               "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\qy_GetEthinConfigOutput.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T14:19:41.457Z"
+              "WhenOpened": "2025-08-29T14:19:41.457Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "qy_GetEthinConfigOutputColumns.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetEthinConfigOutputColumns.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\qy_GetEthinConfigOutputColumns.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetEthinConfigOutputColumns.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\qy_GetEthinConfigOutputColumns.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAQwAgAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T14:14:57.387Z"
+              "WhenOpened": "2025-08-29T14:14:57.387Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 15,
               "Title": "SimplifyVbcAdt8Context.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\SimplifyVbcAdt8Context.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\SimplifyVbcAdt8Context.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\SimplifyVbcAdt8Context.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\SimplifyVbcAdt8Context.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAA1wCIAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAxwCIAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-29T13:33:38.261Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 13,
               "Title": "dd_EthinOutput.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\dd_EthinOutput.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\dd_EthinOutput.cs",
@@ -212,7 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 20,
               "Title": "dd_EthinOutputColumns.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\dd_EthinOutputColumns.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\dd_EthinOutputColumns.cs",
@@ -220,11 +394,12 @@
               "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\dd_EthinOutputColumns.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T13:30:22.188Z"
+              "WhenOpened": "2025-08-29T13:30:22.188Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 22,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.PointClickCareConsoleApp\\appsettings.json",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.PointClickCareConsoleApp\\appsettings.json",
@@ -232,36 +407,38 @@
               "RelativeToolTip": "SimplifyVbcAdt9.PointClickCareConsoleApp\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-11T19:23:27.843Z"
+              "WhenOpened": "2025-08-11T19:23:27.843Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "CallWebApiLandClass.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
-              "ViewState": "AgIAAOEBAAAAAAAAAAArwOkBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAO0BAAAAAAAAAAAewAQCAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T18:44:00.446Z"
+              "WhenOpened": "2025-08-11T18:44:00.446Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 12,
               "Title": "OpsController.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
-              "ViewState": "AgIAANYBAAAAAAAAAAAnwJUCAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAOUBAAAAAAAAAAAnwPEBAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-11T18:41:55.505Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 27,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\appsettings.json",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.WebApiLand\\appsettings.json",
@@ -269,23 +446,25 @@
               "RelativeToolTip": "SimplifyVbcAdt9.WebApiLand\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-11T18:41:14.498Z"
+              "WhenOpened": "2025-08-11T18:41:14.498Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 25,
               "Title": "CallWebApiLand.cs",
               "DocumentMoniker": "D:\\source\\repos\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
               "RelativeDocumentMoniker": "..\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
               "ToolTip": "D:\\source\\repos\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
               "RelativeToolTip": "..\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAIwD0AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAwwD0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T19:31:34.053Z"
+              "WhenOpened": "2025-08-08T19:31:34.053Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 26,
               "Title": "ExcelCellStringValue.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.PointClickCareConsoleApp\\ExcelCellStringValue.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.PointClickCareConsoleApp\\ExcelCellStringValue.cs",
@@ -293,11 +472,12 @@
               "RelativeToolTip": "SimplifyVbcAdt9.PointClickCareConsoleApp\\ExcelCellStringValue.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T13:55:30.938Z"
+              "WhenOpened": "2025-08-08T13:55:30.938Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 23,
               "Title": "CleanInideOfDoubleQuotesInEntireFileReturningFileLineList.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.PointClickCareConsoleApp\\CleanInideOfDoubleQuotesInEntireFileReturningFileLineList.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.PointClickCareConsoleApp\\CleanInideOfDoubleQuotesInEntireFileReturningFileLineList.cs",
@@ -305,11 +485,12 @@
               "RelativeToolTip": "SimplifyVbcAdt9.PointClickCareConsoleApp\\CleanInideOfDoubleQuotesInEntireFileReturningFileLineList.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAD4vyoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T20:54:29.612Z"
+              "WhenOpened": "2025-08-07T20:54:29.612Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "MainOps.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.PointClickCareConsoleApp\\MainOps.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.PointClickCareConsoleApp\\MainOps.cs",
@@ -317,11 +498,12 @@
               "RelativeToolTip": "SimplifyVbcAdt9.PointClickCareConsoleApp\\MainOps.cs",
               "ViewState": "AgIAAPMCAAAAAAAAAAAuwBkDAABkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T20:01:37.474Z"
+              "WhenOpened": "2025-08-07T20:01:37.474Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 24,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.PointClickCareConsoleApp\\Program.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.PointClickCareConsoleApp\\Program.cs",
@@ -329,7 +511,8 @@
               "RelativeToolTip": "SimplifyVbcAdt9.PointClickCareConsoleApp\\Program.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAkwF8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T20:00:54.099Z"
+              "WhenOpened": "2025-08-07T20:00:54.099Z",
+              "EditorCaption": ""
             }
           ]
         }
