@@ -1,0 +1,514 @@
+-- SQL Server Instance:  smg-sql01
+IF (@@SERVERNAME <> 'smg-sql01')
+BEGIN
+PRINT 'Invalid SQL Server Connection'
+RETURN
+END
+
+USE [Utilities];
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('adt.qy_GetEthinConfig'))
+   DROP PROC [adt].[qy_GetEthinConfig]
+GO
+CREATE PROCEDURE [adt].[qy_GetEthinConfig]
+/* -----------------------------------------------------------------------------------------------------------
+   Procedure Name  :  qy_GetEthinConfig
+   Business Analyis:
+   Project/Process :   
+   Description     :  Get configuration settings for the 
+                      'Ethin ADT' application.
+	  
+   Author          :  Philip Morrison 
+   Create Date     :  8/29/2025
+
+   ***********************************************************************************************************
+   **         Change History                                                                                **
+   ***********************************************************************************************************
+
+   Date       Version    Author             Description
+   --------   --------   -----------        ------------
+   8/29/2025  1.01.001   Philip Morrison    Created
+
+*/ -----------------------------------------------------------------------------------------------------------                                   
+
+AS
+BEGIN
+
+  -- KeyValueTable
+  DECLARE @KeyValueTable Table
+  (
+    [Name] [nvarchar] (1000)
+	,[Value] [nvarchar] (1000)
+  );
+  
+  
+  
+  DECLARE @ReadDirectory [nvarchar] (1000) = ''
+  DECLARE @InputFilenameContainsString [nvarchar] (1000) = ''
+  DECLARE @StartLineNumber [int] = 0
+  DECLARE @StartColumnNumber [int] = 0
+  DECLARE @InputFileArchiveDirectory [nvarchar] (1000) = ''
+  DECLARE @OutputFileArchiveDirectory [nvarchar] (1000) = ''
+  DECLARE @ToSimpleFileMoverReadDirectory [nvarchar] (1000) = ''
+  DECLARE @SimplifyVbcAdtBaseWebApiUrl [nvarchar] (1000) = ''
+  DECLARE @ExcelTemplateFullFilename [nvarchar] (1000) = ''
+  DECLARE @ImportArchiveFolder [nvarchar] (1000) = ''
+  DECLARE @BulkInsertConnectionString [nvarchar] (1000) = ''
+  DECLARE @BulkInsertDbName [nvarchar] (1000) = ''
+  DECLARE @BulkInsertDbTableName [nvarchar] (1000) = ''
+  DECLARE @BulkInsertBaseWebApiUrl [nvarchar] (1000) = ''
+  DECLARE @EmailBaseWebApiUrl [nvarchar] (1000) = ''
+  DECLARE @EmailFromAddress [nvarchar] (1000) = ''
+  DECLARE @Emailees [nvarchar] (1000) = ''
+  
+
+-- Template Declarations
+DECLARE @Application            varchar(128) = 'SimplifyVbcAdt' 
+DECLARE @Version                varchar(25)  = '1.00.001'
+
+DECLARE @ProcessID              int          = 0
+DECLARE @Process                varchar(128) = 'Ethin'
+
+DECLARE @BatchOutID             int
+DECLARE @BatchDescription       varchar(1000) = @@ServerName + '  - ' + @Version
+DECLARE @BatchDetailDescription varchar(1000)
+DECLARE @BatchMessage           varchar(MAX)
+DECLARE @User                   varchar(128) = SUSER_NAME()
+
+DECLARE @AnticipatedRecordCount int 
+DECLARE @ActualRecordCount      int
+
+SET NOCOUNT ON
+
+BEGIN TRY
+
+--  Initialize Batch
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  NULL, 'BatchStart', @BatchDescription, @ProcessID, @Process
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+    SET @BatchDetailDescription = '010/200:  Populate KeyValueTable with call to [administration].[qy_GetApplicationSettings]'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+	                                   FROM @KeyValueTable;
+	  
+      -- Populate KeyValueTable with call to [administration].[qy_GetApplicationSettings]
+      INSERT INTO @KeyValueTable
+      (
+        [Name]
+	    ,[Value]
+      )
+      EXEC [Admin].[Utilities].[administration].[qy_GetApplicationSettings] 'SimplifyVbcAdt', 'Default', 'Ethin', NULL, 'AppUser';
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+    [ReadDirectory]
+*/
+    SET @BatchDetailDescription = '020/200:  Populate @ReadDirectory'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'ReadDirectory';	
+	  
+      -- Populate @ReadDirectory
+      SELECT @ReadDirectory = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'ReadDirectory';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[InputFilenameContainsString]
+*/
+    SET @BatchDetailDescription = '030/200:  Populate @InputFilenameContainsString'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'InputFilenameContainsString';	
+	  
+      -- Populate @InputFilenameContainsString
+      SELECT @InputFilenameContainsString = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'InputFilenameContainsString';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[StartLineNumber]
+*/
+    SET @BatchDetailDescription = '040/200:  Populate @StartLineNumber'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'StartLineNumber';	
+	  
+      -- Populate @StartLineNumber
+      SELECT @StartLineNumber = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'StartLineNumber';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*	
+      ,[StartColumnNumber]
+*/
+    SET @BatchDetailDescription = '050/200:  Populate @StartColumnNumber'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'StartColumnNumber';	
+	  
+      -- Populate @StartColumnNumber
+      SELECT @StartColumnNumber = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'StartColumnNumber';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[InputFileArchiveDirectory]
+*/
+    SET @BatchDetailDescription = '060/200:  Populate @InputFileArchiveDirectory'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'InputFileArchiveDirectory';	
+	  
+      -- Populate @InputFileArchiveDirectory
+      SELECT @InputFileArchiveDirectory = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'InputFileArchiveDirectory';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[OutputFileArchiveDirectory]
+*/
+    SET @BatchDetailDescription = '070/200:  Populate @OutputFileArchiveDirectory'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'OutputFileArchiveDirectory';	
+	  
+      -- Populate @OutputFileArchiveDirectory
+      SELECT @OutputFileArchiveDirectory = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'OutputFileArchiveDirectory';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[ToSimpleFileMoverReadDirectory]
+*/
+    SET @BatchDetailDescription = '080/200:  Populate @ToSimpleFileMoverReadDirectory'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'ToSimpleFileMoverReadDirectory';	
+	  
+      -- Populate @ToSimpleFileMoverReadDirectory
+      SELECT @ToSimpleFileMoverReadDirectory = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'ToSimpleFileMoverReadDirectory';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[SimplifyVbcAdtBaseWebApiUrl]
+*/
+    SET @BatchDetailDescription = '090/200:  Populate @SimplifyVbcAdtBaseWebApiUrl'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'SimplifyVbcAdtBaseWebApiUrl';	
+	  
+      -- Populate @SimplifyVbcAdtBaseWebApiUrl
+      SELECT @SimplifyVbcAdtBaseWebApiUrl = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'SimplifyVbcAdtBaseWebApiUrl';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[ExcelTemplateFullFilename]
+*/
+    SET @BatchDetailDescription = '100/200:  Populate @ExcelTemplateFullFilename'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'ExcelTemplateFullFilename';	
+	  
+      -- Populate @ExcelTemplateFullFilename
+      SELECT @ExcelTemplateFullFilename = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'ExcelTemplateFullFilename';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[ImportArchiveFolder]
+*/
+    SET @BatchDetailDescription = '110/200:  Populate @ImportArchiveFolder'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'ImportArchiveFolder';	
+	  
+      -- Populate @ImportArchiveFolder
+      SELECT @ImportArchiveFolder = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'ImportArchiveFolder';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[BulkInsertConnectionString]
+*/
+    SET @BatchDetailDescription = '130/200:  Populate @BulkInsertConnectionString'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'BulkInsertConnectionString';	
+	  
+      -- Populate @BulkInsertConnectionString
+      SELECT @BulkInsertConnectionString = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'BulkInsertConnectionString';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[BulkInsertDbName]
+*/
+    SET @BatchDetailDescription = '140/200:  Populate @BulkInsertDbName'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'BulkInsertDbName';	
+	  
+      -- Populate @BulkInsertDbName
+      SELECT @BulkInsertDbName = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'BulkInsertDbName';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[BulkInsertDbTableName]
+*/
+    SET @BatchDetailDescription = '150/200:  Populate @BulkInsertDbTableName'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'BulkInsertDbTableName';	
+	  
+      -- Populate @BulkInsertDbTableName
+      SELECT @BulkInsertDbTableName = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'BulkInsertDbTableName';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[BulkInsertBaseWebApiUrl]
+*/
+    SET @BatchDetailDescription = '160/200:  Populate @BulkInsertBaseWebApiUrl'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'BulkInsertBaseWebApiUrl';	
+	  
+      -- Populate @BulkInsertBaseWebApiUrl
+      SELECT @BulkInsertBaseWebApiUrl = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'BulkInsertBaseWebApiUrl';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[EmailBaseWebApiUrl]
+*/
+    SET @BatchDetailDescription = '170/200:  Populate @EmailBaseWebApiUrl'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'EmailBaseWebApiUrl';	
+	  
+      -- Populate @EmailBaseWebApiUrl
+      SELECT @EmailBaseWebApiUrl = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'EmailBaseWebApiUrl';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+      ,[EmailFromAddress]
+*/
+    SET @BatchDetailDescription = '180/200:  Populate @EmailFromAddress'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'EmailFromAddress';	
+	  
+      -- Populate @EmailFromAddress
+      SELECT @EmailFromAddress = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'EmailFromAddress';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*	
+      ,[Emailees]
+*/
+    SET @BatchDetailDescription = '190/200:  Populate @Emailees'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SELECT @AnticipatedRecordCount = COUNT(*)
+      FROM @KeyValueTable
+      WHERE [Name] = 'Emailees';	
+	  
+      -- Populate @Emailees
+      SELECT @Emailees = [Value]
+      FROM @KeyValueTable
+      WHERE [Name] = 'Emailees';	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/*	
+    [ReadDirectory]
+      ,[InputFilenameContainsString]
+      ,[StartLineNumber]
+      ,[StartColumnNumber]
+      ,[InputFileArchiveDirectory]
+      ,[OutputFileArchiveDirectory]
+      ,[ToSimpleFileMoverReadDirectory]
+      ,[SimplifyVbcAdtBaseWebApiUrl]
+      ,[ExcelTemplateFullFilename]
+      ,[ImportArchiveFolder]
+      ,[BulkInsertConnectionString]
+      ,[BulkInsertDbName]
+      ,[BulkInsertDbTableName]
+      ,[BulkInsertBaseWebApiUrl]
+      ,[EmailBaseWebApiUrl]
+      ,[EmailFromAddress]
+      ,[Emailees]
+*/
+    SET @BatchDetailDescription = '200/200:  Populate @ReadDirectory'
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
+	
+	  SET @AnticipatedRecordCount = 1;
+	  
+      -- Output 
+      SELECT 
+        @ReadDirectory AS [ReadDirectory]
+        ,@InputFilenameContainsString AS [InputFilenameContainsString]
+        ,@StartLineNumber AS [StartLineNumber]
+        ,@StartColumnNumber AS [StartColumnNumber]
+        ,@InputFileArchiveDirectory AS [InputFileArchiveDirectory]
+        ,@OutputFileArchiveDirectory AS [OutputFileArchiveDirectory]
+        ,@ToSimpleFileMoverReadDirectory AS [ToSimpleFileMoverReadDirectory]
+        ,@SimplifyVbcAdtBaseWebApiUrl AS [SimplifyVbcAdtBaseWebApiUrl]
+        ,@ExcelTemplateFullFilename AS [ExcelTemplateFullFilename]
+        ,@ImportArchiveFolder AS [ImportArchiveFolder]
+        ,@BulkInsertConnectionString AS [BulkInsertConnectionString]
+        ,@BulkInsertDbName AS [BulkInsertDbName]
+        ,@BulkInsertDbTableName AS [BulkInsertDbTableName]
+        ,@BulkInsertBaseWebApiUrl AS [BulkInsertBaseWebApiUrl]
+        ,@EmailBaseWebApiUrl AS [EmailBaseWebApiUrl]
+        ,@EmailFromAddress AS [EmailFromAddress]	
+        ,@Emailees AS [Emailees];	
+	
+    SET @ActualRecordCount = @@ROWCOUNT
+    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+--  Close batch
+    EXEC Admin.Utilities.logs.di_batch @BatchOutID OUTPUT, @BatchOutID, 'BatchEnd'
+
+END TRY
+
+
+BEGIN CATCH
+DECLARE @Err              int
+     ,  @ErrorMessage     varchar(Max)
+     ,  @ErrorLine        varchar(128)
+     ,  @Workstation      varchar(128) = @Application
+     ,  @Procedure        VARCHAR(500)
+
+    IF ERROR_NUMBER() IS NULL 
+      SET @Err =0;
+    ELSE
+      SET @Err = ERROR_NUMBER();
+
+    SET @ErrorMessage = ERROR_MESSAGE()
+    SET @ErrorLine    = 'SP Line Number: ' + CAST(ERROR_LINE() as varchar(10)) 
+    
+	SET @Workstation  = HOST_NAME()
+	
+    SET @Procedure    = @@SERVERNAME + '.' + DB_NAME() + '.' + OBJECT_SCHEMA_NAME(@@ProcID) + '.' + OBJECT_NAME(@@ProcID) + ' - ' + @ErrorLine + ' - ' + LEFT(@BatchDetailDescription, 7)
+    EXEC Admin.Utilities.administration.di_ErrorLog  @Application ,@Process, @Version ,0, @ErrorMessage, @Procedure,  @User , @Workstation
+
+    SET @BatchMessage = 'Process Failed:  ' +  @ErrorMessage
+    EXEC Admin.Utilities.logs.di_batch @BatchOutID OUTPUT, @BatchOutID, 'BatchEnd', @BatchMessage
+	
+    RAISERROR(@ErrorMessage, 16,1)
+
+END CATCH
+
+
+END

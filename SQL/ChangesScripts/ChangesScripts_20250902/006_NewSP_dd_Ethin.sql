@@ -1,20 +1,20 @@
 -- SQL Server Instance:  smg-sql01
-IF (@@SERVERNAME <> 'smg-dsdev05')
+IF (@@SERVERNAME <> 'smg-sql01')
 BEGIN
 PRINT 'Invalid SQL Server Connection'
 RETURN
 END
 
 USE [Utilities];
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('adt.di_Ethin'))
-   DROP PROC [adt].[di_Ethin]
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('adt.dd_Ethin'))
+   DROP PROC [adt].[dd_Ethin]
 GO
-CREATE PROCEDURE [adt].[di_Ethin]
+CREATE PROCEDURE [adt].[dd_Ethin]
 /* -----------------------------------------------------------------------------------------------------------
-   Procedure Name  :  di_Ethin
+   Procedure Name  :  dd_Ethin
    Business Analyis:
    Project/Process :   
-   Description     :  Finalize Staging Ethin table.
+   Description     :  Truncate Staging Ethin table.
 	  
    Author          :  Philip Morrison 
    Create Date     :  8/27/2025
@@ -61,93 +61,30 @@ BEGIN TRY
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  NULL, 'BatchStart', @BatchDescription, @ProcessID, @Process
  ----------------------------------------------------------------------------------------------------------------------------------------------------
 
-    SET @BatchDetailDescription = '010/020:  Truncate Ethin'
-    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
-	
-	  SELECT @AnticipatedRecordCount = COUNT(*)
-	                                   FROM [SimplifyVbcAdt8].[dbo].[Ethin];
-	  
-    -- Truncate Ethin
-    TRUNCATE TABLE [SimplifyVbcAdt8].[dbo].[Ethin];
-    
-    SET @ActualRecordCount = @@ROWCOUNT
-    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
-----------------------------------------------------------------------------------------------------------------------------------------------------
-
-    SET @BatchDetailDescription = '020/030:  Copy Staging Ethin to SimplifyVbcAdt Ethin'
+    SET @BatchDetailDescription = '010/020:  Truncate Staging Ethin'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
 	                                   FROM [Staging].[adt].[Ethin];
 	  
-      -- Copy Staging Ethin to SimplifyVbcAdt Ethin
-      INSERT INTO [SimplifyVbcAdt8].[dbo].[Ethin]
-      (
-         [SummitMrn]
-         ,[PatientClass]
-         ,[MessageTime]
-         ,[LastName]
-         ,[FirstName]
-         ,[MiddleName]
-         ,[Suffix]
-         ,[Gender]
-         ,[DateOfBirth]
-         ,[DateOfDeath]
-         ,[SendingFacility]
-         ,[AdmitTime]
-         ,[DischargeTime]
-         ,[AttendingProvider]
-         ,[PrimaryCareProvider]
-         ,[AdmitSource]
-         ,[AdmitReason]
-         ,[DischargeStatus]
-         ,[FinalDiagnosesList]
-         ,[Insurance]
-         ,[AdmitOrDischarge]
-         ,[SourceFullFilename]
-    )
-    select
-         [SummitMrn]
-         ,REPLACE([PatientClass],'^', ',')
-         ,CONVERT([datetime], [MessageTime], 121)
-         ,[LastName]
-         ,[FirstName]
-         ,[MiddleName]
-         ,[Suffix]
-         ,[Gender]
-         ,CONVERT([datetime], [DateOfBirth], 121)
-         ,CONVERT([datetime], [DateOfDeath], 121)
-         ,REPLACE([SendingFacility],'^', ',')
-         ,CONVERT([datetime], [AdmitTime], 121)
-         ,CONVERT([datetime], [DischargeTime], 121)
-         ,REPLACE([AttendingProvider],'^', ',')
-         ,REPLACE([PrimaryCareProvider],'^', ',')
-         ,REPLACE([AdmitSource],'^', ',')
-         ,REPLACE([AdmitReason],'^', ',')
-         ,REPLACE([DischargeStatus],'^', ',')
-         ,REPLACE([FinalDiagnosesList],'^', ',')
-         ,REPLACE([Insurance],'^', ',')
-         ,[AdmitOrDischarge]
-         ,[SourceFullFilename]
- FROM [Staging].[adt].[Ethin]
- WHERE [DischargeTime] IS NOT NULL
-   AND [DischargeTime] <> CONVERT(datetime, '19000101', 112)
+    -- Truncate Staging Ethin
+    TRUNCATE TABLE [Staging].[adt].[Ethin];
     
     SET @ActualRecordCount = @@ROWCOUNT
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
-    SET @BatchDetailDescription = '030/030:  Send Output that Finalize worked.'
+    SET @BatchDetailDescription = '020/020:  Send Output that Truncate worked.'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = 1;
 	
-    -- Did Finalize work
+    -- Did Truncate work
     SELECT @MyRecordCount = COUNT(*)
-                            FROM [SimplifyVbcAdt8].[dbo].[Ethin];
+                            FROM [Staging].[adt].[Ethin];
     
     -- Send Output indication of whether Truncate worked.
-    IF @MyRecordCount > 0 BEGIN
+    IF @MyRecordCount = 0 BEGIN
       SET @IsOk = 1;
     END
     ELSE BEGIN

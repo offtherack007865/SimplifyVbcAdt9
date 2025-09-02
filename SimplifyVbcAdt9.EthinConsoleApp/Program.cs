@@ -109,12 +109,9 @@ namespace SimplifyVbcAdt9.EthinConsoleApp
                             .qy_GetEthinConfigOutputColumnsList[0]
                         );
 
-            //EthinMainOpsOutput
-            //    myEthinMainOpsOutput =
-            //        myEthinMainOps.DoIt();
             EthinMainOpsOutput
-                myEthinMainOpsOutput = 
-                    new EthinMainOpsOutput();
+                myEthinMainOpsOutput =
+                    myEthinMainOps.DoIt();
             if (!myEthinMainOpsOutput.IsOk)
             {
                 log.Error(myEthinMainOpsOutput.ErrorMessage);

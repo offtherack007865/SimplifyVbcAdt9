@@ -1,0 +1,62 @@
+-- SQL Instance Name:  smg-sql01
+IF (@@SERVERNAME <> 'smg-sql01')
+BEGIN
+PRINT 'Invalid SQL Server Connection'
+RETURN
+END
+
+USE [Staging];
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Ethin' AND TABLE_SCHEMA = 'adt')
+   DROP TABLE [adt].[Ethin];
+GO
+/* -----------------------------------------------------------------------------------------------------------
+   Table Name  :  Ethin
+   Business Analyis:
+   Project/Process :   
+   Description     :  The Staging table for the Ethin ADT Input file
+                        
+   Author          :   Philip Morrison
+   Create Date     :   8/27/2025 
+
+   ***********************************************************************************************************
+   **         Change History                                                                                **
+   ***********************************************************************************************************
+
+   Date       Version    Author             Description
+   --------   --------   -----------        ------------
+   8/27/2025   1.01.001   Philip Morrison    Created
+*/ -----------------------------------------------------------------------------------------------------------                                   
+
+
+CREATE TABLE [adt].[Ethin](
+    [EthinID] [int] IDENTITY(1,1) NOT NULL
+    ,[SummitMrn] [nvarchar] (MAX) NOT NULL
+	,[PatientClass] [nvarchar] (MAX) NOT NULL
+	,[MessageTime] [nvarchar] (MAX) NOT NULL
+	,[LastName] [nvarchar] (MAX) NOT NULL
+	,[FirstName] [nvarchar] (MAX) NOT NULL
+	,[MiddleName] [nvarchar] (MAX) NOT NULL
+	,[Suffix] [nvarchar] (MAX) NOT NULL
+	,[Gender] [nvarchar] (MAX) NOT NULL
+	,[DateOfBirth] [nvarchar] (MAX) NOT NULL
+	,[DateOfDeath] [nvarchar] (MAX) NOT NULL
+	,[SendingFacility] [nvarchar] (MAX) NOT NULL
+	,[AdmitTime] [nvarchar] (MAX) NOT NULL
+	,[DischargeTime] [nvarchar] (MAX) NOT NULL
+	,[AttendingProvider] [nvarchar] (MAX) NOT NULL
+	,[PrimaryCareProvider] [nvarchar] (MAX) NOT NULL
+	,[AdmitSource] [nvarchar] (MAX) NOT NULL
+	,[AdmitReason]  [nvarchar] (MAX) NOT NULL
+	,[DischargeStatus]  [nvarchar] (MAX) NOT NULL
+	,[FinalDiagnosesList]  [nvarchar] (MAX) NOT NULL
+	,[Insurance] [nvarchar] (MAX) NOT NULL
+		
+	,[AdmitOrDischarge] [nvarchar] (MAX) NOT NULL
+
+	,[SourceFullFilename] [nvarchar] (MAX) NOT NULL  
+
+CONSTRAINT [PK_adtEthin] PRIMARY KEY CLUSTERED 
+(
+	[EthinID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
