@@ -37,8 +37,34 @@ public partial class SimplifyVbcAdt8Context : DbContext
 
     public virtual DbSet<di_EthinOutputColumns> di_EthinOutputColumnsList { get; set; }
     public virtual DbSet<qy_GetEthinOutputColumns> qy_GetEthinOutputColumnsList { get; set; }
+
+    public virtual DbSet<qy_GetHumanaConfigOutputColumns> qy_GetHumanaConfigOutputColumnsList { get; set; }
+    public virtual DbSet<dd_HumanaOutputColumns> dd_HumanaOutputColumnsList { get; set; }
+    public virtual DbSet<di_HumanaOutputColumns> di_HumanaOutputColumnsList { get; set; }
+
+    public virtual DbSet<qy_GetHumanaOutputColumns> qy_GetHumanaOutputColumnsList { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<qy_GetHumanaOutputColumns>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<di_HumanaOutputColumns>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<dd_HumanaOutputColumns>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<qy_GetHumanaConfigOutputColumns>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
         modelBuilder.Entity<qy_GetEthinOutputColumns>(entity =>
         {
             entity.HasNoKey();

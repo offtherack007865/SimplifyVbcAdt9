@@ -4,6 +4,10 @@ BEGIN
 PRINT 'Invalid SQL Server Connection'
 RETURN
 END
+
+USE [BulkInsert8];
+
+
 /*CREATE TABLE [dbo].[Ethin](
 	[EthinID] [int] IDENTITY(1,1) NOT NULL
     ,[SummitMrn] [nvarchar] (255) NOT NULL

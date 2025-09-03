@@ -684,6 +684,206 @@ namespace SimplifyVbcAdt9.WebApiLand.Controllers
 
 
 
+        // GET /api/Ops/qy_GetHumanaConfig
+        [HttpGet]
+        public qy_GetHumanaConfigOutput
+                    qy_GetHumanaConfig
+                    ()
+        {
+            qy_GetHumanaConfigOutput
+                returnOutput =
+                    new qy_GetHumanaConfigOutput();
+
+            string sql = $"adt.qy_GetHumanaConfig";
+
+            List<SqlParameter> parms = new List<SqlParameter>();
+
+            try
+            {
+                returnOutput.qy_GetHumanaConfigOutputColumnsList =
+                    MyContext
+                    .qy_GetHumanaConfigOutputColumnsList
+                    .FromSqlRaw<qy_GetHumanaConfigOutputColumns>
+                    (
+                          sql
+                        , parms.ToArray()
+                    )
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  InnerException:  {ex.InnerException.Message}";
+                }
+                returnOutput.ErrorMessage = myErrorMessage;
+                return returnOutput;
+            }
+            return returnOutput;
+        }
+
+        // GET /api/Ops/dd_Humana
+        [HttpGet]
+        public dd_HumanaOutput
+                    dd_Humana
+                    (
+                    )
+        {
+            dd_HumanaOutput
+                returnOutput =
+                    new dd_HumanaOutput();
+
+            string sql = $"adt.dd_Humana";
+
+            List<SqlParameter> parms = new List<SqlParameter>();
+
+            try
+            {
+                returnOutput.dd_HumanaOutputColumnsList =
+                    MyContext
+                    .dd_HumanaOutputColumnsList
+                    .FromSqlRaw<dd_HumanaOutputColumns>
+                    (
+                          sql
+                        , parms.ToArray()
+                    )
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  InnerException:  {ex.InnerException.Message}";
+                }
+                returnOutput.ErrorMessage = myErrorMessage;
+                return returnOutput;
+            }
+            return returnOutput;
+        }
+
+        // GET /api/Ops/di_Humana
+        [HttpGet]
+        public di_HumanaOutput
+                    di_Humana
+                    (
+                    )
+        {
+            di_HumanaOutput
+                returnOutput =
+                    new di_HumanaOutput();
+
+            string sql = $"adt.di_Humana";
+
+            List<SqlParameter> parms = new List<SqlParameter>();
+
+            try
+            {
+                returnOutput.di_HumanaOutputColumnsList =
+                    MyContext
+                    .di_HumanaOutputColumnsList
+                    .FromSqlRaw<di_HumanaOutputColumns>
+                    (
+                          sql
+                        , parms.ToArray()
+                    )
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  InnerException:  {ex.InnerException.Message}";
+                }
+                returnOutput.ErrorMessage = myErrorMessage;
+                return returnOutput;
+            }
+            return returnOutput;
+        }
+
+        // GET /api/Ops/qy_GetHumana
+        [HttpGet]
+        public qy_GetHumanaOutput
+                    qy_GetHumana
+                    (
+                    )
+        {
+            qy_GetHumanaOutput
+                returnOutput =
+                    new qy_GetHumanaOutput();
+
+            string sql = $"adt.qy_GetHumana";
+
+            List<SqlParameter> parms = new List<SqlParameter>();
+
+            try
+            {
+                returnOutput.qy_GetHumanaOutputColumnsList =
+                    MyContext
+                    .qy_GetHumanaOutputColumnsList
+                    .FromSqlRaw<qy_GetHumanaOutputColumns>
+                    (
+                          sql
+                        , parms.ToArray()
+                    )
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  InnerException:  {ex.InnerException.Message}";
+                }
+                returnOutput.ErrorMessage = myErrorMessage;
+                return returnOutput;
+            }
+            return returnOutput;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
