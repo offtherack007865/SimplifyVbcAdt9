@@ -688,5 +688,424 @@ namespace SimplifyVbcAdt9.CallWebApiLand
 
             return returnOutput;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // GET /api/Ops/qy_GetHumanaConfig
+        public qy_GetHumanaConfigOutput
+                    qy_GetHumanaConfig
+                    ()
+        {
+            qy_GetHumanaConfigOutput
+                returnOutput =
+                    qy_GetHumanaConfigAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<qy_GetHumanaConfigOutput>
+                        qy_GetHumanaConfigAsync
+                        (
+                        )
+        {
+            log.Info($"In qy_GetNrcConfigAsync");
+            qy_GetHumanaConfigOutput
+                returnOutput =
+                    new qy_GetHumanaConfigOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/qy_GetHumanaConfig";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<qy_GetHumanaConfigOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
+
+
+        // GET /api/Ops/dd_Humana
+        public dd_HumanaOutput
+                    dd_Humana
+                    (
+                    )
+        {
+            dd_HumanaOutput
+                returnOutput =
+                    dd_HumanaAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<dd_HumanaOutput>
+                        dd_HumanaAsync
+                        (
+                        )
+        {
+            log.Info($"In dd_HumanaAsync");
+            dd_HumanaOutput
+                returnOutput =
+                    new dd_HumanaOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/dd_Humana";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<dd_HumanaOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
+
+
+        // GET /api/Ops/di_Humana
+        public di_HumanaOutput
+                    di_Humana
+                    (
+                    )
+        {
+            di_HumanaOutput
+                returnOutput =
+                    di_HumanaAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<di_HumanaOutput>
+                        di_HumanaAsync
+                        (
+                        )
+        {
+            log.Info($"In di_HumanaAsync");
+            di_HumanaOutput
+                returnOutput =
+                    new di_HumanaOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/di_Humana";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<di_HumanaOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
+
+        // GET /api/Ops/qy_GetHumana
+        public qy_GetHumanaOutput
+                    qy_GetHumana
+                    (
+                    )
+        {
+            qy_GetHumanaOutput
+                returnOutput =
+                    qy_GetHumanaAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<qy_GetHumanaOutput>
+                        qy_GetHumanaAsync
+                        (
+                        )
+        {
+            log.Info($"In qy_GetHumanaAsync");
+            qy_GetHumanaOutput
+                returnOutput =
+                    new qy_GetHumanaOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/qy_GetHumana";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<qy_GetHumanaOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        // GET /api/Ops/dd_HumanaObs
+        public dd_HumanaObsOutput
+                    dd_HumanaObs
+                    (
+                    )
+        {
+            dd_HumanaObsOutput
+                returnOutput =
+                    dd_HumanaObsAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<dd_HumanaObsOutput>
+                        dd_HumanaObsAsync
+                        (
+                        )
+        {
+            log.Info($"In dd_HumanaObsAsync");
+            dd_HumanaObsOutput
+                returnOutput =
+                    new dd_HumanaObsOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/dd_HumanaObs";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<dd_HumanaObsOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
+
+
+        // GET /api/Ops/di_HumanaObs
+        public di_HumanaObsOutput
+                    di_HumanaObs
+                    (
+                    )
+        {
+            di_HumanaObsOutput
+                returnOutput =
+                    di_HumanaObsAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<di_HumanaObsOutput>
+                        di_HumanaObsAsync
+                        (
+                        )
+        {
+            log.Info($"In di_HumanaObsAsync");
+            di_HumanaObsOutput
+                returnOutput =
+                    new di_HumanaObsOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/di_HumanaObs";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<di_HumanaObsOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
+
+        // GET /api/Ops/qy_GetHumanaObs
+        public qy_GetHumanaObsOutput
+                    qy_GetHumanaObs
+                    (
+                    )
+        {
+            qy_GetHumanaObsOutput
+                returnOutput =
+                    qy_GetHumanaObsAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<qy_GetHumanaObsOutput>
+                        qy_GetHumanaObsAsync
+                        (
+                        )
+        {
+            log.Info($"In qy_GetHumanaObsAsync");
+            qy_GetHumanaObsOutput
+                returnOutput =
+                    new qy_GetHumanaObsOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/qy_GetHumanaObs";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<qy_GetHumanaObsOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

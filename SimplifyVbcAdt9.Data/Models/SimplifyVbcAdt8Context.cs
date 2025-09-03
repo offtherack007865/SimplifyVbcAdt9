@@ -43,8 +43,27 @@ public partial class SimplifyVbcAdt8Context : DbContext
     public virtual DbSet<di_HumanaOutputColumns> di_HumanaOutputColumnsList { get; set; }
 
     public virtual DbSet<qy_GetHumanaOutputColumns> qy_GetHumanaOutputColumnsList { get; set; }
+
+    public virtual DbSet<dd_HumanaObsOutputColumns> dd_HumanaObsOutputColumnsList { get; set; }
+    public virtual DbSet<di_HumanaObsOutputColumns> di_HumanaObsOutputColumnsList { get; set; }
+    public virtual DbSet<qy_GetHumanaObsOutputColumns> qy_GetHumanaObsOutputColumnsList { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<qy_GetHumanaObsOutputColumns>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<di_HumanaObsOutputColumns>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<dd_HumanaObsOutputColumns>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
         modelBuilder.Entity<qy_GetHumanaOutputColumns>(entity =>
         {
             entity.HasNoKey();

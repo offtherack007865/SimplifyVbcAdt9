@@ -877,6 +877,164 @@ namespace SimplifyVbcAdt9.WebApiLand.Controllers
 
 
 
+        // GET /api/Ops/dd_HumanaObs
+        [HttpGet]
+        public dd_HumanaObsOutput
+                    dd_HumanaObs
+                    (
+                    )
+        {
+            dd_HumanaObsOutput
+                returnOutput =
+                    new dd_HumanaObsOutput();
+
+            string sql = $"adt.dd_HumanaObs";
+
+            List<SqlParameter> parms = new List<SqlParameter>();
+
+            try
+            {
+                returnOutput.dd_HumanaObsOutputColumnsList =
+                    MyContext
+                    .dd_HumanaObsOutputColumnsList
+                    .FromSqlRaw<dd_HumanaObsOutputColumns>
+                    (
+                          sql
+                        , parms.ToArray()
+                    )
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  InnerException:  {ex.InnerException.Message}";
+                }
+                returnOutput.ErrorMessage = myErrorMessage;
+                return returnOutput;
+            }
+            return returnOutput;
+        }
+
+        // GET /api/Ops/di_HumanaObs
+        [HttpGet]
+        public di_HumanaObsOutput
+                    di_HumanaObs
+                    (
+                    )
+        {
+            di_HumanaObsOutput
+                returnOutput =
+                    new di_HumanaObsOutput();
+
+            string sql = $"adt.di_HumanaObs";
+
+            List<SqlParameter> parms = new List<SqlParameter>();
+
+            try
+            {
+                returnOutput.di_HumanaObsOutputColumnsList =
+                    MyContext
+                    .di_HumanaObsOutputColumnsList
+                    .FromSqlRaw<di_HumanaObsOutputColumns>
+                    (
+                          sql
+                        , parms.ToArray()
+                    )
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  InnerException:  {ex.InnerException.Message}";
+                }
+                returnOutput.ErrorMessage = myErrorMessage;
+                return returnOutput;
+            }
+            return returnOutput;
+        }
+
+        // GET /api/Ops/qy_GetHumanaObs
+        [HttpGet]
+        public qy_GetHumanaObsOutput
+                    qy_GetHumanaObs
+                    (
+                    )
+        {
+            qy_GetHumanaObsOutput
+                returnOutput =
+                    new qy_GetHumanaObsOutput();
+
+            string sql = $"adt.qy_GetHumanaObs";
+
+            List<SqlParameter> parms = new List<SqlParameter>();
+
+            try
+            {
+                returnOutput.qy_GetHumanaObsOutputColumnsList =
+                    MyContext
+                    .qy_GetHumanaObsOutputColumnsList
+                    .FromSqlRaw<qy_GetHumanaObsOutputColumns>
+                    (
+                          sql
+                        , parms.ToArray()
+                    )
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  InnerException:  {ex.InnerException.Message}";
+                }
+                returnOutput.ErrorMessage = myErrorMessage;
+                return returnOutput;
+            }
+            return returnOutput;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -65,10 +65,10 @@ BEGIN TRY
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
-	                                   FROM [dbo].[Humana];
+	                                   FROM [SimplifyVbcAdt8].[dbo].[Humana];
 	  
     -- Truncate Humana
-    TRUNCATE TABLE [dbo].[Humana];
+    TRUNCATE TABLE [SimplifyVbcAdt8].[dbo].[Humana];
     
     SET @ActualRecordCount = @@ROWCOUNT
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
@@ -80,7 +80,7 @@ BEGIN TRY
 	  SELECT @AnticipatedRecordCount = COUNT(*)
 	                                   FROM [Staging].[adt].[Humana];
 	  
-     INSERT INTO [dbo].[Humana]
+     INSERT INTO [SimplifyVbcAdt8].[dbo].[Humana]
      (
         [RptDt]
         ,[Type]
@@ -178,7 +178,7 @@ BEGIN TRY
        ,[Gender]
        ,[AdmitOrDischarge]
        ,[SourceFullFilename]
-    FROM [Staging].[adt].[HumanaRaw]
+    FROM [Staging].[adt].[Humana]
     
     SET @ActualRecordCount = @@ROWCOUNT
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
@@ -191,7 +191,7 @@ BEGIN TRY
 	
     -- Did Finalize work
     SELECT @MyRecordCount = COUNT(*)
-                            FROM [dbo].[Ethin];
+                            FROM [SimplifyVbcAdt8].[dbo].[Humana];
     
     -- Send Output indication of whether Truncate worked.
     IF @MyRecordCount > 0 BEGIN
