@@ -7,22 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimplifyVbcAdt9.EthinConsoleApp
+namespace SimplifyVbcAdt9.HumanaConsoleApp
 {
-    public class ReadInEthinConfigOptions
+    public class ReadInHumanaConfigOptions
     {
-        public ReadInEthinConfigOptions(IConfiguration myConfig)
+        public ReadInHumanaConfigOptions(IConfiguration myConfig)
         {
             MyConfig = myConfig;
         }
 
         public Microsoft.Extensions.Configuration.IConfiguration MyConfig { get; set; }
 
-        public EthinConfigOptions ReadIn()
+        public HumanaConfigOptions ReadIn()
         {
-            EthinConfigOptions
+            HumanaConfigOptions
                 returnConfigOptions =
-                new EthinConfigOptions();
+                new HumanaConfigOptions();
 
             returnConfigOptions.ConfigOptionsBaseWebUrl =
                 MyConfig.GetValue<string>(MyConstants.BaseWebUrl);
@@ -30,4 +30,5 @@ namespace SimplifyVbcAdt9.EthinConsoleApp
             return returnConfigOptions;
         }
     }
+
 }
