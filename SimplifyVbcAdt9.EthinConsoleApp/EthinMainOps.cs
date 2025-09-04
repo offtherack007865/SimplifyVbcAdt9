@@ -84,14 +84,14 @@ namespace SimplifyVbcAdt9.EthinConsoleApp
             // If the filename already exists in the "already imported archive", do nothing.
             string inputAlreadyImportedFullFilename =
                 Path.Combine(Myqy_GetEthinConfigOutputColumns.ImportArchiveFolder, inputFullFilenameFi.Name);
-            //if (File.Exists(inputAlreadyImportedFullFilename))
-            //{
-            //    if (File.Exists(inputFullFilename))
-            //    {
-            //        File.Delete(inputFullFilename);
-            //    }
-            //    return returnOutput;
-            //}
+            if (File.Exists(inputAlreadyImportedFullFilename))
+            {
+                if (File.Exists(inputFullFilename))
+                {
+                    File.Delete(inputFullFilename);
+                }
+                return returnOutput;
+            }
 
             // new etHIN filename:  etHIN Discharges MM.dd.yy-MM.dd.yy.xslx
             string newEthinFilename =
