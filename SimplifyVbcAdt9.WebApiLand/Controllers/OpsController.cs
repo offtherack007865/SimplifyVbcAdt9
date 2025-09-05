@@ -809,18 +809,18 @@ namespace SimplifyVbcAdt9.WebApiLand.Controllers
             return returnOutput;
         }
 
-        // GET /api/Ops/qy_GetHumana
+        // GET /api/Ops/qy_GetHumanaAdmissions
         [HttpGet]
-        public qy_GetHumanaOutput
-                    qy_GetHumana
+        public qy_GetHumanaAdmissionsOutput
+                    qy_GetHumanaAdmissions
                     (
                     )
         {
-            qy_GetHumanaOutput
+            qy_GetHumanaAdmissionsOutput
                 returnOutput =
-                    new qy_GetHumanaOutput();
+                    new qy_GetHumanaAdmissionsOutput();
 
-            string sql = $"adt.qy_GetHumana";
+            string sql = $"adt.qy_GetHumanaAdmissions";
 
             List<SqlParameter> parms = new List<SqlParameter>();
 
@@ -829,7 +829,7 @@ namespace SimplifyVbcAdt9.WebApiLand.Controllers
                 returnOutput.qy_GetHumanaOutputColumnsList =
                     MyContext
                     .qy_GetHumanaOutputColumnsList
-                    .FromSqlRaw<qy_GetHumanaOutputColumns>
+                    .FromSqlRaw<qy_GetHumanaAdmissionsOutputColumns>
                     (
                           sql
                         , parms.ToArray()
@@ -853,7 +853,47 @@ namespace SimplifyVbcAdt9.WebApiLand.Controllers
 
 
 
+        // GET /api/Ops/qy_GetHumanaDischarges
+        [HttpGet]
+        public qy_GetHumanaDischargesOutput
+                    qy_GetHumanaDischarges
+                    (
+                    )
+        {
+            qy_GetHumanaDischargesOutput
+                returnOutput =
+                    new qy_GetHumanaDischargesOutput();
 
+            string sql = $"adt.qy_GetHumanaDischarges";
+
+            List<SqlParameter> parms = new List<SqlParameter>();
+
+            try
+            {
+                returnOutput.qy_GetHumanaDischargesOutputColumnsList =
+                    MyContext
+                    .qy_GetHumanaDischargesOutputColumnsList
+                    .FromSqlRaw<qy_GetHumanaDischargesOutputColumns>
+                    (
+                          sql
+                        , parms.ToArray()
+                    )
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  InnerException:  {ex.InnerException.Message}";
+                }
+                returnOutput.ErrorMessage = myErrorMessage;
+                return returnOutput;
+            }
+            return returnOutput;
+        }
 
 
 

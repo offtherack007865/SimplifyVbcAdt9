@@ -42,13 +42,18 @@ public partial class SimplifyVbcAdt8Context : DbContext
     public virtual DbSet<dd_HumanaOutputColumns> dd_HumanaOutputColumnsList { get; set; }
     public virtual DbSet<di_HumanaOutputColumns> di_HumanaOutputColumnsList { get; set; }
 
-    public virtual DbSet<qy_GetHumanaOutputColumns> qy_GetHumanaOutputColumnsList { get; set; }
-
+    public virtual DbSet<qy_GetHumanaAdmissionsOutputColumns> qy_GetHumanaOutputColumnsList { get; set; }
+    public virtual DbSet<qy_GetHumanaDischargesOutputColumns> qy_GetHumanaDischargesOutputColumnsList { get; set; }
     public virtual DbSet<dd_HumanaObsOutputColumns> dd_HumanaObsOutputColumnsList { get; set; }
     public virtual DbSet<di_HumanaObsOutputColumns> di_HumanaObsOutputColumnsList { get; set; }
     public virtual DbSet<qy_GetHumanaObsOutputColumns> qy_GetHumanaObsOutputColumnsList { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<qy_GetHumanaDischargesOutputColumns>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
         modelBuilder.Entity<qy_GetHumanaObsOutputColumns>(entity =>
         {
             entity.HasNoKey();
@@ -64,7 +69,7 @@ public partial class SimplifyVbcAdt8Context : DbContext
             entity.HasNoKey();
         });
 
-        modelBuilder.Entity<qy_GetHumanaOutputColumns>(entity =>
+        modelBuilder.Entity<qy_GetHumanaAdmissionsOutputColumns>(entity =>
         {
             entity.HasNoKey();
         });

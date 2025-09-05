@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimplifyVbcAdt9.Data.Models
 {
-    public class qy_GetHumanaOutputColumns
+    public class qy_GetHumanaAdmissionsOutputColumns
     {
         public string RptDt { get; set; }  
         public string Type { get; set; }

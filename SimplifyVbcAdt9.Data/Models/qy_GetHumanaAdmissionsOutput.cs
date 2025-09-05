@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace SimplifyVbcAdt9.Data.Models
 {
-    public class qy_GetHumanaOutput
+    public class qy_GetHumanaAdmissionsOutput
     {
-        public qy_GetHumanaOutput()
+        public qy_GetHumanaAdmissionsOutput()
         {
             IsOk = true;
             ErrorMessage = string.Empty;
             qy_GetHumanaOutputColumnsList =
-                new List<qy_GetHumanaOutputColumns>();
+                new List<qy_GetHumanaAdmissionsOutputColumns>();
         }
         public bool IsOk { get; set; }
         public string ErrorMessage { get; set; }
-        public List<qy_GetHumanaOutputColumns>
+        public List<qy_GetHumanaAdmissionsOutputColumns>
             qy_GetHumanaOutputColumnsList
             { get; set; }
     }

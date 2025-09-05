@@ -7,6 +7,34 @@
       "RelativeMoniker": "D:0:0:{257CF14F-E38C-480F-9EB6-7904B314EF14}|SimplifyVbcAdt9.HumanaConsoleApp\\SimplifyVbcAdt9.HumanaConsoleApp.csproj|solutionrelative:simplifyvbcadt9.humanaconsoleapp\\humanamainops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1A4B5586-492D-49EE-A3F0-4FAE58A4A556}|SimplifyVbcAdt9.WebApiLand\\SimplifyVbcAdt9.WebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.webapiland\\controllers\\opscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A4B5586-492D-49EE-A3F0-4FAE58A4A556}|SimplifyVbcAdt9.WebApiLand\\SimplifyVbcAdt9.WebApiLand.csproj|solutionrelative:simplifyvbcadt9.webapiland\\controllers\\opscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.data\\models\\qy_gethumanadischargesoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|solutionrelative:simplifyvbcadt9.data\\models\\qy_gethumanadischargesoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|solutionrelative:simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.data\\models\\simplifyvbcadt8context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|solutionrelative:simplifyvbcadt9.data\\models\\simplifyvbcadt8context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.data\\models\\qy_gethumanadischargesoutputcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|solutionrelative:simplifyvbcadt9.data\\models\\qy_gethumanadischargesoutputcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.data\\models\\qy_gethumanaadmissionsoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|solutionrelative:simplifyvbcadt9.data\\models\\qy_gethumanaadmissionsoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.data\\models\\qy_gethumanaadmissionsoutputcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|solutionrelative:simplifyvbcadt9.data\\models\\qy_gethumanaadmissionsoutputcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E9AAA82D-203E-B230-A9D1-59AECB2F0804}|..\\BulkInsert9\\BulkInsert9.CallWebApiLand\\BulkInsert9.CallWebApiLand.csproj|d:\\source\\repos\\bulkinsert9\\bulkinsert9.callwebapiland\\callwebapiland.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -25,7 +53,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -57,20 +85,108 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CallWebApiLandClass.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
+              "ViewState": "AgIAAKYDAAAAAAAAAAAowG0DAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T14:44:31.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SimplifyVbcAdt8Context.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\SimplifyVbcAdt8Context.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\SimplifyVbcAdt8Context.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\SimplifyVbcAdt8Context.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\SimplifyVbcAdt8Context.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAA6wDMAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T14:36:43.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "qy_GetHumanaAdmissionsOutput.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutput.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutput.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutput.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutput.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T14:33:49.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "qy_GetHumanaDischargesOutput.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutput.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutput.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutput.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutput.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T14:32:32.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "qy_GetHumanaDischargesOutputColumns.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutputColumns.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutputColumns.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutputColumns.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutputColumns.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T14:32:11.096Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "qy_GetHumanaAdmissionsOutputColumns.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutputColumns.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutputColumns.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutputColumns.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutputColumns.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T14:26:09.354Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OpsController.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
+              "ViewState": "AgIAAFgDAAAAAAAAAAAtwGgDAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T14:22:57.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "HumanaMainOps.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.HumanaConsoleApp\\HumanaMainOps.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.HumanaConsoleApp\\HumanaMainOps.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.HumanaConsoleApp\\HumanaMainOps.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.HumanaConsoleApp\\HumanaMainOps.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJIEAAAAAAAAAAAYwKUEAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-04T18:56:04.728Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "CallWebApiLand.cs",
               "DocumentMoniker": "D:\\source\\repos\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
               "RelativeDocumentMoniker": "..\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
@@ -78,12 +194,11 @@
               "RelativeToolTip": "..\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T17:23:35.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T17:23:35.704Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "ExcelCellStringValue.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.HumanaConsoleApp\\ExcelCellStringValue.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.HumanaConsoleApp\\ExcelCellStringValue.cs",
@@ -91,12 +206,11 @@
               "RelativeToolTip": "SimplifyVbcAdt9.HumanaConsoleApp\\ExcelCellStringValue.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T18:25:18.714Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T18:25:18.714Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "ExtractDataFromHumanaExcelRowOutput.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\ExtractDataFromHumanaExcelRowOutput.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\ExtractDataFromHumanaExcelRowOutput.cs",
@@ -104,8 +218,7 @@
               "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\ExtractDataFromHumanaExcelRowOutput.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T18:21:33.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T18:21:33.679Z"
             }
           ]
         }

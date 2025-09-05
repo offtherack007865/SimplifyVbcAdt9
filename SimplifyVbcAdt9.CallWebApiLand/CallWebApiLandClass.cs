@@ -873,15 +873,15 @@ namespace SimplifyVbcAdt9.CallWebApiLand
             return returnOutput;
         }
 
-        // GET /api/Ops/qy_GetHumana
-        public qy_GetHumanaOutput
-                    qy_GetHumana
+        // GET /api/Ops/qy_GetHumanaAdmissions
+        public qy_GetHumanaAdmissionsOutput
+                    qy_GetHumanaAdmissions
                     (
                     )
         {
-            qy_GetHumanaOutput
+            qy_GetHumanaAdmissionsOutput
                 returnOutput =
-                    qy_GetHumanaAsync
+                    qy_GetHumanaAdmissionsAsync
                     (
                     )
                     .Result;
@@ -889,17 +889,17 @@ namespace SimplifyVbcAdt9.CallWebApiLand
             return returnOutput;
         }
 
-        public async Task<qy_GetHumanaOutput>
-                        qy_GetHumanaAsync
+        public async Task<qy_GetHumanaAdmissionsOutput>
+                        qy_GetHumanaAdmissionsAsync
                         (
                         )
         {
-            log.Info($"In qy_GetHumanaAsync");
-            qy_GetHumanaOutput
+            log.Info($"In qy_GetHumanaAdmissionsAsync");
+            qy_GetHumanaAdmissionsOutput
                 returnOutput =
-                    new qy_GetHumanaOutput();
+                    new qy_GetHumanaAdmissionsOutput();
 
-            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/qy_GetHumana";
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/qy_GetHumanaAdmissions";
             try
             {
                 using (var client = new HttpClient())
@@ -908,7 +908,7 @@ namespace SimplifyVbcAdt9.CallWebApiLand
 
                     var result = await client.GetAsync(myCompleteUrl);
                     var response = await result.Content.ReadAsStringAsync();
-                    returnOutput = JsonConvert.DeserializeObject<qy_GetHumanaOutput>(response);
+                    returnOutput = JsonConvert.DeserializeObject<qy_GetHumanaAdmissionsOutput>(response);
                 }
             }
             catch (Exception ex)
@@ -925,6 +925,57 @@ namespace SimplifyVbcAdt9.CallWebApiLand
             return returnOutput;
         }
 
+        // GET /api/Ops/qy_GetHumanaDischarges
+        public qy_GetHumanaDischargesOutput
+                    qy_GetHumanaDischarges
+                    (
+                    )
+        {
+            qy_GetHumanaDischargesOutput
+                returnOutput =
+                    qy_GetHumanaDischargesAsync
+                    (
+                    )
+                    .Result;
+
+            return returnOutput;
+        }
+
+        public async Task<qy_GetHumanaDischargesOutput>
+                        qy_GetHumanaDischargesAsync
+                        (
+                        )
+        {
+            log.Info($"In qy_GetHumanaDischargesAsync");
+            qy_GetHumanaDischargesOutput
+                returnOutput =
+                    new qy_GetHumanaDischargesOutput();
+
+            string myCompleteUrl = $"{MyBaseWebApiUrl}/api/Ops/qy_GetHumanaDischarges";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromHours(1);
+
+                    var result = await client.GetAsync(myCompleteUrl);
+                    var response = await result.Content.ReadAsStringAsync();
+                    returnOutput = JsonConvert.DeserializeObject<qy_GetHumanaDischargesOutput>(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                returnOutput.IsOk = false;
+                string myErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    myErrorMessage = $"{myErrorMessage}.  Inner Exception:  {ex.InnerException.Message}";
+                }
+                return returnOutput;
+            }
+
+            return returnOutput;
+        }
 
 
 

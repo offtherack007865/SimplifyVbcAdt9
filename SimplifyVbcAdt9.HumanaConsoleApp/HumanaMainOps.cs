@@ -229,7 +229,7 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             }
 
             // Get HumanaMasterAdmits rows
-            qy_GetHumanaOutput
+            qy_GetHumanaAdmissionsOutput
                 mySpGetHumanaMasterAdmitsOutput =
                     GetHumanaMasterAdmits();
             if (!mySpGetHumanaMasterAdmitsOutput.IsOk)
@@ -241,7 +241,7 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             }
 
             // Get HumanaMasterDischarges rows
-            qy_GetHumanaOutput
+            qy_GetHumanaDischargesOutput
                 mySpGetHumanaMasterDischargesOutput =
                     GetHumanaMasterDischarges();
             if (!mySpGetHumanaMasterDischargesOutput.IsOk)
@@ -290,7 +290,7 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                     (
                         outputFileToLightbeamSftpLocationFullFilename
                         , mySpGetHumanaMasterAdmitsOutput.qy_GetHumanaOutputColumnsList
-                        , mySpGetHumanaMasterDischargesOutput.qy_GetHumanaOutputColumnsList
+                        , mySpGetHumanaMasterDischargesOutput.qy_GetHumanaDischargesOutputColumnsList
                         , myqy_GetHumanaObsOutput.qy_GetHumanaObsOutputColumnsList
                     );
             if (!myPopulateExcelTemplateWithHumanaMasterDataOutput.IsOk)
@@ -958,17 +958,17 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             return returnOutput;
         }
 
-        public qy_GetHumanaOutput
+        public qy_GetHumanaAdmissionsOutput
                     GetHumanaMasterAdmits()
         {
-            qy_GetHumanaOutput returnOutput =
-                new qy_GetHumanaOutput();
+            qy_GetHumanaAdmissionsOutput returnOutput =
+                new qy_GetHumanaAdmissionsOutput();
             CallWebApiLand.CallWebApiLandClass
                 myCallMyWebApiLandClass =
                     new CallWebApiLand.CallWebApiLandClass(this.Myqy_GetHumanaConfigOutputColumns.SimplifyVbcAdtBaseWebApiUrl);
 
             returnOutput =
-                myCallMyWebApiLandClass.qy_GetHumana();
+                myCallMyWebApiLandClass.qy_GetHumanaAdmissions();
             if (!returnOutput.IsOk)
             {
                 returnOutput.IsOk = false;
@@ -979,17 +979,17 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             return returnOutput;
         }
 
-        public qy_GetHumanaOutput
+        public qy_GetHumanaDischargesOutput
                     GetHumanaMasterDischarges()
         {
-            qy_GetHumanaOutput returnOutput =
-                new qy_GetHumanaOutput();
+            qy_GetHumanaDischargesOutput returnOutput =
+                new qy_GetHumanaDischargesOutput();
             CallWebApiLand.CallWebApiLandClass
                 myCallMyWebApiLandClass =
                     new CallWebApiLand.CallWebApiLandClass(this.Myqy_GetHumanaConfigOutputColumns.SimplifyVbcAdtBaseWebApiUrl);
 
             returnOutput =
-                myCallMyWebApiLandClass.qy_GetHumana();
+                myCallMyWebApiLandClass.qy_GetHumanaDischarges();
             if (!returnOutput.IsOk)
             {
                 returnOutput.IsOk = false;
@@ -1186,8 +1186,8 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                 PopulateExcelTemplateWithHumanaMasterData
                 (
                     string inputTemplateExcelFullFilename
-                    , List<qy_GetHumanaOutputColumns> inputSpGetHumanaMasterAdmitsOutputColumnsList
-                    , List<qy_GetHumanaOutputColumns> inputSpGetHumanaMasterDischargesOutputColumnsList
+                    , List<qy_GetHumanaAdmissionsOutputColumns> inputSpGetHumanaMasterAdmitsOutputColumnsList
+                    , List<qy_GetHumanaDischargesOutputColumns> inputSpGetHumanaMasterDischargesOutputColumnsList
                     , List<qy_GetHumanaObsOutputColumns> inputqy_GetHumanaObsOutputColumnsList
                 )
         {
