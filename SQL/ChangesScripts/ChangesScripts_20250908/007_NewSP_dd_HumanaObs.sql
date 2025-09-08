@@ -6,15 +6,15 @@ RETURN
 END
 
 USE [Utilities];
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('adt.di_HumanaObs'))
-   DROP PROC [adt].[di_HumanaObs]
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('adt.dd_HumanaObs'))
+   DROP PROC [adt].[dd_HumanaObs]
 GO
-CREATE PROCEDURE [adt].[di_HumanaObs]
+CREATE PROCEDURE [adt].[dd_HumanaObs]
 /* -----------------------------------------------------------------------------------------------------------
-   Procedure Name  :  di_HumanaObs
+   Procedure Name  :  dd_HumanaObs
    Business Analyis:
    Project/Process :   
-   Description     :  Finalize Staging HumanaObs table.
+   Description     :  Truncate Staging HumanaObs table.
 	  
    Author          :  Philip Morrison 
    Create Date     :  8/27/2025
@@ -61,107 +61,30 @@ BEGIN TRY
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  NULL, 'BatchStart', @BatchDescription, @ProcessID, @Process
  ----------------------------------------------------------------------------------------------------------------------------------------------------
 
-    SET @BatchDetailDescription = '010/030:  Truncate HumanaObs'
+    SET @BatchDetailDescription = '010/020:  Truncate Staging HumanaObs'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = COUNT(*)
-	                                   FROM [SimplifyVbcAdt8].[dbo].[HumanaObs];
+	                                   FROM [Staging].[adt].[Humana];
 	  
-    -- Truncate Humana
-    TRUNCATE TABLE [SimplifyVbcAdt8].[dbo].[HumanaObs];
+    -- Truncate Staging HumanaObs
+    TRUNCATE TABLE [Staging].[adt].[HumanaObs];
     
     SET @ActualRecordCount = @@ROWCOUNT
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
-    SET @BatchDetailDescription = '020/030:  Copy Staging HumanaObs to SimplifyVbcAdt HumanaObs'
-    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
-	
-	  SELECT @AnticipatedRecordCount = COUNT(*)
-	                                   FROM [Staging].[adt].[HumanaObs];
-	  
-      -- Copy Staging HumanaObs to SimplifyVbcAdt HumanaObs
-      INSERT INTO [SimplifyVbcAdt8].[dbo].[HumanaObs]
-      (
-          [RptDt]
-          ,[Type]
-          ,[Group]
-          ,[GrouperName]
-          ,[FacDbName]
-          ,[PcpName]
-          ,[CaseType]
-          ,[AuthId]
-          ,[FirstDay]
-          ,[SubscriberId]
-          ,[FirstName]
-          ,[LastName]
-          ,[DateOfBirth]
-          ,[GrouperId]
-          ,[PcpId]
-          ,[FaxTaxId]
-          ,[AuthType]
-          ,[RequestType]
-          ,[NotifDate]
-          ,[LastDay]
-          ,[DiagCode1]
-          ,[DiagDesc1]
-          ,[DiagCode2]
-          ,[DiagDesc2]
-          ,[DiagCode3]
-          ,[DiagDesc3]
-          ,[ProcCode]
-          ,[ProcDesc]
-          ,[Gender]
-          ,[SourceFullFilename]
-      )
-      SELECT
-          CONVERT([datetime], [RptDt], 121)
-          ,[Type]
-          ,[Group]
-          ,[GrouperName]
-          ,[FacDbName]
-          ,[PcpName]
-          ,[CaseType]
-          ,[AuthId]
-          ,CONVERT([datetime], [FirstDay], 121)
-          ,[SubscriberId]
-          ,[FirstName]
-          ,[LastName]
-          ,CONVERT([datetime], [DateOfBirth], 121)
-          ,[GrouperId]
-          ,[PcpId]
-          ,[FaxTaxId]
-          ,[AuthType]
-          ,[RequestType]
-          ,CONVERT([datetime], [NotifDate], 121)
-          ,CONVERT([datetime], [LastDay], 121)
-          ,[DiagCode1]
-          ,[DiagDesc1]
-          ,[DiagCode2]
-          ,[DiagDesc2]
-          ,[DiagCode3]
-          ,[DiagDesc3]
-          ,CONVERT([int], [ProcCode])
-          ,[ProcDesc]
-          ,[Gender]
-          ,[SourceFullFilename]
-      FROM [Staging].[adt].[HumanaObs];
-    
-    SET @ActualRecordCount = @@ROWCOUNT
-    EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailEnd', NULL, NULL, NULL, @AnticipatedRecordCount, @ActualRecordCount
-----------------------------------------------------------------------------------------------------------------------------------------------------
-
-    SET @BatchDetailDescription = '030/030:  Send Output that Finalize worked.'
+    SET @BatchDetailDescription = '020/020:  Send Output that Truncate worked.'
     EXEC Admin.Utilities.logs.di_Batch @BatchOutID OUTPUT,  @BatchOutID, 'DetailStart', @BatchDetailDescription
 	
 	  SELECT @AnticipatedRecordCount = 1;
 	
-    -- Did Finalize work
+    -- Did Truncate work
     SELECT @MyRecordCount = COUNT(*)
-                            FROM [SimplifyVbcAdt8].[dbo].[HumanaObs];
+                            FROM [Staging].[adt].[HumanaObs];
     
     -- Send Output indication of whether Truncate worked.
-    IF @MyRecordCount > 0 BEGIN
+    IF @MyRecordCount = 0 BEGIN
       SET @IsOk = 1;
     END
     ELSE BEGIN
@@ -209,14 +132,3 @@ END CATCH
 
 
 END
-
-
-
-
-
-
-
-
-
-
-

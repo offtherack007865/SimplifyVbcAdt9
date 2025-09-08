@@ -105,8 +105,8 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                         );
 
             HumanaMainOpsOutput
-                myHumanaMainOpsOutput = new HumanaMainOpsOutput();
-                    //myHumanaMainOps.DoIt();
+                myHumanaMainOpsOutput =
+                    myHumanaMainOps.DoIt();
             if (!myHumanaMainOpsOutput.IsOk)
             {
                 log.Error(myHumanaMainOpsOutput.ErrorMessage);

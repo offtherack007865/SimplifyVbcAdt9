@@ -80,16 +80,16 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             File.Copy(inputFullFilename, inputArchiveFullFilename);
 
             // If the filename already exists in the "already imported archive", do nothing.
-            string inputAlreadyImportedFullFilename =
-                Path.Combine(Myqy_GetHumanaConfigOutputColumns.ImportArchiveFolder, inputFullFilenameFi.Name);
-            if (File.Exists(inputAlreadyImportedFullFilename))
-            {
-                if (File.Exists(inputFullFilename))
-                {
-                    File.Delete(inputFullFilename);
-                }
-                return returnOutput;
-            }
+            //string inputAlreadyImportedFullFilename =
+            //    Path.Combine(Myqy_GetHumanaConfigOutputColumns.ImportArchiveFolder, inputFullFilenameFi.Name);
+            //if (File.Exists(inputAlreadyImportedFullFilename))
+            //{
+            //    if (File.Exists(inputFullFilename))
+            //    {
+            //        File.Delete(inputFullFilename);
+            //    }
+            //    return returnOutput;
+            //}
 
             // new Humana filename:  Humana Discharges MM.dd.yy-MM.dd.yy.xslx
 
@@ -301,24 +301,6 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                 return returnOutput;
             }
 
-            // Copy the formatted file to the Lightbeam Read Directory.
-            string outputFileToLightbeamReadFolderForSftp =
-                Path.Combine
-                (
-                    Myqy_GetHumanaConfigOutputColumns.OutputFileToLightbeamReadDirectory
-                    , inputFullFilenameFi.Name
-                );
-
-            if (File.Exists(outputFileToLightbeamReadFolderForSftp))
-            {
-                File.Delete(outputFileToLightbeamReadFolderForSftp);
-            }
-            File.Copy
-            (
-                outputFileToLightbeamSftpLocationFullFilename
-                , outputFileToLightbeamReadFolderForSftp
-            );
-
             // Copy the formatted file to the Athena Archive Directory.
             string outputFileToAthenaArchiveFullFilename =
                 Path.Combine
@@ -348,24 +330,6 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
 
             DeleteGenderColumnFromAdmitsDischargesAndObsTabs(outputFileToAthenaArchiveFullFilename);
 
-            // Copy the formatted file sans the "Gender" column to the Athena Read Directory.
-            string outputFileToAthenaReadFolderFullFilename =
-                Path.Combine
-                (
-                    Myqy_GetHumanaConfigOutputColumns.OutputFileToAthenaReadDirectory
-                    , inputFullFilenameFi.Name
-                );
-
-            if (File.Exists(outputFileToAthenaReadFolderFullFilename))
-            {
-                File.Delete(outputFileToAthenaReadFolderFullFilename);
-            }
-            File.Copy
-            (
-                outputFileToAthenaArchiveFullFilename
-                , outputFileToAthenaReadFolderFullFilename
-            );
-
             // Copy the formatted file sans the "Gender" column to the Summit ADT file
             // Archive Directory.
             string outputFileToSummitAdtArchiveFolderFullFilename =
@@ -383,25 +347,6 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             (
                 outputFileToAthenaArchiveFullFilename
                 , outputFileToSummitAdtArchiveFolderFullFilename
-            );
-
-            // Copy the formatted file sans the "Gender" column to the Summit ADT file
-            // Read Directory.
-            string outputFileToSummitAdtReadFolderFullFilename =
-                Path.Combine
-                (
-                    Myqy_GetHumanaConfigOutputColumns.OutputFileToSummitAdtProcessingReadDirectory
-                    , inputFullFilenameFi.Name
-                );
-
-            if (File.Exists(outputFileToSummitAdtReadFolderFullFilename))
-            {
-                File.Delete(outputFileToSummitAdtReadFolderFullFilename);
-            }
-            File.Copy
-            (
-                outputFileToAthenaArchiveFullFilename
-                , outputFileToSummitAdtReadFolderFullFilename
             );
 
             //Delete old Humana filename
@@ -855,11 +800,11 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                 new spGetColumnDefsForGivenDbAndTableName_OutputColumns
                 {
                     MyDbColumnName = "SourceFullFilename",
-                    MyDbColumnLength = 300,
+                    MyDbColumnLength = 1000,
                     MyDbColumnType = "nvarchar",
-                    MyDbName = "SimplifyVbcAdt8",
-                    MyDbTableName = "HumanaRaw",
-                    MyFilePosition = 998
+                    MyDbName = "Staging",
+                    MyDbTableName = "adt.Humana",
+                    MyFilePosition = 999
                 };
             NonCsvFileColumnDefAndValue myPkNonCsvFileColumnDefAndValue =
                             new NonCsvFileColumnDefAndValue
@@ -869,36 +814,15 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                             };
             myNonCsvFileColumnDefAndValueList.Add(myPkNonCsvFileColumnDefAndValue);
 
-            // LastUpdateTimestamp
-            myPkColDef =
-                new spGetColumnDefsForGivenDbAndTableName_OutputColumns
-                {
-                    MyDbColumnName = "LastUpdateTimestamp",
-                    MyDbColumnLength = 50,
-                    MyDbColumnType = "datetime",
-                    MyDbName = "SimplifyVbcAdt8",
-                    MyDbTableName = "HumanaRaw",
-                    MyFilePosition = 999
-                };
-            DateTime myCurrentDateTime = DateTime.Now;
-            string mymyCurrentDateTimeString = myCurrentDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
-            myPkNonCsvFileColumnDefAndValue =
-                new NonCsvFileColumnDefAndValue
-                {
-                    MyColDef = myPkColDef,
-                    MyValueString = mymyCurrentDateTimeString
-                };
-            myNonCsvFileColumnDefAndValueList.Add(myPkNonCsvFileColumnDefAndValue);
-
             // Pk
             myPkColDef =
                 new spGetColumnDefsForGivenDbAndTableName_OutputColumns
                 {
-                    MyDbColumnName = "Pk",
+                    MyDbColumnName = "HumanaID",
                     MyDbColumnLength = 1,
-                    MyDbColumnType = "bigint",
-                    MyDbName = "SimplifyVbcAdt8",
-                    MyDbTableName = "HumanaRaw",
+                    MyDbColumnType = "int",
+                    MyDbName = "Staging",
+                    MyDbTableName = "adt.Humana",
                     MyFilePosition = 1000
                 };
             myPkNonCsvFileColumnDefAndValue =
@@ -1031,9 +955,9 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                     MyDbColumnName = "SourceFullFilename",
                     MyDbColumnLength = 300,
                     MyDbColumnType = "nvarchar",
-                    MyDbName = "SimplifyVbcAdt8",
-                    MyDbTableName = "HumanaObsRaw",
-                    MyFilePosition = 998
+                    MyDbName = "Staging",
+                    MyDbTableName = "adt.HumanaObs",
+                    MyFilePosition = 999
                 };
             NonCsvFileColumnDefAndValue myPkNonCsvFileColumnDefAndValue =
                             new NonCsvFileColumnDefAndValue
@@ -1043,36 +967,15 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                             };
             myNonCsvFileColumnDefAndValueList.Add(myPkNonCsvFileColumnDefAndValue);
 
-            // LastUpdateTimestamp
-            myPkColDef =
-                new spGetColumnDefsForGivenDbAndTableName_OutputColumns
-                {
-                    MyDbColumnName = "LastUpdateTimestamp",
-                    MyDbColumnLength = 50,
-                    MyDbColumnType = "datetime",
-                    MyDbName = "SimplifyVbcAdt8",
-                    MyDbTableName = "HumanaObsRaw",
-                    MyFilePosition = 999
-                };
-            DateTime myCurrentDateTime = DateTime.Now;
-            string mymyCurrentDateTimeString = myCurrentDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
-            myPkNonCsvFileColumnDefAndValue =
-                new NonCsvFileColumnDefAndValue
-                {
-                    MyColDef = myPkColDef,
-                    MyValueString = mymyCurrentDateTimeString
-                };
-            myNonCsvFileColumnDefAndValueList.Add(myPkNonCsvFileColumnDefAndValue);
-
             // Pk
             myPkColDef =
                 new spGetColumnDefsForGivenDbAndTableName_OutputColumns
                 {
-                    MyDbColumnName = "Pk",
+                    MyDbColumnName = "HumanaObsID",
                     MyDbColumnLength = 1,
-                    MyDbColumnType = "bigint",
-                    MyDbName = "SimplifyVbcAdt8",
-                    MyDbTableName = "HumanaObsRaw",
+                    MyDbColumnType = "int",
+                    MyDbName = "Staging",
+                    MyDbTableName = "adt.HumanaObs",
                     MyFilePosition = 1000
                 };
             myPkNonCsvFileColumnDefAndValue =
@@ -1090,7 +993,7 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                 (
                     Myqy_GetHumanaConfigOutputColumns.BulkInsertConnectionString //string inputDbConnectionString
                    , Myqy_GetHumanaConfigOutputColumns.BulkInsertDbName // string inputDbName
-                   , "HumanaObs" // string inputDbTableName
+                   , "adt.HumanaObs" // string inputDbTableName
                    , inputCsvLineList // List<string> inputCsvLineList
                    , myNonCsvFileColumnDefAndValueList // List<NonCsvFileColumnDefAndValue> inputNonCsvFileColumnDefAndValueList
                    , Myqy_GetHumanaConfigOutputColumns.BulkInsertBaseWebApiUrl // string inputBulkInsertWebApiBaseUrl
