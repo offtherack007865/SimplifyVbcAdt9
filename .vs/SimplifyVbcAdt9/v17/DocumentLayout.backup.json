@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\source\\repos\\SimplifyVbcAdt9\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{257CF14F-E38C-480F-9EB6-7904B314EF14}|SimplifyVbcAdt9.HumanaConsoleApp\\SimplifyVbcAdt9.HumanaConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.humanaconsoleapp\\humanamainops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{257CF14F-E38C-480F-9EB6-7904B314EF14}|SimplifyVbcAdt9.HumanaConsoleApp\\SimplifyVbcAdt9.HumanaConsoleApp.csproj|solutionrelative:simplifyvbcadt9.humanaconsoleapp\\humanamainops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|solutionrelative:simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1A4B5586-492D-49EE-A3F0-4FAE58A4A556}|SimplifyVbcAdt9.WebApiLand\\SimplifyVbcAdt9.WebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.webapiland\\controllers\\opscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A4B5586-492D-49EE-A3F0-4FAE58A4A556}|SimplifyVbcAdt9.WebApiLand\\SimplifyVbcAdt9.WebApiLand.csproj|solutionrelative:simplifyvbcadt9.webapiland\\controllers\\opscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1A4B5586-492D-49EE-A3F0-4FAE58A4A556}|SimplifyVbcAdt9.WebApiLand\\SimplifyVbcAdt9.WebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.webapiland\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{1A4B5586-492D-49EE-A3F0-4FAE58A4A556}|SimplifyVbcAdt9.WebApiLand\\SimplifyVbcAdt9.WebApiLand.csproj|solutionrelative:simplifyvbcadt9.webapiland\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{257CF14F-E38C-480F-9EB6-7904B314EF14}|SimplifyVbcAdt9.HumanaConsoleApp\\SimplifyVbcAdt9.HumanaConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.humanaconsoleapp\\humanamainops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{257CF14F-E38C-480F-9EB6-7904B314EF14}|SimplifyVbcAdt9.HumanaConsoleApp\\SimplifyVbcAdt9.HumanaConsoleApp.csproj|solutionrelative:simplifyvbcadt9.humanaconsoleapp\\humanamainops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|solutionrelative:simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92769D5E-1055-43B3-9FCC-42EBA9404FBB}|SimplifyVbcAdt9.Data\\SimplifyVbcAdt9.Data.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.data\\models\\qy_gethumanaadmissionsoutputcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,7 +61,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Bookmark",
@@ -92,18 +92,14 @@
               "Name": "ST:7:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\appsettings.json",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.WebApiLand\\appsettings.json",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\appsettings.json",
               "RelativeToolTip": "SimplifyVbcAdt9.WebApiLand\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-09-08T20:14:13.143Z",
               "EditorCaption": ""
@@ -118,12 +114,11 @@
               "RelativeToolTip": "SimplifyVbcAdt9.HumanaConsoleApp\\Program.cs",
               "ViewState": "AgIAAI8AAAAAAAAAAAAlwKYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T17:25:33.108Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T17:25:33.108Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "CallWebApiLandClass.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
@@ -131,8 +126,7 @@
               "RelativeToolTip": "SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
               "ViewState": "AgIAAEwEAAAAAAAAAAAAAFQEAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T14:44:31.169Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-05T14:44:31.169Z"
             },
             {
               "$type": "Document",
@@ -168,8 +162,7 @@
               "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutput.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T14:32:32.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-05T14:32:32.721Z"
             },
             {
               "$type": "Document",
@@ -181,8 +174,7 @@
               "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutputColumns.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T14:32:11.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-05T14:32:11.096Z"
             },
             {
               "$type": "Document",
@@ -194,31 +186,30 @@
               "RelativeToolTip": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutputColumns.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAA4wAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T14:26:09.354Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-05T14:26:09.354Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "OpsController.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
-              "ViewState": "AgIAAOgDAAAAAAAAAAAkwAYEAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAKMCAAAAAAAAAAAuwLQCAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-05T14:22:57.43Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "HumanaMainOps.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.HumanaConsoleApp\\HumanaMainOps.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.HumanaConsoleApp\\HumanaMainOps.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.HumanaConsoleApp\\HumanaMainOps.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.HumanaConsoleApp\\HumanaMainOps.cs",
-              "ViewState": "AgIAAE4BAAAAAAAAAAAAAGIBAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAE4BAAAAAAAAAAAAAGYBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-04T18:56:04.728Z",
               "EditorCaption": ""
@@ -233,8 +224,7 @@
               "RelativeToolTip": "..\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAowD0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T17:23:35.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T17:23:35.704Z"
             },
             {
               "$type": "Document",
@@ -246,8 +236,7 @@
               "RelativeToolTip": "SimplifyVbcAdt9.HumanaConsoleApp\\ExcelCellStringValue.cs",
               "ViewState": "AgIAAL8AAAAAAAAAAAAuwAwAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T18:25:18.714Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T18:25:18.714Z"
             },
             {
               "$type": "Document",
