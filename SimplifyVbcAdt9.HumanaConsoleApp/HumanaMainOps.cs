@@ -80,16 +80,16 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             File.Copy(inputFullFilename, inputArchiveFullFilename);
 
             // If the filename already exists in the "already imported archive", do nothing.
-            //string inputAlreadyImportedFullFilename =
-            //    Path.Combine(Myqy_GetHumanaConfigOutputColumns.ImportArchiveFolder, inputFullFilenameFi.Name);
-            //if (File.Exists(inputAlreadyImportedFullFilename))
-            //{
-            //    if (File.Exists(inputFullFilename))
-            //    {
-            //        File.Delete(inputFullFilename);
-            //    }
-            //    return returnOutput;
-            //}
+            string inputAlreadyImportedFullFilename =
+                Path.Combine(Myqy_GetHumanaConfigOutputColumns.ImportArchiveFolder, inputFullFilenameFi.Name);
+            if (File.Exists(inputAlreadyImportedFullFilename))
+            {
+                if (File.Exists(inputFullFilename))
+                {
+                    File.Delete(inputFullFilename);
+                }
+                return returnOutput;
+            }
 
             // new Humana filename:  Humana Discharges MM.dd.yy-MM.dd.yy.xslx
 
@@ -330,6 +330,29 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
 
             DeleteGenderColumnFromAdmitsDischargesAndObsTabs(outputFileToAthenaArchiveFullFilename);
 
+
+            // Copy the AthenaArchiveFullFilename to 
+            // Athena READ Directory.
+            string outputFileToAthenaReadFolderFullFilename =
+                Path.Combine
+                (
+                    Myqy_GetHumanaConfigOutputColumns.OutputFileToAthenaReadDirectory
+                    , inputFullFilenameFi.Name
+                );
+
+            if (File.Exists(outputFileToAthenaReadFolderFullFilename))
+            {
+                File.Delete(outputFileToAthenaReadFolderFullFilename);
+            }
+            File.Copy
+            (
+                outputFileToAthenaArchiveFullFilename
+                , outputFileToAthenaReadFolderFullFilename
+            );
+
+
+
+
             // Copy the formatted file sans the "Gender" column to the Summit ADT file
             // Archive Directory.
             string outputFileToSummitAdtArchiveFolderFullFilename =
@@ -348,6 +371,27 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                 outputFileToAthenaArchiveFullFilename
                 , outputFileToSummitAdtArchiveFolderFullFilename
             );
+
+            // Copy the SummitAdtArchiveFullFilename to 
+            // Summit Adt Import file READ Directory (aka the Pending folder).
+            string outputFileToSummitAdtReadFolderFullFilename =
+                Path.Combine
+                (
+                    Myqy_GetHumanaConfigOutputColumns.OutputFileToSummitAdtProcessingReadDirectory
+                    , inputFullFilenameFi.Name
+                );
+
+            if (File.Exists(outputFileToSummitAdtReadFolderFullFilename))
+            {
+                File.Delete(outputFileToSummitAdtReadFolderFullFilename);
+            }
+            File.Copy
+            (
+                outputFileToSummitAdtArchiveFolderFullFilename
+                , outputFileToSummitAdtReadFolderFullFilename
+            );
+
+
 
             //Delete old Humana filename
             if (File.Exists(inputFullFilename))
@@ -1121,7 +1165,7 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             {
                 excelRowCtr++;
                 admitsSheet.InsertRow(excelRowCtr);
-                admitsSheet.Range[$"A{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].RptDt;
+                admitsSheet.Range[$"A{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].RptDt);
                 admitsSheet.Range[$"B{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].Type;
                 admitsSheet.Range[$"C{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].Group;
                 admitsSheet.Range[$"D{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].GrouperName;
@@ -1129,13 +1173,13 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                 admitsSheet.Range[$"F{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].PcpName;
                 admitsSheet.Range[$"G{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].BedType;
                 admitsSheet.Range[$"H{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].AuthId;
-                admitsSheet.Range[$"I{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].AdmitDt;
-                admitsSheet.Range[$"J{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].DcDate;
+                admitsSheet.Range[$"I{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].AdmitDt);
+                admitsSheet.Range[$"J{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].DcDate);
                 admitsSheet.Range[$"K{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].DcDisposition;
                 admitsSheet.Range[$"L{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].SubscriberId;
                 admitsSheet.Range[$"M{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].LastName;
                 admitsSheet.Range[$"N{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].FirstName;
-                admitsSheet.Range[$"O{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].DateOfBirth;
+                admitsSheet.Range[$"O{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].DateOfBirth);
                 admitsSheet.Range[$"P{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].IsCaseReAdmit14dy;
                 admitsSheet.Range[$"Q{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].IsCaseReAdmit30dy;
                 admitsSheet.Range[$"R{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].ReadmitScore.ToString();
@@ -1148,7 +1192,7 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                 admitsSheet.Range[$"Y{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].FaxTaxId;
                 admitsSheet.Range[$"Z{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].AdmitType;
                 admitsSheet.Range[$"AA{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].RequestType;
-                admitsSheet.Range[$"AB{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].NotifDate;
+                admitsSheet.Range[$"AB{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].NotifDate);
                 admitsSheet.Range[$"AC{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].AuthorizedDays;
                 admitsSheet.Range[$"AD{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].ContactType;
                 admitsSheet.Range[$"AE{excelRowCtr}"].Text = inputSpGetHumanaMasterAdmitsOutputColumnsList[rowCtr].ContactName;
@@ -1177,7 +1221,7 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             {
                 excelRowCtr++;
                 dischargesSheet.InsertRow(excelRowCtr);
-                dischargesSheet.Range[$"A{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].RptDt;
+                dischargesSheet.Range[$"A{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].RptDt);
                 dischargesSheet.Range[$"B{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].Type;
                 dischargesSheet.Range[$"C{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].Group;
                 dischargesSheet.Range[$"D{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].GrouperName;
@@ -1185,13 +1229,13 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                 dischargesSheet.Range[$"F{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].PcpName;
                 dischargesSheet.Range[$"G{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].BedType;
                 dischargesSheet.Range[$"H{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].AuthId;
-                dischargesSheet.Range[$"I{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].AdmitDt;
-                dischargesSheet.Range[$"J{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].DcDate;
+                dischargesSheet.Range[$"I{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].AdmitDt);
+                dischargesSheet.Range[$"J{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].DcDate);
                 dischargesSheet.Range[$"K{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].DcDisposition;
                 dischargesSheet.Range[$"L{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].SubscriberId;
                 dischargesSheet.Range[$"M{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].LastName;
                 dischargesSheet.Range[$"N{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].FirstName;
-                dischargesSheet.Range[$"O{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].DateOfBirth;
+                dischargesSheet.Range[$"O{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].DateOfBirth);
                 dischargesSheet.Range[$"P{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].IsCaseReAdmit14dy;
                 dischargesSheet.Range[$"Q{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].IsCaseReAdmit30dy;
                 dischargesSheet.Range[$"R{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].ReadmitScore;
@@ -1204,7 +1248,7 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                 dischargesSheet.Range[$"Y{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].FaxTaxId;
                 dischargesSheet.Range[$"Z{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].AdmitType;
                 dischargesSheet.Range[$"AA{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].RequestType;
-                dischargesSheet.Range[$"AB{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].NotifDate;
+                dischargesSheet.Range[$"AB{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].NotifDate);
                 dischargesSheet.Range[$"AC{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].AuthorizedDays;
                 dischargesSheet.Range[$"AD{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].ContactType;
                 dischargesSheet.Range[$"AE{excelRowCtr}"].Text = inputSpGetHumanaMasterDischargesOutputColumnsList[rowCtr].ContactName;
@@ -1231,7 +1275,7 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             {
                 excelRowCtr++;
                 obsSheet.InsertRow(excelRowCtr);
-                obsSheet.Range[$"A{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].RptDt;
+                obsSheet.Range[$"A{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputqy_GetHumanaObsOutputColumnsList[rowCtr].RptDt);
                 obsSheet.Range[$"B{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].Type;
                 obsSheet.Range[$"C{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].Group;
                 obsSheet.Range[$"D{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].GrouperName;
@@ -1239,18 +1283,18 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                 obsSheet.Range[$"F{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].PcpName;
                 obsSheet.Range[$"G{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].CaseType;
                 obsSheet.Range[$"H{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].AuthId;
-                obsSheet.Range[$"I{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].FirstDay;
+                obsSheet.Range[$"I{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputqy_GetHumanaObsOutputColumnsList[rowCtr].FirstDay);
                 obsSheet.Range[$"J{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].SubscriberId;
                 obsSheet.Range[$"K{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].FirstName;
                 obsSheet.Range[$"L{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].LastName;
-                obsSheet.Range[$"M{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].DateOfBirth;
+                obsSheet.Range[$"M{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputqy_GetHumanaObsOutputColumnsList[rowCtr].DateOfBirth);
                 obsSheet.Range[$"N{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].GrouperId;
                 obsSheet.Range[$"O{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].PcpId;
                 obsSheet.Range[$"P{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].FaxTaxId;
                 obsSheet.Range[$"Q{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].AuthType;
                 obsSheet.Range[$"R{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].RequestType;
-                obsSheet.Range[$"S{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].NotifDate;
-                obsSheet.Range[$"T{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].LastDay;
+                obsSheet.Range[$"S{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputqy_GetHumanaObsOutputColumnsList[rowCtr].NotifDate);
+                obsSheet.Range[$"T{excelRowCtr}"].Text = ConvertDateTimeCanonicalToMMSlashddSlashyyyy(inputqy_GetHumanaObsOutputColumnsList[rowCtr].LastDay);
                 obsSheet.Range[$"U{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].DiagCode1;
                 obsSheet.Range[$"V{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].DiagDesc1;
                 obsSheet.Range[$"W{excelRowCtr}"].Text = inputqy_GetHumanaObsOutputColumnsList[rowCtr].DiagCode2;
@@ -1267,6 +1311,19 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
 
             return returnOutput;
         }
-
+        public string ConvertDateTimeCanonicalToMMSlashddSlashyyyy(string inputCanonicalDateFormat)
+        {
+            DateTime myDateTime = DateTime.MinValue;
+            DateTime.TryParse(inputCanonicalDateFormat, out myDateTime);
+            if (myDateTime == DateTime.MinValue)
+            {
+                myDateTime = new DateTime(1900, 1, 1);
+            }
+            if (myDateTime == new DateTime(1900, 1, 1))
+            {
+                return "";
+            }
+            return myDateTime.ToString("MM/dd/yyyy");
+        }
     }
 }
