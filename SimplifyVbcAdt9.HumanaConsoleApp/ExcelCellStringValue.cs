@@ -204,7 +204,9 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             {
                 return returnOutput;
             }
+
             cellValue = MyWorksheet.Range[MyCellDesignation].Text;
+                
 
             if (cellValue == null)
             {
@@ -214,6 +216,11 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             if (cellValue == null)
             {
                 cellValue = string.Empty;
+            }
+            // The input file started coming in with dashes in the Contact Phone.
+            if (MyCellDesignation.StartsWith("AF") && cellValue.Contains("-"))
+            {
+                cellValue = cellValue.Replace("-", "");
             }
 
             returnOutput.OutputStringValue = cellValue.Replace("NaN", "").Replace(",", " ").Replace("\'", "").Replace("\"", "").Trim();
