@@ -223,7 +223,7 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
                 cellValue = cellValue.Replace("-", "");
             }
 
-            returnOutput.OutputStringValue = cellValue.Replace("NaN", "").Replace(",", " ").Replace("\'", "").Replace("\"", "").Trim();
+            returnOutput.OutputStringValue = cellValue.Replace("NaN", "").Replace(",", " ").Replace("\'", "").Replace("\"", "").Replace("\n", "").Replace("\r", "").Replace("\t", "").Trim();
 
             return returnOutput;
         }

@@ -259,8 +259,15 @@ namespace SimplifyVbcAdt9.EthinConsoleApp
                 }
             }
 
-            returnOutput.OutputStringValue = cellValue.Replace("NaN", "").Replace(",", "^").Replace("\'", "").Replace("\"", "").Trim();
 
+            cellValue = cellValue.Trim().Replace("NaN", "").Replace(",", "^").Replace("\'", "").Replace("\"", "").Replace("\n","").Replace("\r", "").Replace("\t", "").Trim();
+
+            if (MyCellDesignation.StartsWith("S") && cellValue.Length > 255)
+            {
+                int i = 0;
+                i++;
+            }
+            returnOutput.OutputStringValue = cellValue;
             return returnOutput;
         }
 

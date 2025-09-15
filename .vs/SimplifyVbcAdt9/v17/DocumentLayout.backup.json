@@ -11,6 +11,14 @@
       "RelativeMoniker": "D:0:0:{257CF14F-E38C-480F-9EB6-7904B314EF14}|SimplifyVbcAdt9.HumanaConsoleApp\\SimplifyVbcAdt9.HumanaConsoleApp.csproj|solutionrelative:simplifyvbcadt9.humanaconsoleapp\\excelcellstringvalue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.ethinconsoleapp\\excelcellstringvalue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|solutionrelative:simplifyvbcadt9.ethinconsoleapp\\excelcellstringvalue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.ethinconsoleapp\\ethinmainops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4613089-00E3-4949-AA9B-832E8F4D0E06}|SimplifyVbcAdt9.EthinConsoleApp\\SimplifyVbcAdt9.EthinConsoleApp.csproj|solutionrelative:simplifyvbcadt9.ethinconsoleapp\\ethinmainops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|d:\\source\\repos\\simplifyvbcadt9\\simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFFD7768-22F8-416F-9FD5-A1D3EBC4DBC7}|SimplifyVbcAdt9.CallWebApiLand\\SimplifyVbcAdt9.CallWebApiLand.csproj|solutionrelative:simplifyvbcadt9.callwebapiland\\callwebapilandclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -65,7 +73,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 19,
           "Children": [
             {
               "$type": "Bookmark",
@@ -97,7 +105,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
+              "Title": "EthinMainOps.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\EthinMainOps.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.EthinConsoleApp\\EthinMainOps.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\EthinMainOps.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.EthinConsoleApp\\EthinMainOps.cs",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAiwBQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T13:49:55.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ExcelCellStringValue.cs",
+              "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\ExcelCellStringValue.cs",
+              "RelativeDocumentMoniker": "SimplifyVbcAdt9.EthinConsoleApp\\ExcelCellStringValue.cs",
+              "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.EthinConsoleApp\\ExcelCellStringValue.cs",
+              "RelativeToolTip": "SimplifyVbcAdt9.EthinConsoleApp\\ExcelCellStringValue.cs",
+              "ViewState": "AgIAAPgAAAAAAAAAAAAIwAsBAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T17:05:25.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.HumanaConsoleApp\\appsettings.json",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.HumanaConsoleApp\\appsettings.json",
@@ -109,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\appsettings.json",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.WebApiLand\\appsettings.json",
@@ -121,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.HumanaConsoleApp\\Program.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.HumanaConsoleApp\\Program.cs",
@@ -133,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "CallWebApiLandClass.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.CallWebApiLand\\CallWebApiLandClass.cs",
@@ -145,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "SimplifyVbcAdt8Context.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\SimplifyVbcAdt8Context.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\SimplifyVbcAdt8Context.cs",
@@ -157,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "qy_GetHumanaAdmissionsOutput.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutput.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutput.cs",
@@ -169,7 +203,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "qy_GetHumanaDischargesOutput.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutput.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutput.cs",
@@ -181,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "qy_GetHumanaDischargesOutputColumns.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutputColumns.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaDischargesOutputColumns.cs",
@@ -193,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "qy_GetHumanaAdmissionsOutputColumns.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutputColumns.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\qy_GetHumanaAdmissionsOutputColumns.cs",
@@ -205,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "OpsController.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.WebApiLand\\Controllers\\OpsController.cs",
@@ -223,14 +257,14 @@
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.HumanaConsoleApp\\HumanaMainOps.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.HumanaConsoleApp\\HumanaMainOps.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.HumanaConsoleApp\\HumanaMainOps.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAmwI4AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAmwFsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-04T18:56:04.728Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "CallWebApiLand.cs",
               "DocumentMoniker": "D:\\source\\repos\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
               "RelativeDocumentMoniker": "..\\BulkInsert9\\BulkInsert9.CallWebApiLand\\CallWebApiLand.cs",
@@ -248,14 +282,14 @@
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.HumanaConsoleApp\\ExcelCellStringValue.cs",
               "ToolTip": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.HumanaConsoleApp\\ExcelCellStringValue.cs",
               "RelativeToolTip": "SimplifyVbcAdt9.HumanaConsoleApp\\ExcelCellStringValue.cs",
-              "ViewState": "AgIAAMMAAAAAAAAAAAAuwN4AAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAAwOEAAACvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-04T18:25:18.714Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "ExtractDataFromHumanaExcelRowOutput.cs",
               "DocumentMoniker": "D:\\source\\repos\\SimplifyVbcAdt9\\SimplifyVbcAdt9.Data\\Models\\ExtractDataFromHumanaExcelRowOutput.cs",
               "RelativeDocumentMoniker": "SimplifyVbcAdt9.Data\\Models\\ExtractDataFromHumanaExcelRowOutput.cs",

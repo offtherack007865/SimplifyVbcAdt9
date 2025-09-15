@@ -80,16 +80,16 @@ namespace SimplifyVbcAdt9.HumanaConsoleApp
             File.Copy(inputFullFilename, inputArchiveFullFilename);
 
             // If the filename already exists in the "already imported archive", do nothing.
-            //string inputAlreadyImportedFullFilename =
-            //    Path.Combine(Myqy_GetHumanaConfigOutputColumns.ImportArchiveFolder, inputFullFilenameFi.Name);
-            //if (File.Exists(inputAlreadyImportedFullFilename))
-            //{
-            //    if (File.Exists(inputFullFilename))
-            //    {
-            //        File.Delete(inputFullFilename);
-            //    }
-            //    return returnOutput;
-            //}
+            string inputAlreadyImportedFullFilename =
+                Path.Combine(Myqy_GetHumanaConfigOutputColumns.ImportArchiveFolder, inputFullFilenameFi.Name);
+            if (File.Exists(inputAlreadyImportedFullFilename))
+            {
+                if (File.Exists(inputFullFilename))
+                {
+                    File.Delete(inputFullFilename);
+                }
+                return returnOutput;
+            }
 
             // new Humana filename:  Humana Discharges MM.dd.yy-MM.dd.yy.xslx
 

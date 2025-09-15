@@ -644,7 +644,7 @@ namespace SimplifyVbcAdt9.EthinConsoleApp
                 sheet.Range[$"P{excelRowCtr}"].Value = inputqy_GetEthinOutputColumnsList[rowCtr].AdmitSource;
                 sheet.Range[$"Q{excelRowCtr}"].Value = inputqy_GetEthinOutputColumnsList[rowCtr].AdmitReason;
                 sheet.Range[$"R{excelRowCtr}"].Value = inputqy_GetEthinOutputColumnsList[rowCtr].DischargeStatus;
-                sheet.Range[$"S{excelRowCtr}"].Value = inputqy_GetEthinOutputColumnsList[rowCtr].FinalDiagnosesList;
+                sheet.Range[$"S{excelRowCtr}"].Value = "";
                 sheet.Range[$"T{excelRowCtr}"].Value = inputqy_GetEthinOutputColumnsList[rowCtr].Insurance;
             }
 
