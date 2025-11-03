@@ -418,7 +418,6 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
 
             return returnOutput;
         }
-
         public string ConvertXlsxToCsv(string inputFullOutputXlsxFilename)
         {
             string returnOutput = string.Empty;

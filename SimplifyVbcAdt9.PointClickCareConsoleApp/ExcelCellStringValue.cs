@@ -221,7 +221,7 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
                 MyCellDesignation.StartsWith("Q"))
             {
                 cellValue =
-                    ConvertMMSlashddSlashyyyyCommaTimeToCanonicalDateTimeFormat
+                    ConvertMMSlashddSlashyyyyBlankTimeToCanonicalDateTimeFormat
                     (
                         cellValue
                     );
@@ -234,89 +234,219 @@ namespace SimplifyVbcAdt9.PointClickCareConsoleApp
 
             return returnOutput;
         }
-        public string ConvertMMSlashddSlashyyyyCommaTimeToCanonicalDateTimeFormat(string inputDateInMMMSpaceddSpaceyyyy)
+        public string ConvertMMSlashddSlashyyyyBlankTimeToCanonicalDateTimeFormat(string inputDateInMMMSpaceddSpaceyyyy)
         {
+            // Seems to come in in either format
+            // 1.  MM/dd/yyyy Hh:mm
+            // 2.  MM/dd/yyyy hh:mm AM|PM 
+
+            string candidateFullDateTimeString = string.Empty;
+
+
             string returnOutput = string.Empty;
-            returnOutput = inputDateInMMMSpaceddSpaceyyyy.Replace("NaN", "");
+            inputDateInMMMSpaceddSpaceyyyy = inputDateInMMMSpaceddSpaceyyyy.Replace("NaN", "");
             string[] fullDateParts =
                 inputDateInMMMSpaceddSpaceyyyy.Split(" ");
 
             List<string> fullDatePartsList = new List<string>();
 
-            foreach(string part in fullDateParts)
+            foreach (string part in fullDateParts)
             {
                 if (part.Trim().Length != 0)
                 {
-                    fullDatePartsList.Add(part);
+                    fullDatePartsList.Add(part.Trim());
                 }
             }
-            if (fullDatePartsList.Count != 3)
-            {
-                return returnOutput;
-            }
-            string MMSlashddSlashyyyy = fullDatePartsList[0].Trim();
-            string myTime = fullDatePartsList[1].Trim();
-
-            string myAmOrPm = fullDatePartsList[2].Trim();
-
-            if (myAmOrPm.ToUpper().CompareTo("AM") != 0 &&
-                myAmOrPm.ToUpper().CompareTo("PM") != 0)
-            {
-                return returnOutput;
-            }
-
-
-            string[] dateParts =
-               MMSlashddSlashyyyy.Split("/");
-            if (dateParts.Length != 3)
-            {
-                return returnOutput;
-            }
-            string MM = dateParts[0].Trim();
-            string dd = dateParts[1].Trim();
-            string yyyy = dateParts[2].Trim();
-
-            string[] hhColonmmColonssParts =
-                myTime.Split(":");
-            if (hhColonmmColonssParts.Length != 2)
-            {
-                return returnOutput;
-            }
-
-            string hh = hhColonmmColonssParts[0].Trim();
-            string mm = hhColonmmColonssParts[1].Trim();
-
-            bool addTwelveHours = false;
-            if (myAmOrPm.ToUpper().CompareTo("PM") == 0)
-            {
-                addTwelveHours = true;
-            }
+            int testInt = -1;
             int hhInt = -1;
-            int.TryParse(hh, out hhInt);
-            if (hhInt < 0 || hhInt > 11)
+
+            string[] dateParts;
+            List<string> datePartsList = new List<string>();
+            string[] timeParts;
+            List<string> timePartsList = new List<string>();
+            string MMString = string.Empty;
+            string ddString = string.Empty;
+            string yyyyString = string.Empty;
+            string hhString = string.Empty;
+            string mmString = string.Empty;
+            DateTime testDateTime = DateTime.MinValue;
+
+
+            // 1.  Parse and validate MM/dd/yyyy Hh:mm
+            if (fullDatePartsList.Count == 2)
             {
+                dateParts = fullDatePartsList[0].Split("/");
+                foreach (string part in dateParts)
+                {
+                    if (part.Trim().Length != 0)
+                    {
+                        datePartsList.Add(part.Trim());
+                    }
+                }
+
+                // Parse and validate date parts.
+                if (datePartsList.Count != 3)
+                {
+                    return returnOutput;
+                }
+                MMString = $"{datePartsList[0].ToString().PadLeft(2, '0')}";
+                ddString = $"{datePartsList[1].ToString().PadLeft(2, '0')}";
+                yyyyString = datePartsList[2].ToString();
+
+                testInt = -1;
+                int.TryParse(MMString, out testInt);
+                if (testInt < 1 || testInt > 12)
+                {
+                    return returnOutput;
+                }
+
+                testInt = -1;
+                int.TryParse(ddString, out testInt);
+                if (testInt < 1 || testInt > 31)
+                {
+                    return returnOutput;
+                }
+
+                // Parse and validate time parts.
+                timeParts = fullDatePartsList[1].Split(":");
+                if (timeParts.Length != 3 && timeParts.Length != 2)
+                {
+                    return returnOutput;
+                }
+                foreach (string part in timeParts)
+                {
+                    if (part.Trim().Length != 0)
+                    {
+                        timePartsList.Add(part.Trim());
+                    }
+                }
+
+                if (timePartsList.Count != 3 && timeParts.Length != 2)
+                {
+                    return returnOutput;
+                }
+                hhString = $"{timePartsList[0].ToString().PadLeft(2, '0')}";
+                mmString = $"{timePartsList[1].ToString().PadLeft(2, '0')}";
+
+                testInt = -1;
+                int.TryParse(hhString, out testInt);
+                if (testInt == -1 || testInt > 23)
+                {
+                    return returnOutput;
+                }
+
+                testInt = -1;
+                int.TryParse(mmString, out testInt);
+                if (testInt == -1 || testInt > 59)
+                {
+                    return returnOutput;
+                }
+
+                candidateFullDateTimeString =
+                    $"{yyyyString}-{MMString}-{ddString} {hhString}:{mmString}:00.000";
+
+                testDateTime = DateTime.MinValue;
+                DateTime.TryParse(candidateFullDateTimeString, out testDateTime);
+
+                if (testDateTime == DateTime.MinValue)
+                {
+                    return returnOutput;
+                }
+                returnOutput = candidateFullDateTimeString;
                 return returnOutput;
             }
-
-            if (addTwelveHours == true)
+            //  Parse and validate 2.  MM/dd/yyyy hh:mm AM|PM 
+            else if (fullDatePartsList.Count == 3 && (fullDatePartsList[2].Trim().ToUpper().CompareTo("AM") == 0 || fullDatePartsList[2].Trim().ToUpper().CompareTo("PM") == 0))
             {
-                hhInt = hhInt + 12;
-                hh = hhInt.ToString();
-            }
+                dateParts = fullDatePartsList[0].Split("/");
+                foreach (string part in dateParts)
+                {
+                    if (part.Trim().Length != 0)
+                    {
+                        datePartsList.Add(part.Trim());
+                    }
+                }
 
-            DateTime myDateTime = DateTime.MinValue;
-            returnOutput =
-                $"{MM}/{dd}/{yyyy} {hh}:{mm}:00.000";
-            DateTime.TryParse(returnOutput, out myDateTime);
+                // Parse and validate date parts.
+                if (datePartsList.Count != 3)
+                {
+                    return returnOutput;
+                }
+                MMString = $"{datePartsList[0].ToString().PadLeft(2, '0')}";
+                ddString = $"{datePartsList[1].ToString().PadLeft(2, '0')}";
+                yyyyString = datePartsList[2].ToString();
 
-            if (myDateTime == DateTime.MinValue ||
-                myDateTime == new DateTime(1900, 1, 1))
-            {
+                testInt = -1;
+                int.TryParse(MMString, out testInt);
+                if (testInt < 1 || testInt > 12)
+                {
+                    return returnOutput;
+                }
+
+                testInt = -1;
+                int.TryParse(ddString, out testInt);
+                if (testInt < 1 || testInt > 31)
+                {
+                    return returnOutput;
+                }
+
+                // Parse and validate time parts.
+                timeParts = fullDatePartsList[1].Split(":");
+                foreach (string part in timeParts)
+                {
+                    if (part.Trim().Length != 0)
+                    {
+                        timePartsList.Add(part.Trim());
+                    }
+                }
+
+                if (timePartsList.Count != 2)
+                {
+                    return returnOutput;
+                }
+                hhString = $"{timePartsList[0].ToString().PadLeft(2, '0')}";
+                mmString = $"{timePartsList[1].ToString().PadLeft(2, '0')}";
+
+                testInt = -1;
+                int.TryParse(hhString, out testInt);
+                if (testInt == -1 || testInt > 12)
+                {
+                    return returnOutput;
+                }
+
+                // Adjust hours to PM time.
+                hhInt = testInt;
+                if (hhInt < 12 && fullDatePartsList[2].Trim().ToUpper().CompareTo("PM") == 0)
+                {
+                    hhInt = hhInt + 12;
+                }
+                hhString = hhInt.ToString().PadLeft(2, '0');
+
+                testInt = -1;
+                int.TryParse(mmString, out testInt);
+                if (testInt == -1 || testInt > 59)
+                {
+                    return returnOutput;
+                }
+                candidateFullDateTimeString =
+                    $"{yyyyString}-{MMString}-{ddString} {hhString}:{mmString}:00.000";
+
+                testDateTime = DateTime.MinValue;
+                DateTime.TryParse(candidateFullDateTimeString, out testDateTime);
+
+                if (testDateTime == DateTime.MinValue)
+                {
+                    return returnOutput;
+                }
+                returnOutput = candidateFullDateTimeString;
                 return returnOutput;
             }
-
             return returnOutput;
         }
+
+
+
+
         public string SplitNameIntoFirstAndLastName(string inputFullName)
         {
             string returnOutput = string.Empty;
