@@ -635,7 +635,22 @@ namespace SimplifyVbcAdt9.EthinConsoleApp
                 sheet.Range[$"G{excelRowCtr}"].Value = inputqy_GetEthinOutputColumnsList[rowCtr].Suffix;
                 sheet.Range[$"H{excelRowCtr}"].Value = inputqy_GetEthinOutputColumnsList[rowCtr].Gender;
                 sheet.Range[$"I{excelRowCtr}"].Value = inputqy_GetEthinOutputColumnsList[rowCtr].DateOfBirth;
-                sheet.Range[$"J{excelRowCtr}"].Value = (inputqy_GetEthinOutputColumnsList[rowCtr].DateOfDeath.CompareTo("1/1/1900") == 0 ? null : inputqy_GetEthinOutputColumnsList[rowCtr].DateOfDeath);
+
+                string dateOfDeathString = inputqy_GetEthinOutputColumnsList[rowCtr].DateOfDeath;
+                DateTime testDateTime = DateTime.MinValue;
+                DateTime.TryParse(dateOfDeathString, out testDateTime);
+                if (testDateTime == DateTime.MinValue || testDateTime == new DateTime(1900,1,1) || testDateTime <= new DateTime(2000,1,1))
+                {
+                    dateOfDeathString = string.Empty;
+                }
+                else
+                {
+                    int i = 0;
+                    i++;
+                }
+
+                sheet.Range[$"J{excelRowCtr}"].Value = dateOfDeathString;
+
                 sheet.Range[$"K{excelRowCtr}"].Value = inputqy_GetEthinOutputColumnsList[rowCtr].SendingFacility;
                 sheet.Range[$"L{excelRowCtr}"].Value = inputqy_GetEthinOutputColumnsList[rowCtr].AdmitTime;
                 sheet.Range[$"M{excelRowCtr}"].Value = inputqy_GetEthinOutputColumnsList[rowCtr].DischargeTime;
